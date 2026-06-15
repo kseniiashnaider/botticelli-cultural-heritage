@@ -1,19 +1,347 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Botticelli Cultural Heritage Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sandro Botticelli in the ArCo Knowledge Graph</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+
+<header>
 
 <h1>Enhancing Cultural Heritage Knowledge</h1>
 
 <h2>Sandro Botticelli in the ArCo Knowledge Graph</h2>
 
 <p>
-This website presents a cultural heritage project based on
-the ArCo Knowledge Graph and semantic enrichment techniques.
+Final Project on Cultural Heritage Knowledge Graphs,
+Ontology Enrichment and Semantic Technologies
 </p>
+
+</header>
+
+<nav>
+
+<a href="#about">About</a>
+
+<a href="#rdf">RDF</a>
+
+<a href="#step1">Step 1</a>
+
+<a href="#step2">Step 2</a>
+
+<a href="#step3">Step 3</a>
+
+<a href="#step4">Step 4</a>
+
+<a href="#step5">Step 5</a>
+
+<a href="#step6">Step 6</a>
+
+<a href="#conclusion">Conclusion</a>
+
+<a href="#references">References</a>
+
+</nav>
+
+<section id="about">
+
+<h2>About Sandro Botticelli</h2>
+
+<p>
+
+Sandro Botticelli (1445–1510) was one of the most influential painters
+of the Italian Renaissance.
+
+His works, including <i>The Birth of Venus</i> and <i>Primavera</i>,
+are considered masterpieces of Renaissance art.
+
+This project investigates how the ArCo Knowledge Graph can be used
+to explore cultural heritage information related to Botticelli and
+how ontology enrichment can improve cultural understanding.
+
+</p>
+
+</section>
+
+<section id="rdf">
+
+<h2>RDF Representation of Sandro Botticelli</h2>
+
+<table border="1">
+
+<tr>
+<th>Subject</th>
+<th>Predicate</th>
+<th>Object</th>
+</tr>
+
+<tr>
+<td>Sandro Botticelli</td>
+<td>rdf:type</td>
+<td>Painter</td>
+</tr>
+
+<tr>
+<td>Sandro Botticelli</td>
+<td>bornIn</td>
+<td>Florence</td>
+</tr>
+
+<tr>
+<td>Sandro Botticelli</td>
+<td>created</td>
+<td>The Birth of Venus</td>
+</tr>
+
+<tr>
+<td>Sandro Botticelli</td>
+<td>created</td>
+<td>Primavera</td>
+</tr>
+
+<tr>
+<td>Sandro Botticelli</td>
+<td>artMovement</td>
+<td>Italian Renaissance</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="step1">
+
+<h2>Step 1 – Discovering Botticelli in ArCo</h2>
+
+<h3>Research Question</h3>
+
+<p>
+Which cultural heritage entities related to Sandro Botticelli can be
+found in the ArCo Knowledge Graph?
+</p>
+
+<figure>
+
+<img src="figure1.png">
+
+<figcaption>
+
+Figure 1. Results of the SPARQL query retrieving Botticelli-related
+entities from ArCo.
+
+</figcaption>
+
+</figure>
+
+<p>
+
+The query returned several cultural heritage entities associated
+with Botticelli, including artworks, museum collections and heritage
+resources.
+
+</p>
+
+</section>
+
+<section id="step2">
+
+<h2>Step 2 – Analysis of Retrieved Cultural Heritage Entities</h2>
+
+<figure>
+
+<img src="figure2.png">
+
+<figcaption>
+
+Figure 2. Example of a cultural heritage entity and its semantic
+relationships in ArCo.
+
+</figcaption>
+
+</figure>
+
+<br>
+
+<figure>
+
+<img src="figure3.png">
+
+<figcaption>
+
+Figure 3. Botticelli-related artworks and museum collections
+identified through ArCo.
+
+</figcaption>
+
+</figure>
+
+<p>
+
+The retrieved entities reveal a network of artworks, museums,
+collections and cultural heritage sites associated with Botticelli.
+
+</p>
+
+</section>
+
+<section id="step3">
+
+<h2>Step 3 – Identifying Missing Information</h2>
+
+<figure>
+
+<img src="figure4.png">
+
+<figcaption>
+
+Figure 4. Comparison between available and missing information
+identified in ArCo.
+
+</figcaption>
+
+</figure>
+
+<p>
+
+Although ArCo provides valuable metadata, it does not explicitly
+represent artistic symbolism, historical interpretation,
+Renaissance intellectual influences and cultural significance.
+
+</p>
+
+</section>
+
+<section id="step4">
+
+<h2>Step 4 – Ontology Enrichment</h2>
+
+<figure>
+
+<img src="figure5.png">
+
+<figcaption>
+
+Figure 5. Proposed ontology enrichment connecting Botticelli
+to Neoplatonism.
+
+</figcaption>
+
+</figure>
+
+<p>
+
+A missing relationship was identified and proposed:
+
+</p>
+
+<p>
+
+<b>Sandro Botticelli → influencedBy → Neoplatonism</b>
+
+</p>
+
+<p>
+
+This enrichment introduces contextual cultural knowledge and
+improves the interpretative value of the knowledge graph.
+
+</p>
+
+</section>
+
+<section id="step5">
+
+<h2>Step 5 – Validation of the Enrichment</h2>
+
+<p>
+
+Validation was performed conceptually through additional query
+scenarios.
+
+The new relationship allows researchers to retrieve artists
+associated with Neoplatonic thought and connect artworks with
+Renaissance intellectual traditions.
+
+</p>
+
+<pre>
+
+SELECT ?artist
+WHERE {
+ ?artist :influencedBy :Neoplatonism .
+}
+
+</pre>
+
+</section>
+
+<section id="step6">
+
+<h2>Step 6 – Final Evaluation and Discussion</h2>
+
+<p>
+
+The project demonstrated that knowledge graphs and ontology
+enrichment complement one another.
+
+ArCo provides reliable structured information, while enrichment
+introduces contextual and interpretative knowledge.
+
+Together they create a richer representation of cultural heritage.
+
+</p>
+
+</section>
+
+<section id="conclusion">
+
+<h2>General Conclusion</h2>
+
+<p>
+
+The Botticelli case study demonstrates that semantic technologies
+can support cultural heritage research and exploration.
+
+By combining structured data with ontology enrichment,
+researchers gain a deeper understanding of artworks, artists
+and cultural contexts.
+
+</p>
+
+</section>
+
+<section id="references">
+
+<h2>References</h2>
+
+<ul>
+
+<li>ArCo Knowledge Graph</li>
+
+<li>ArCo SPARQL Endpoint</li>
+
+<li>W3C RDF 1.1 Concepts and Abstract Syntax</li>
+
+<li>W3C SPARQL 1.1 Query Language</li>
+
+<li>Uffizi Galleries Collections</li>
+
+<li>Metropolitan Museum of Art Collection Database</li>
+
+<li>National Gallery Collection Database</li>
+
+<li>OpenAI ChatGPT</li>
+
+</ul>
+
+</section>
 
 </body>
 </html>
