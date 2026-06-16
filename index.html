@@ -135,11 +135,13 @@ associated with Sandro Botticelli in the ArCo Knowledge Graph and
 explore how Botticelli-related resources are represented through
 semantic technologies.
 </p>
- <h3>Prefixes Used</h3>
+ 
+<h3>Prefixes Used</h3>
 
 <pre>
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 </pre> 
+ 
 <h3>SPARQL Query</h3>
 
 <pre>
@@ -153,10 +155,27 @@ WHERE {
 LIMIT 50
 </pre>
 
-<figure>
+<h3>Query Explanation</h3>
+
+<p>
+This query searches for cultural heritage entities whose labels contain
+the keyword "Botticelli". The query uses the rdfs:label property and a
+text-based filter to retrieve relevant resources from the ArCo
+Knowledge Graph.
+</p>
+ 
+<h3>Query Results</h3>
+
+<p>
+The query returned multiple cultural heritage entities associated with
+Sandro Botticelli, including artworks, museum collections, cultural
+events and heritage resources represented in the ArCo Knowledge Graph.
+</p>
+ 
+ <figure>
 
 <img src="Figure1.png">
-
+ 
 <figcaption>
 Figure 1. Results of the SPARQL query retrieving Botticelli-related
 entities from ArCo.
