@@ -515,25 +515,95 @@ the next step.
 
 <h2>Step 4 – Ontology Enrichment</h2>
 
-
+<h3>Research Question</h3>
 
 <p>
+How can the identified knowledge gap be addressed through ontology
+enrichment?
+</p>
 
-A missing relationship was identified and proposed:
+<h3>Purpose</h3>
 
+<p>
+The purpose of this step is to enrich the cultural heritage
+knowledge graph by introducing a new semantic relationship that
+captures an important aspect of Botticelli's intellectual and
+philosophical context.
+</p>
+
+<h3>Proposed Ontology Enrichment</h3>
+
+<p>
+Based on the analysis conducted in Step 3, a new semantic
+relationship is proposed:
 </p>
 
 <p>
-
 <b>Sandro Botticelli → influencedBy → Neoplatonism</b>
-
 </p>
 
 <p>
+This relationship explicitly represents the philosophical
+influence of Neoplatonic thought on Botticelli and enriches the
+interpretative dimension of the knowledge graph.
+</p>
 
-This enrichment introduces contextual cultural knowledge and
-improves the interpretative value of the knowledge graph.
+<h3>RDF Triple Representation</h3>
 
+<table border="1">
+
+<tr>
+<th>Subject</th>
+<th>Predicate</th>
+<th>Object</th>
+</tr>
+
+<tr>
+<td>Sandro Botticelli</td>
+<td>influencedBy</td>
+<td>Neoplatonism</td>
+</tr>
+
+</table>
+ <h3>Turtle Representation</h3>
+
+<pre>
+@prefix ex: <http://example.org/> .
+
+ex:Sandro_Botticelli
+    ex:influencedBy
+    ex:Neoplatonism .
+</pre>
+
+<h3>Ontology Design Rationale</h3>
+
+<p>
+The proposed enrichment was selected because Neoplatonism is
+frequently cited in art historical scholarship as a significant
+intellectual influence on Botticelli's artistic production.
+Representing this relationship allows the knowledge graph to
+capture contextual and philosophical information that is not
+available through descriptive metadata alone.
+</p>
+ 
+<h3>Technical Observations</h3>
+
+<p>
+The enrichment demonstrates how ontology engineering can extend
+existing cultural heritage knowledge graphs. By introducing new
+semantic relationships, it becomes possible to connect artworks,
+artists and intellectual movements within a richer semantic
+framework.
+</p>
+ 
+<h3>Step Conclusion</h3>
+
+<p>
+The proposed relationship between Sandro Botticelli and
+Neoplatonism addresses a significant knowledge gap identified in
+the previous step. The enrichment improves the semantic richness
+of the knowledge graph and provides the basis for validation in
+Step 5.
 </p>
 
 </section>
