@@ -73,8 +73,14 @@ how ontology enrichment can improve cultural understanding.
 <section id="rdf">
 
 <h2>RDF Representation of Sandro Botticelli</h2>
+ 
+<h3>Prefixes Used</h3>
 
-<table border="1">
+<pre>
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX ex: &lt;http://example.org/&gt;
+ 
+</pre><table border="1">
 
 <tr>
 <th>Subject</th>
@@ -85,31 +91,31 @@ how ontology enrichment can improve cultural understanding.
 <tr>
 <td>Sandro Botticelli</td>
 <td>rdf:type</td>
-<td>Painter</td>
+<td>ex:Painter</td>
 </tr>
 
 <tr>
 <td>Sandro Botticelli</td>
 <td>bornIn</td>
-<td>Florence</td>
+<td>ex:Florence</td>
 </tr>
 
 <tr>
 <td>Sandro Botticelli</td>
 <td>created</td>
-<td>The Birth of Venus</td>
+<td>ex:The_Birth_of_Venus</td>
 </tr>
 
 <tr>
 <td>Sandro Botticelli</td>
 <td>created</td>
-<td>Primavera</td>
+<td>ex:Primavera</td>
 </tr>
 
 <tr>
 <td>Sandro Botticelli</td>
 <td>artMovement</td>
-<td>Italian Renaissance</td>
+<td>ex:Italian_Renaissance</td>
 </tr>
 
 </table>
@@ -126,8 +132,8 @@ for representing knowledge and relationships between entities.
 <h3>Turtle Representation</h3>
 
 <pre>
-@prefix ex: <http://example.org/> .
-
+@prefix ex: &lt;http://example.org/&gt; .
+ 
 ex:Sandro_Botticelli rdf:type ex:Painter .
 ex:Sandro_Botticelli ex:bornIn ex:Florence .
 ex:Sandro_Botticelli ex:created ex:The_Birth_of_Venus .
