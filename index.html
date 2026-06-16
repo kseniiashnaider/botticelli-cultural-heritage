@@ -121,35 +121,66 @@ how ontology enrichment can improve cultural understanding.
 <h2>Step 1 – Discovering Botticelli in ArCo</h2>
 
 <h3>Research Question</h3>
- <p>TEST IMAGE</p>
 
-<img src="Figure1.png" width="800">
-
-<p>END TEST</p>
 <p>
 Which cultural heritage entities related to Sandro Botticelli can be
 found in the ArCo Knowledge Graph?
 </p>
+
+<h3>Purpose</h3>
+
+<p>
+The purpose of this query is to identify cultural heritage entities
+associated with Sandro Botticelli in the ArCo Knowledge Graph and
+explore how Botticelli-related resources are represented through
+semantic technologies.
+</p>
+ <h3>Prefixes Used</h3>
+
+<pre>
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+</pre> 
+<h3>SPARQL Query</h3>
+
+<pre>
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?entity ?label
+WHERE {
+  ?entity rdfs:label ?label .
+  FILTER(CONTAINS(LCASE(STR(?label)), "botticelli"))
+}
+LIMIT 50
+</pre>
 
 <figure>
 
 <img src="Figure1.png">
 
 <figcaption>
-
 Figure 1. Results of the SPARQL query retrieving Botticelli-related
 entities from ArCo.
-
 </figcaption>
 
 </figure>
 
+<h3>Analysis of Results</h3>
+
 <p>
+The query returned several cultural heritage entities associated with
+Botticelli, including artworks, museum collections, cultural events
+and heritage resources. The results demonstrate that ArCo contains
+multiple semantic connections related to Botticelli and provides a
+valuable foundation for further cultural heritage analysis.
+</p>
 
-The query returned several cultural heritage entities associated
-with Botticelli, including artworks, museum collections and heritage
-resources.
+<h3>Step Conclusion</h3>
 
+<p>
+The ArCo Knowledge Graph successfully provides access to Botticelli-related
+entities and metadata. These results form the basis for the subsequent
+analysis and ontology enrichment activities presented in the following
+steps.
 </p>
 
 </section>
