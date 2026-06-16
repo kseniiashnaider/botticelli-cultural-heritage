@@ -228,6 +228,40 @@ steps.
 
 <h2>Step 2 – Analysis of Retrieved Cultural Heritage Entities</h2>
 
+<h3>Research Question</h3>
+
+<p>
+What semantic relationships and cultural heritage information can be
+identified from the Botticelli-related entities retrieved from ArCo?
+</p>
+
+<h3>Purpose</h3>
+
+<p>
+The purpose of this step is to analyse the cultural heritage entities
+retrieved in Step 1 and examine the semantic relationships represented
+within the ArCo Knowledge Graph.
+</p>
+ 
+<h3>SPARQL Query</h3>
+ 
+<pre>
+SELECT ?entity ?property ?value
+WHERE {
+ ?entity ?property ?value .
+ FILTER(CONTAINS(LCASE(STR(?entity)), "botticelli"))
+}
+LIMIT 100
+</pre> 
+ 
+<h3>Query Explanation</h3>
+
+<p>
+This query retrieves semantic relationships associated with
+Botticelli-related entities. It allows the exploration of properties,
+connections and metadata represented in the ArCo Knowledge Graph.
+</p>
+ 
 <figure>
 
 <img src="Figure2.png">
@@ -240,7 +274,25 @@ relationships in ArCo.
 </figcaption>
 
 </figure>
+ 
+<h3>Figure 3 Interpretation</h3>
 
+<p>
+Figure 3 presents a selection of Botticelli-related artworks and
+museum collections identified through the ArCo Knowledge Graph.
+The results highlight the diversity of cultural heritage resources
+linked to Botticelli.
+</p>
+ 
+<h3>Figure 2 Interpretation</h3>
+
+<p>
+Figure 2 illustrates an example of a Botticelli-related cultural
+heritage entity together with its semantic relationships represented
+within the ArCo Knowledge Graph. The figure demonstrates how entities
+are connected through RDF properties and semantic links.
+</p>
+ 
 <br>
 
 <figure>
@@ -255,12 +307,34 @@ identified through ArCo.
 </figcaption>
 
 </figure>
+ 
+<h3>Analysis of Results</h3>
 
 <p>
-
 The retrieved entities reveal a network of artworks, museums,
-collections and cultural heritage sites associated with Botticelli.
+collections and cultural heritage resources associated with
+Sandro Botticelli. The semantic structure of ArCo makes it
+possible to explore relationships between artists, artworks,
+collections and institutions.
+</p>
+ 
+<h3>Technical Observations</h3>
 
+<p>
+The analysis demonstrates the importance of semantic relationships
+for cultural heritage discovery. RDF properties and linked data
+connections enable the retrieval of contextual information that
+extends beyond simple keyword searches.
+</p> 
+ 
+<h3>Step Conclusion</h3>
+
+<p>
+The analysis confirms that ArCo provides a rich semantic
+representation of Botticelli-related cultural heritage entities.
+The identified relationships support further investigation and
+serve as the basis for identifying missing knowledge in the
+next step.
 </p>
 
 </section>
