@@ -78,8 +78,8 @@ how ontology enrichment can improve cultural understanding.
 
 <pre>
 PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX ex: &lt;http://example.org/&gt;
- 
 </pre>
 
 <table border="1">
@@ -134,8 +134,9 @@ for representing knowledge and relationships between entities.
 <h3>Turtle Representation</h3>
 
 <pre>
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
 @prefix ex: &lt;http://example.org/&gt; .
- 
+
 ex:Sandro_Botticelli rdf:type ex:Painter .
 ex:Sandro_Botticelli ex:bornIn ex:Florence .
 ex:Sandro_Botticelli ex:created ex:The_Birth_of_Venus .
@@ -1108,6 +1109,12 @@ E. Wind,
 Pagan Mysteries in the Renaissance.
 London: Faber and Faber, 1968.
 </li></ol>
+ 
+<li>
+M. J. B. Allen,
+Marsilio Ficino and the Phaedran Charioteer.
+University of California Press.
+</li>
 
 </section>
 
