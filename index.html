@@ -140,7 +140,6 @@ semantic technologies.
 
 <pre>
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-PREFIX arco: &lt;https://w3id.org/arco/resource/&gt;
 </pre>
  
 <h3>SPARQL Query</h3>
@@ -242,28 +241,42 @@ The purpose of this step is to analyse the cultural heritage entities
 retrieved in Step 1 and examine the semantic relationships represented
 within the ArCo Knowledge Graph.
 </p>
- 
-<h3>SPARQL Query</h3>
- 
+
+<h3>Prefixes Used</h3>
+
 <pre>
+PREFIX rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+</pre>
+
+<h3>SPARQL Query</h3>
+
+<pre>
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
 SELECT ?entity ?property ?value
 WHERE {
- ?entity ?property ?value .
- FILTER(CONTAINS(LCASE(STR(?entity)), "botticelli"))
+ ?entity rdfs:label ?label ;
+         ?property ?value .
+
+ FILTER(CONTAINS(LCASE(STR(?label)), "botticelli"))
 }
 LIMIT 100
-</pre> 
+</pre>
  
 <h3>Query Explanation</h3>
 
 <p>
-This query retrieves semantic relationships associated with
-Botticelli-related entities. It allows the exploration of properties,
-connections and metadata represented in the ArCo Knowledge Graph.
+This query retrieves RDF properties and semantic relationships
+associated with Botticelli-related entities. The query first identifies
+resources whose labels contain the keyword "Botticelli" and then
+retrieves all available properties and values connected to those
+resources. This allows a deeper analysis of the semantic structure of
+the ArCo Knowledge Graph.
 </p>
  
 <figure>
-
+ 
 <img src="Figure2.png">
 
 <figcaption>
@@ -274,15 +287,6 @@ relationships in ArCo.
 </figcaption>
 
 </figure>
- 
-<h3>Figure 3 Interpretation</h3>
-
-<p>
-Figure 3 presents a selection of Botticelli-related artworks and
-museum collections identified through the ArCo Knowledge Graph.
-The results highlight the diversity of cultural heritage resources
-linked to Botticelli.
-</p>
  
 <h3>Figure 2 Interpretation</h3>
 
@@ -296,7 +300,7 @@ are connected through RDF properties and semantic links.
 <br>
 
 <figure>
-
+ 
 <img src="Figure3.png">
 
 <figcaption>
@@ -307,6 +311,15 @@ identified through ArCo.
 </figcaption>
 
 </figure>
+
+<h3>Figure 3 Interpretation</h3>
+
+<p>
+Figure 3 presents a selection of Botticelli-related artworks and
+museum collections identified through the ArCo Knowledge Graph.
+The results highlight the diversity of cultural heritage resources
+linked to Botticelli.
+</p> 
  
 <h3>Analysis of Results</h3>
 
