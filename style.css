@@ -61,4 +61,20 @@ figcaption {
     font-style: italic;
     margin-top: 10px;
 }
+figure {
+    text-align: center;
+    margin: 30px auto;
+}
 
+figure img {
+    width: 500px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 10px;
+}
