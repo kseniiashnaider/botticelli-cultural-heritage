@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Step 2 – Analysis of Retrieved Cultural Heritage Entities</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="step1.html">Step 1</a>
+<a href="step2.html">Step 2</a>
+<a href="step3.html">Step 3</a>
+<a href="step4.html">Step 4</a>
+<a href="step5.html">Step 5</a>
+<a href="step6.html">Step 6</a>
+</nav>
+
+
+<section id="step2">
+
+<h2>Step 2 – Analysis of Retrieved Cultural Heritage Entities</h2>
+
+<h3>Research Question</h3>
+
+<p>
+What semantic relationships and cultural heritage information can be
+identified from the Botticelli-related entities retrieved from ArCo?
+</p>
+
+<h3>Purpose</h3>
+
+<p>
+The purpose of this step is to analyse the cultural heritage entities
+retrieved in Step 1 and examine the semantic relationships represented
+within the ArCo Knowledge Graph.
+</p>
+
+<h3>Prefixes Used</h3>
+
+<pre>
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+</pre>
+
+<h3>SPARQL Query</h3>
+
+<pre>
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?entity ?property ?value
+WHERE {
+ ?entity rdfs:label ?label ;
+         ?property ?value .
+
+ FILTER(CONTAINS(LCASE(STR(?label)), "botticelli"))
+}
+LIMIT 100
+</pre>
+
+<p>
+<a href="https://dati.cultura.gov.it/sparql" target="_blank">
+Explore semantic relationships in ArCo
+</a>
+</p>
+ 
+<h3>Query Explanation</h3>
+
+<p>
+This query retrieves RDF properties and semantic relationships
+associated with Botticelli-related entities. The query first identifies
+resources whose labels contain the keyword "Botticelli" and then
+retrieves all available properties and values connected to those
+resources. This allows a deeper analysis of the semantic structure of
+the ArCo Knowledge Graph.
+</p>
+ 
+<figure>
+ 
+<img src="Figure2.png">
+
+<figcaption>
+
+Figure 2. Example of a cultural heritage entity and its semantic
+relationships in ArCo.
+
+</figcaption>
+
+</figure>
+<p>
+<a href="Result2.html" target="_blank">
+Result
+</a>
+</p>
+ 
+<p>
+<a href="https://dati.cultura.gov.it/" target="_blank">
+Source: ArCo Knowledge Graph
+</a>
+</p>
+
+<h3>Figure 2 Interpretation</h3>
+
+<p>
+Figure 2 illustrates an example of a Botticelli-related cultural
+heritage entity together with its semantic relationships represented
+within the ArCo Knowledge Graph. The figure demonstrates how entities
+are connected through RDF properties and semantic links.
+</p>
+ 
+<br>
+
+<figure>
+ 
+<img src="Figure3.png">
+
+<figcaption>
+
+Figure 3. Botticelli-related artworks and museum collections
+identified through ArCo.
+
+</figcaption>
+
+</figure>
+<p>
+<a href="https://dati.cultura.gov.it/" target="_blank">
+Source: ArCo Knowledge Graph
+</a>
+</p>
+
+<h3>Figure 3 Interpretation</h3>
+
+<p>
+Figure 3 presents a selection of Botticelli-related artworks and
+museum collections identified through the ArCo Knowledge Graph.
+The results highlight the diversity of cultural heritage resources
+linked to Botticelli.
+</p> 
+ 
+<h3>Analysis of Results</h3>
+
+<p>
+The retrieved entities reveal a network of artworks, museums,
+collections and cultural heritage resources associated with
+Sandro Botticelli. The semantic structure of ArCo makes it
+possible to explore relationships between artists, artworks,
+collections and institutions.
+</p>
+ 
+<h3>Technical Observations</h3>
+
+<p>
+The analysis demonstrates the importance of semantic relationships
+for cultural heritage discovery. RDF properties and linked data
+connections enable the retrieval of contextual information that
+extends beyond simple keyword searches.
+</p> 
+ 
+<h3>Step Conclusion</h3>
+
+<p>
+The analysis confirms that ArCo provides a rich semantic
+representation of Botticelli-related cultural heritage entities.
+The identified relationships support further investigation and
+serve as the basis for identifying missing knowledge in the
+next step.
+</p>
+</body>
+</html>
