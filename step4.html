@@ -1,232 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Step 4 – Ontology Enrichment</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Step 4 – Ontology Enrichment</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="step1.html">Step 1</a>
+        <a href="step2.html">Step 2</a>
+        <a href="step3.html">Step 3</a>
+        <a href="step4.html">Step 4</a>
+        <a href="step5.html">Step 5</a>
+        <a href="step6.html">Step 6</a>
+    </nav>
 
-<nav>
+    <section id="step4">
+        <h2>Step 4 – Ontology Enrichment</h2>
 
-<a href="index.html">Home</a>
+        <h3>Research Question</h3>
+        <p>
+            How can the identified knowledge gap be addressed through ontology
+            enrichment?
+        </p>
 
-<a href="step1.html">Step 1</a>
+        <h3>Purpose</h3>
+        <p>
+            The purpose of this step is to enrich the cultural heritage
+            knowledge graph by introducing a new semantic relationship that
+            captures an important aspect of Botticelli's intellectual and
+            philosophical context.
+        </p>
 
-<a href="step2.html">Step 2</a>
+        <h3>Prefixes Used</h3>
+        <pre>
+            PREFIX ex: &lt;http://example.org/&gt;
+        </pre>
 
-<a href="step3.html">Step 3</a>
+        <h3>Proposed Ontology Enrichment</h3>
+        <p>
+            Based on the analysis conducted in Step 3, a new semantic
+            relationship is proposed:
+        </p>
 
-<a href="step4.html">Step 4</a>
+        <p>
+            <b>Sandro Botticelli → influencedBy → Neoplatonism</b>
+            (<a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">background information</a>)
+        </p>
 
-<a href="step5.html">Step 5</a>
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">
+                Learn more about Neoplatonism
+            </a>
+        </p>
 
-<a href="step6.html">Step 6</a>
+        <figure>
+            <img src="images/Figure5.png" alt="">
+            <figcaption>
+                Figure 5. Proposed ontology enrichment introducing a relationship
+                between Botticelli and Neoplatonism.
+            </figcaption>
+        </figure>
 
-</nav>
+        <p>
+            <a href="https://plato.stanford.edu/entries/ficino/" target="_blank">
+                Background source: Stanford Encyclopedia of Philosophy – Marsilio Ficino
+            </a>
+        </p>
 
+        <h3>Figure 5 Interpretation</h3>
+        <p>
+            <a href="https://plato.stanford.edu/entries/ficino/" target="_blank">
+                Marsilio Ficino and Renaissance Neoplatonism
+            </a>
+        </p>
 
-<section id="step4">
+        <p>
+            Figure 5 visualises the proposed ontology enrichment. The new
+            semantic relationship connects Sandro Botticelli with the concept
+            of Neoplatonism through the property <i>influencedBy</i>. This
+            enrichment extends the cultural heritage knowledge graph by
+            representing an important philosophical influence that is not
+            explicitly captured in the original ArCo data.
+        </p>
 
-<h2>Step 4 – Ontology Enrichment</h2>
+        <h3>Expected Benefits of the Enrichment</h3>
+        <p>
+            The new relationship allows researchers to discover connections
+            between artists and philosophical movements. It also improves the
+            ability of semantic queries to retrieve contextual knowledge about
+            Renaissance intellectual traditions and artistic influences.
+        </p>
 
-<h3>Research Question</h3>
+        <p>
+            This relationship explicitly represents the philosophical
+            influence of Neoplatonic thought on Botticelli and enriches the
+            interpretative dimension of the knowledge graph.
+        </p>
 
-<p>
-How can the identified knowledge gap be addressed through ontology
-enrichment?
-</p>
+        <table border="1">
+            <tr>
+                <th>Ontology Element</th>
+                <th>Value</th>
+            </tr>
 
-<h3>Purpose</h3>
+            <tr>
+                <td>Subject</td>
+                <td>Sandro Botticelli</td>
+            </tr>
 
-<p>
-The purpose of this step is to enrich the cultural heritage
-knowledge graph by introducing a new semantic relationship that
-captures an important aspect of Botticelli's intellectual and
-philosophical context.
-</p>
- 
-<h3>Prefixes Used</h3>
+            <tr>
+                <td>Predicate</td>
+                <td>influencedBy</td>
+            </tr>
 
-<pre>
-PREFIX ex: &lt;http://example.org/&gt;
-</pre>
- 
-<h3>Proposed Ontology Enrichment</h3>
+            <tr>
+                <td>Object</td>
+                <td>Neoplatonism</td>
+            </tr>
 
-<p>
-Based on the analysis conducted in Step 3, a new semantic
-relationship is proposed:
-</p>
+            <tr>
+                <td>Enrichment Type</td>
+                <td>Philosophical Influence</td>
+            </tr>
 
-<p>
-<b>Sandro Botticelli → influencedBy → Neoplatonism</b>
-(<a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">
-background information
-</a>)
-</p>
- 
-<p>
-<a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">
-Learn more about Neoplatonism
-</a>
-</p>
- 
-<figure>
+            <tr>
+                <td>Purpose</td>
+                <td>Represent contextual cultural knowledge</td>
+            </tr>
+        </table>
 
-<img src="Figure5.png">
+        <p>
+            <i>Table 2. Semantic structure of the proposed ontology enrichment.</i>
+        </p>
 
-<figcaption>
-Figure 5. Proposed ontology enrichment introducing a relationship
-between Botticelli and Neoplatonism.
-</figcaption>
+        <h3>RDF Triple Representation</h3>
+        <table border="1">
+            <tr>
+                <th>Subject</th>
+                <th>Predicate</th>
+                <th>Object</th>
+            </tr>
 
-</figure>
-<p>
-<a href="https://plato.stanford.edu/entries/ficino/" target="_blank">
-Background source: Stanford Encyclopedia of Philosophy – Marsilio Ficino
-</a>
-</p>
- 
-<h3>Figure 5 Interpretation</h3>
- 
-<p>
-<a href="https://plato.stanford.edu/entries/ficino/" target="_blank">
-Marsilio Ficino and Renaissance Neoplatonism
-</a>
-</p>
- 
-<p>
-Figure 5 visualises the proposed ontology enrichment. The new
-semantic relationship connects Sandro Botticelli with the concept
-of Neoplatonism through the property <i>influencedBy</i>. This
-enrichment extends the cultural heritage knowledge graph by
-representing an important philosophical influence that is not
-explicitly captured in the original ArCo data.
-</p>
- 
-<h3>Expected Benefits of the Enrichment</h3>
+            <tr>
+                <td>Sandro Botticelli</td>
+                <td>influencedBy</td>
+                <td>Neoplatonism</td>
+            </tr>
+        </table>
 
-<p>
-The new relationship allows researchers to discover connections
-between artists and philosophical movements. It also improves the
-ability of semantic queries to retrieve contextual knowledge about
-Renaissance intellectual traditions and artistic influences.
-</p>
+        <p>
+            <i>Table 3. RDF representation of the proposed ontology enrichment.</i>
+        </p>
 
-<p>
-This relationship explicitly represents the philosophical
-influence of Neoplatonic thought on Botticelli and enriches the
-interpretative dimension of the knowledge graph.
-</p>
- 
-<table border="1">
+        <h3>RDF Triple Explanation</h3>
+        <p>
+            The enrichment is represented as an RDF triple consisting of a
+            subject (Sandro Botticelli), a predicate (influencedBy) and an
+            object (Neoplatonism). This structure follows the RDF data model
+            used throughout semantic web technologies.
+        </p>
 
-<tr>
-<th>Ontology Element</th>
-<th>Value</th>
-</tr>
+        <h3>Turtle Representation</h3>
+        <pre>
+            @prefix ex: &lt;http://example.org/&gt; .
 
-<tr>
-<td>Subject</td>
-<td>Sandro Botticelli</td>
-</tr>
+            ex:Sandro_Botticelli
+                ex:influencedBy
+                ex:Neoplatonism .
+        </pre>
 
-<tr>
-<td>Predicate</td>
-<td>influencedBy</td>
-</tr>
+        <h3>Ontology Design Rationale</h3>
+        <p>
+            The proposed enrichment was selected because Neoplatonism is
+            frequently cited in art historical scholarship as a significant
+            intellectual influence on Botticelli's artistic production.
+            Representing this relationship allows the knowledge graph to
+            capture contextual and philosophical information that is not
+            available through descriptive metadata alone.
+        </p>
 
-<tr>
-<td>Object</td>
-<td>Neoplatonism</td>
-</tr>
+        <h3>Technical Observations</h3>
+        <p>
+            The enrichment demonstrates how ontology engineering can extend
+            existing cultural heritage knowledge graphs. By introducing new
+            semantic relationships, it becomes possible to connect artworks,
+            artists and intellectual movements within a richer semantic
+            framework.
+        </p>
 
-<tr>
-<td>Enrichment Type</td>
-<td>Philosophical Influence</td>
-</tr>
-
-<tr>
-<td>Purpose</td>
-<td>Represent contextual cultural knowledge</td>
-</tr>
-
-</table>
- 
- <p><i>
-Table 2. Semantic structure of the proposed ontology enrichment.
-</i></p> 
-<h3>RDF Triple Representation</h3>
-
-<table border="1">
-
-<tr>
-<th>Subject</th>
-<th>Predicate</th>
-<th>Object</th>
-</tr>
-
-<tr>
-<td>Sandro Botticelli</td>
-<td>influencedBy</td>
-<td>Neoplatonism</td>
-</tr>
-
-</table>
- 
-<p><i>
-Table 3. RDF representation of the proposed ontology enrichment.
-</i></p>
-
-<h3>RDF Triple Explanation</h3>
-
-<p>
-The enrichment is represented as an RDF triple consisting of a
-subject (Sandro Botticelli), a predicate (influencedBy) and an
-object (Neoplatonism). This structure follows the RDF data model
-used throughout semantic web technologies.
-</p>
-
-<h3>Turtle Representation</h3>
- 
- <pre>
-@prefix ex: &lt;http://example.org/&gt; .
-  
-ex:Sandro_Botticelli
-    ex:influencedBy
-    ex:Neoplatonism .
-</pre>
-
-<h3>Ontology Design Rationale</h3>
-
-<p>
-The proposed enrichment was selected because Neoplatonism is
-frequently cited in art historical scholarship as a significant
-intellectual influence on Botticelli's artistic production.
-Representing this relationship allows the knowledge graph to
-capture contextual and philosophical information that is not
-available through descriptive metadata alone.
-</p>
- 
-<h3>Technical Observations</h3>
-
-<p>
-The enrichment demonstrates how ontology engineering can extend
-existing cultural heritage knowledge graphs. By introducing new
-semantic relationships, it becomes possible to connect artworks,
-artists and intellectual movements within a richer semantic
-framework.
-</p>
- 
-<h3>Step Conclusion</h3>
-
-<p>
-The proposed relationship between Sandro Botticelli and
-Neoplatonism addresses a significant knowledge gap identified in
-the previous step. The enrichment improves the semantic richness
-of the knowledge graph and provides the basis for validation in
-Step 5.
-</p>
+        <h3>Step Conclusion</h3>
+        <p>
+            The proposed relationship between Sandro Botticelli and
+            Neoplatonism addresses a significant knowledge gap identified in
+            the previous step. The enrichment improves the semantic richness
+            of the knowledge graph and provides the basis for validation in
+            Step 5.
+        </p>
+    </section>
 </body>
 </html>
