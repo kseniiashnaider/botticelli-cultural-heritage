@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Step 3 – Identifying Missing Information</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Step 3 – Identifying Missing Information</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="about.html">About</a></li>
+                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
+                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
+                    <li><a class="site-nav__link" href="step2.html">Entity Analysis</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html" aria-current="page">Knowledge Gaps</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<nav>
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
 
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="rdf.html">RDF</a>
-
-<a href="step1.html">Discovery</a>
-
-<a href="step2.html">Entity Analysis</a>
-
-<a href="step3.html">Knowledge Gaps</a>
-
-<a href="step4.html">Ontology Enrichment</a>
-
-<a href="step5.html">Validation</a>
-
-<a href="step6.html">Evaluation</a>
-
-<a href="conclusion.html">Conclusion</a>
-
-<a href="references.html">References</a>
-
-</nav>
-
-
-<section id="step3">
+    <main class="site-main">
+        <section class="content-section" id="step3">
 
 <h2>Step 3 – Identifying Missing Information</h2>
 
@@ -149,42 +167,42 @@ ArCo Knowledge Graph
 </p>
  
 <figure>
-<img src="Figure4.png" alt="ChatGPT response part 1">
+<img src="images/Figure4.png" alt="ChatGPT response part 1">
 <figcaption>
 Figure 4. ChatGPT response – part 1.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure5.png" alt="ChatGPT response part 2">
+<img src="images/Figure5.png" alt="ChatGPT response part 2">
 <figcaption>
 Figure 5. ChatGPT response – part 2.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure6.png" alt="ChatGPT response part 3">
+<img src="images/Figure6.png" alt="ChatGPT response part 3">
 <figcaption>
 Figure 6. ChatGPT response – part 3.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure7.png" alt="ChatGPT response part 4">
+<img src="images/Figure7.png" alt="ChatGPT response part 4">
 <figcaption>
 Figure 7. ChatGPT response – part 4.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure8.png" alt="ChatGPT response part 5">
+<img src="images/Figure8.png" alt="ChatGPT response part 5">
 <figcaption>
 Figure 8. ChatGPT response – part 5.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure9.png" alt="ChatGPT response part 6">
+<img src="images/Figure9.png" alt="ChatGPT response part 6">
 <figcaption>
 Figure 9. ChatGPT response – part 6.
 </figcaption>
@@ -197,14 +215,14 @@ Source: ChatGPT
 </p>
 
 <figure>
-<img src="Figure10.png" alt="Claude response part 1">
+<img src="images/Figure10.png" alt="Claude response part 1">
 <figcaption>
 Figure 10. Claude response – part 1.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure11.png" alt="Claude response part 2">
+<img src="images/Figure11.png" alt="Claude response part 2">
 <figcaption>
 Figure 11. Claude response – part 2.
 </figcaption>
@@ -217,35 +235,35 @@ Source: Claude
 </p>
 
 <figure>
-<img src="Figure12.png" alt="Gemini response part 1">
+<img src="images/Figure12.png" alt="Gemini response part 1">
 <figcaption>
 Figure 12. Gemini response – part 1.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure13.png" alt="Gemini response part 2">
+<img src="images/Figure13.png" alt="Gemini response part 2">
 <figcaption>
 Figure 13. Gemini response – part 2.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure14.png" alt="Gemini response part 3">
+<img src="images/Figure14.png" alt="Gemini response part 3">
 <figcaption>
 Figure 14. Gemini response – part 3.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure15.png" alt="Gemini response part 4">
+<img src="images/Figure15.png" alt="Gemini response part 4">
 <figcaption>
 Figure 15. Gemini response – part 4.
 </figcaption>
 </figure>
 
 <figure>
-<img src="Figure16.png" alt="Gemini response part 5">
+<img src="images/Figure16.png" alt="Gemini response part 5">
 <figcaption>
 Figure 16. Gemini response – part 5.
 </figcaption>
@@ -517,7 +535,7 @@ Reference: Stanford Encyclopedia of Philosophy – Neoplatonism
  
 <figure>
 
-<img src="Figure17.png" alt="Comparison of available and missing information">
+<img src="images/Figure17.png" alt="Comparison of available and missing information">
  
 <figcaption>
 Figure 17. Comparison of available and missing information identified in ArCo.
@@ -690,7 +708,13 @@ and will be addressed in the next step.
 
 </p>
 
-</section>
+        </section>
+    </main>
 
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+
+    <script src="resources/main.js"></script>
 </body>
 </html>

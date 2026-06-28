@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Step 5 – Validation of the Enrichment</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Step 5 – Validation of the Enrichment</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="about.html">About</a></li>
+                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
+                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
+                    <li><a class="site-nav__link" href="step2.html">Entity Analysis</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html" aria-current="page">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<nav>
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
 
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="rdf.html">RDF</a>
-
-<a href="step1.html">Discovery</a>
-
-<a href="step2.html">Entity Analysis</a>
-
-<a href="step3.html">Knowledge Gaps</a>
-
-<a href="step4.html">Ontology Enrichment</a>
-
-<a href="step5.html">Validation</a>
-
-<a href="step6.html">Evaluation</a>
-
-<a href="conclusion.html">Conclusion</a>
-
-<a href="references.html">References</a>
-
-</nav>
- 
-<section id="step5">
+    <main class="site-main">
+        <section class="content-section" id="step5">
 
 <h2>Step 5 – Validation of the Enrichment</h2>
 
@@ -78,17 +97,24 @@ knowledge retrieval.
 <h3>Validation Query</h3>
 
 <pre>
-PREFIX ex: &lt;http://example.org/&gt;
+PREFIX arco-catalogue: &lt;https://w3id.org/arco/ontology/catalogue/&gt;
+PREFIX roapit: &lt;https://w3id.org/italia/onto/RO/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
-SELECT ?artist
+SELECT DISTINCT ?artwork ?artworkLabel ?authorLabel
 WHERE {
- ?artist ex:influencedBy ex:Neoplatonism .
+  ?artwork arco-catalogue:hasCatalogueRecordVersion/arco-catalogue:hasCatalogueRecordVersionRiT ?rit .
+  ?rit roapit:isRoleInTimeOf ?author .
+  ?author rdfs:label ?authorLabel .
+  ?artwork rdfs:label ?artworkLabel .
+  FILTER(CONTAINS(LCASE(STR(?authorLabel)), "botticelli"))
 }
+LIMIT 50
 </pre>
 <p>
 Reference:
-<a href="https://www.w3.org/TR/sparql11-query/" target="_blank">
-SPARQL 1.1 Query Language Specification
+<a href="https://dati.cultura.gov.it/sparql" target="_blank">
+ArCo SPARQL Endpoint
 </a>
 </p>
  
@@ -175,8 +201,14 @@ value of <a href="https://en.wikipedia.org/wiki/Ontology_(information_science)" 
 ontology engineering
 </a> for cultural heritage applications.
 </p>
-</section>
+        </section>
+    </main>
 
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+
+    <script src="resources/main.js"></script>
 </body>
 </html>
 

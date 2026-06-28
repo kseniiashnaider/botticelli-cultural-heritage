@@ -1,24 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>HTML5 table</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-          integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-          crossorigin="anonymous"/>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css"
-          integrity="sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg=="
-          crossorigin="anonymous"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>SPARQL Results — Step 2 Entity Analysis</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
-<body>
-  <div class="container-fluid">
-      <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="#" onclick="history.go(-1); return false;">SPARQL | HTML5 table</a>
-      </nav>
+<body class="result-page">
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="about.html">About</a></li>
+                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
+                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
+                    <li><a class="site-nav__link" href="step2.html" aria-current="page">Entity Analysis</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-      <table class="table table-striped table-sm table-borderless">
+    <main class="site-main">
+        <a class="result-back" href="step2.html">&larr; Back to Step 2</a>
+        <h1 class="result-title">SPARQL Results — <span>Entity Analysis</span></h1>
+
+        <div class="table-scroll">
+      <table>
           <tr>
               <th>entity</th>
               <th>property</th>
@@ -1125,6 +1157,13 @@
               </td>
           </tr>
       </table>
-  </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+
+    <script src="resources/main.js"></script>
 </body>
 </html>

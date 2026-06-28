@@ -1,0 +1,111 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve deployment target
+        id: target
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+          SANITIZED=$(echo "$BRANCH" | sed 's/[^a-zA-Z0-9._-]/_/g')
+
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "sanitized=$SANITIZED" >> "$GITHUB_OUTPUT"
+
+          if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then
+            echo "destination_dir=" >> "$GITHUB_OUTPUT"
+            echo "is_production=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "destination_dir=preview/$SANITIZED" >> "$GITHUB_OUTPUT"
+            echo "is_production=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Prepare publish directory
+        run: |
+          mkdir -p _publish
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.idea' \
+            --exclude='_publish' \
+            ./ _publish/
+
+      - name: Deploy production to site root
+        if: steps.target.outputs.is_production == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_publish
+          keep_files: true
+          exclude_assets: .github,.git,.idea
+
+      - name: Deploy branch preview
+        if: steps.target.outputs.is_production != 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_publish
+          destination_dir: ${{ steps.target.outputs.destination_dir }}
+          keep_files: true
+          exclude_assets: .github,.git,.idea
+
+      - name: Update previews index
+        if: steps.target.outputs.is_production != 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Regenerate previews index
+        if: steps.target.outputs.is_production != 'true'
+        run: |
+          mkdir -p preview
+          {
+            echo '<!DOCTYPE html>'
+            echo '<html lang="en">'
+            echo '<head>'
+            echo '<meta charset="UTF-8">'
+            echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+            echo '<title>Branch previews</title>'
+            echo '<style>'
+            echo 'body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }'
+            echo 'a { color: #a8864a; }'
+            echo '</style>'
+            echo '</head>'
+            echo '<body>'
+            echo '<h1>Branch previews</h1>'
+            echo '<p>Production site: <a href="../">main</a></p>'
+            echo '<ul>'
+            for dir in preview/*/; do
+              [ -d "$dir" ] || continue
+              name=$(basename "$dir")
+              echo "<li><a href=\"./${name}/\">${name}</a></li>"
+            done
+            echo '</ul>'
+            echo '</body>'
+            echo '</html>'
+          } > preview/index.html
+
+      - name: Commit previews index
+        if: steps.target.outputs.is_production != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add preview/index.html
+          git diff --staged --quiet || git commit -m "Update branch previews index"
+          git push

@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Step 2 – Analysis of Retrieved Cultural Heritage Entities</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Step 2 – Analysis of Retrieved Cultural Heritage Entities</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="about.html">About</a></li>
+                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
+                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
+                    <li><a class="site-nav__link" href="step2.html" aria-current="page">Entity Analysis</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<nav>
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
 
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="rdf.html">RDF</a>
-
-<a href="step1.html">Discovery</a>
-
-<a href="step2.html">Entity Analysis</a>
-
-<a href="step3.html">Knowledge Gaps</a>
-
-<a href="step4.html">Ontology Enrichment</a>
-
-<a href="step5.html">Validation</a>
-
-<a href="step6.html">Evaluation</a>
-
-<a href="conclusion.html">Conclusion</a>
-
-<a href="references.html">References</a>
-
-</nav>
-
-
-<section id="step2">
+    <main class="site-main">
+        <section class="content-section" id="step2">
 
 <h2>Step 2 – Analysis of Retrieved Cultural Heritage Entities</h2>
 
@@ -79,12 +97,14 @@ ArCo Knowledge Graph
 
 <pre>
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 </pre>
 
 <h3>SPARQL Query</h3>
 
 <pre>
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 
 SELECT ?entity ?property ?value
 WHERE {
@@ -129,12 +149,9 @@ ArCo Knowledge Graph
  
 <figure>
  
-<img src="Figure2.png" alt="Semantic relationships of a Botticelli-related entity">
+<img src="images/Figure2.png" alt="Semantic relationships of a Botticelli-related entity">
 
 <figcaption>
-
-<figcaption>
-
 Figure 2. Example of a
 <a href="https://en.wikipedia.org/wiki/Cultural_heritage" target="_blank">
 cultural heritage entity
@@ -147,8 +164,6 @@ in
 <a href="https://arco.istc.cnr.it/" target="_blank">
 ArCo
 </a>.
-
-</figcaption>
 
 </figcaption>
 
@@ -194,12 +209,9 @@ properties and semantic links.
 
 <figure>
  
-<img src="Figure3.png" alt="Botticelli-related artworks and museum collections">
+<img src="images/Figure3.png" alt="Botticelli-related artworks and museum collections">
 
 <figcaption>
-
-<figcaption>
-
 Figure 3.
 <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">
 Botticelli-related
@@ -220,8 +232,6 @@ identified through
 <a href="https://arco.istc.cnr.it/" target="_blank">
 ArCo
 </a>.
-
-</figcaption>
 
 </figcaption>
 
@@ -328,7 +338,13 @@ cultural heritage
 </a>
 entities. The identified relationships support further investigation and serve as the basis for identifying missing knowledge in the next step.
 </p>
-</section>
+        </section>
+    </main>
 
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+
+    <script src="resources/main.js"></script>
 </body>
 </html>

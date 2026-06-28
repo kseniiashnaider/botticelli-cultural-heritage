@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Step 4 – Ontology Enrichment</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Step 4 – Ontology Enrichment</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="about.html">About</a></li>
+                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
+                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
+                    <li><a class="site-nav__link" href="step2.html">Entity Analysis</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html" aria-current="page">Ontology Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<nav>
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
 
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="rdf.html">RDF</a>
-
-<a href="step1.html">Discovery</a>
-
-<a href="step2.html">Entity Analysis</a>
-
-<a href="step3.html">Knowledge Gaps</a>
-
-<a href="step4.html">Ontology Enrichment</a>
-
-<a href="step5.html">Validation</a>
-
-<a href="step6.html">Evaluation</a>
-
-<a href="conclusion.html">Conclusion</a>
-
-<a href="references.html">References</a>
-
-</nav>
-
-<section id="step4">
+    <main class="site-main">
+        <section class="content-section" id="step4">
 
 <h2>Step 4 – Ontology Enrichment</h2>
 
@@ -95,7 +114,7 @@ Learn more about Neoplatonism
  
 <figure>
 
-<img src="Figure18.png" alt="Ontology enrichment connecting Sandro Botticelli with Neoplatonism">
+<img src="images/Figure18.png" alt="Ontology enrichment connecting Sandro Botticelli with Neoplatonism">
 
 <figcaption>
 Figure 18. Proposed ontology enrichment introducing a relationship
@@ -150,7 +169,7 @@ influence of Neoplatonic thought on Botticelli and enriches the
 interpretative dimension of the knowledge graph.
 </p>
  
-<table border="1">
+<table>
 
 <tr>
 <th>Ontology Element</th>
@@ -197,7 +216,7 @@ Table 2. Semantic structure of the proposed ontology enrichment.
 </i></p> 
 <h3>RDF Triple Representation</h3>
 
-<table border="1">
+<table>
 
 <tr>
 <th>Subject</th>
@@ -301,7 +320,13 @@ Neoplatonism
 addresses a significant knowledge gap identified in the previous step.
 The enrichment improves the semantic richness of the knowledge graph and provides the basis for validation in Step 5.
 </p>
-</section>
- 
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+
+    <script src="resources/main.js"></script>
 </body>
 </html>
