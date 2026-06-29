@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Validation</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html" aria-current="page">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Validation</h2>
+
+            <p>
+                The proposed enrichment was not inserted into the production ArCo endpoint.
+                Validation is therefore <em>conceptual</em>: we define SPARQL queries that would
+                retrieve the new knowledge if the triples from
+                <a href="rdf-enrichment.html">RDF Enrichment</a> were added to the graph.
+            </p>
+
+            <h3>Before enrichment — Query 6 (baseline)</h3>
+            <p>
+                <a href="sparql.html#query-6">Query 6</a> returns no direct links to philosophical entities.
+                This is the baseline against which enrichment is measured.
+            </p>
+
+            <h3>After enrichment — Future query: subjects of the painting</h3>
+            <p>After adding the proposed triples, the following query would return Neoplatonism as a subject:</p>
+<pre>PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?subject ?label
+WHERE {
+  &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt;
+      a-cd:hasSubject ?subject .
+  OPTIONAL { ?subject rdfs:label ?label . }
+}</pre>
+
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Expected after enrichment: <code>ex:Neoplatonism</code> with labels "Neoplatonism"@en / "Neoplatonismo"@it.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="Placeholder for validation query results">
+            </div>
+
+            <h3>After enrichment — Future query: involved agents</h3>
+<pre>PREFIX core: &lt;https://w3id.org/arco/ontology/core/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?agent ?label
+WHERE {
+  &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt;
+      core:involvesAgent ?agent .
+  OPTIONAL { ?agent rdfs:label ?label . }
+}</pre>
+
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Expected: Marsilio Ficino as <code>core:Agent</code>.</p>
+            </div>
+
+            <h3>Validation summary</h3>
+            <p>
+                The future queries show that enrichment would make philosophical context retrievable
+                through standard ArCo properties, without relying on <code>REGEX</code> over photographic labels.
+                Compared with the previous project draft (a catalogue authorship query unrelated to Neoplatonism),
+                these queries directly test the proposed triples.
+            </p>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="rdf-enrichment.html">&larr; RDF Enrichment</a>
+                <a href="evaluation.html">Evaluation &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

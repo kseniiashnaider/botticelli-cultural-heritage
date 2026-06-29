@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Evaluation</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html" aria-current="page">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Evaluation and Discussion</h2>
+
+            <h3>Evaluation of the knowledge graph (ArCo)</h3>
+            <p>
+                ArCo provides solid catalogue metadata for Botticelli's works: types, labels, locations,
+                authorship and links to photographic reproductions. SPARQL exploration confirms that the
+                graph is rich at the documentation level. Interpretative and philosophical context, however,
+                is often implicit in labels of related resources rather than expressed through Context
+                Description properties such as <code>a-cd:hasSubject</code>.
+            </p>
+
+            <h3>Comparison of approaches</h3>
+            <table>
+                <tr>
+                    <th>Approach</th>
+                    <th>Strengths</th>
+                    <th>Limitations</th>
+                </tr>
+                <tr>
+                    <td><strong>KG-only</strong> (SPARQL)</td>
+                    <td>Verifiable, reproducible, grounded in actual triples; UNION query exposes implicit vs explicit information</td>
+                    <td>Cannot infer missing knowledge; REGEX on labels is a workaround, not a semantic relation</td>
+                </tr>
+                <tr>
+                    <td><strong>LLM-only</strong></td>
+                    <td>Suggests art historical context (Neoplatonism, Medici, symbolism) quickly; useful for brainstorming enrichment</td>
+                    <td>Risk of unsupported claims; no guarantee that suggestions match ArCo modelling patterns</td>
+                </tr>
+                <tr>
+                    <td><strong>Hybrid</strong> (SPARQL + LLM)</td>
+                    <td>SPARQL proves the gap; LLM proposes candidates; scholar checks + ArCo properties shape the final enrichment</td>
+                    <td>More steps; requires aligning LLM output with ontology constraints</td>
+                </tr>
+            </table>
+
+            <h3>Evaluation of LLM-assisted analysis</h3>
+            <p>
+                Three models were compared under zero-shot, few-shot and chain-of-thought prompting
+                (see <a href="llm-prompts.html">LLM Prompts</a>). Recurring themes — Neoplatonism,
+                Humanism, Medici patronage — converged despite different phrasing. Few-shot prompts
+                produced output closer to valid RDF shapes. Chain-of-thought helped justify the final
+                enrichment choice. All LLM suggestions were treated as hypotheses until checked against
+                SPARQL and sources such as the
+                <a href="https://plato.stanford.edu/entries/neoplatonism/" target="_blank">Stanford Encyclopedia of Philosophy</a>.
+            </p>
+
+            <h3>Evaluation of the proposed enrichment</h3>
+            <p>
+                Linking the painting to Neoplatonism via <code>a-cd:hasSubject</code> addresses a documented gap
+                and uses existing ArCo vocabulary. The validation queries in
+                <a href="validation.html">Validation</a> show how the enriched graph would support direct
+                retrieval of philosophical context.
+            </p>
+
+            <h3>Limitations</h3>
+            <ul>
+                <li>Enrichment was not deployed to the production ArCo endpoint</li>
+                <li>Neoplatonic influence on Botticelli is debated in art history — the triple represents a proposed interpretative layer, not catalogue fact</li>
+                <li>Query 4–6 results depend on how many photographic resources are linked to the anchor URI</li>
+            </ul>
+
+            <h3>Future work</h3>
+            <ul>
+                <li>Extend enrichment to <em>Primavera</em> and <em>Birth of Venus</em> with separate anchor resources</li>
+                <li>Add further subjects (Renaissance Humanism, mythological allegory)</li>
+                <li>Test RAG-style prompts with larger SPARQL subgraphs injected into LLM context</li>
+            </ul>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="validation.html">&larr; Validation</a>
+                <a href="challenges.html">Challenges &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

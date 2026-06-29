@@ -25,21 +25,22 @@
             <nav class="site-nav" id="site-nav" aria-label="Main navigation">
                 <ul class="site-nav__list">
                     <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
-                    <li><a class="site-nav__link" href="about.html">About</a></li>
-                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
-                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
-                    <li><a class="site-nav__link" href="step2.html">Entity Analysis</a></li>
-                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
-                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li><a class="site-nav__link" href="pages/topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="pages/methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="pages/sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="pages/knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="pages/conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="pages/references.html">References</a></li>
                     <li class="site-nav__more">
                         <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
                             More
                         </button>
                         <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/challenges.html">Challenges</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,21 +53,73 @@
             <h1>Enhancing <em>Cultural Heritage</em> Knowledge</h1>
             <p class="hero__subtitle">Sandro Botticelli in the ArCo Knowledge Graph</p>
             <p class="hero__lead">
-                Final Project on Cultural Heritage Knowledge Graphs,
-                Ontology Enrichment and Semantic Technologies
+                KE4H project — knowledge graph exploration, gap analysis and proposed RDF enrichment
             </p>
         </div>
     </section>
 
     <main class="site-main">
         <section class="content-section">
-            <h2>Welcome</h2>
+            <h2>Abstract</h2>
             <p>
-                This website presents the project
-                "Sandro Botticelli in the ArCo Knowledge Graph".
-                Use the navigation menu to explore the different sections
-                of the project.
+                This project explores how
+                <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
+                is represented in the
+                <a href="https://arco.istc.cnr.it/" target="_blank">ArCo Knowledge Graph</a>.
+                Using SPARQL queries against the
+                <a href="https://dati.cultura.gov.it/sparql" target="_blank">ArCo SPARQL endpoint</a>,
+                we examine the RDF description of a selected artwork and compare structured triples with
+                information that appears only in the labels of related photographic resources.
             </p>
+            <p>
+                The analysis identifies a knowledge gap concerning philosophical and interpretative context
+                (notably
+                <a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">Neoplatonism</a>).
+                Large Language Models are used to support gap identification and to compare alternative
+                enrichment strategies. The project proposes new RDF triples using existing ArCo properties
+                and discusses validation, challenges and the respective strengths of KG-based and
+                LLM-based approaches.
+            </p>
+
+            <h3>Author</h3>
+            <p><em>Kseniia Schnaider</em> — individual project (KE4H).</p>
+
+            <h3>Main ArCo resource</h3>
+            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
+            <p>
+                <em>Madonna con Bambino, San Giovannino e angeli</em> by
+                <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
+                (HistoricOrArtisticProperty).
+            </p>
+
+            <h3>Research questions</h3>
+            <ul>
+                <li>Which Botticelli-related entities are present in ArCo and how is the main artwork described in RDF?</li>
+                <li>Is interpretative / philosophical context represented through structured properties or only indirectly in photographic labels?</li>
+                <li>Can LLMs help identify enrichment candidates, and how do their suggestions compare with SPARQL evidence?</li>
+                <li>How can the knowledge graph be enriched using existing ArCo vocabulary?</li>
+            </ul>
+
+            <figure>
+                <img src="images/scheme.png" alt="Project methodology: SPARQL exploration, gap identification, LLM analysis, RDF enrichment">
+                <figcaption>Project workflow: from ArCo exploration to proposed RDF enrichment.</figcaption>
+            </figure>
+
+            <h3>Sections</h3>
+            <p>Use the navigation menu to browse the report:</p>
+            <ul>
+                <li><a href="pages/topic.html">Topic</a> — Botticelli and the selected ArCo resource</li>
+                <li><a href="pages/methodology.html">Methodology</a> — tools and methodological steps</li>
+                <li><a href="pages/sparql.html">SPARQL</a> — queries, results and interpretation</li>
+                <li><a href="pages/knowledge-gaps.html">Knowledge Gaps</a> — gaps supported by SPARQL and LLM analysis</li>
+                <li><a href="pages/llm-prompts.html">LLM Prompts</a> — prompting techniques and model comparison</li>
+                <li><a href="pages/rdf-enrichment.html">RDF Enrichment</a> — proposed triples and CONSTRUCT query</li>
+                <li><a href="pages/validation.html">Validation</a> — future queries after enrichment</li>
+                <li><a href="pages/evaluation.html">Evaluation</a> — KG-only, LLM-only and hybrid approaches</li>
+                <li><a href="pages/challenges.html">Challenges</a> — problems encountered and solutions</li>
+                <li><a href="pages/conclusion.html">Conclusion</a></li>
+                <li><a href="pages/references.html">References</a></li>
+            </ul>
         </section>
     </main>
 
