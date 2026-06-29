@@ -1,468 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    <title>SPARQL Results — Step 1 Discovery</title>
-    <link rel="stylesheet" href="resources/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>HTML5 table</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" integrity="sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg==" crossorigin="anonymous" />
 </head>
-<body class="result-page">
-    <header class="site-header">
-        <div class="site-header__inner">
-            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
-                <span class="nav-toggle__bar"></span>
-                <span class="nav-toggle__bar"></span>
-                <span class="nav-toggle__bar"></span>
-            </button>
-            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-                <ul class="site-nav__list">
-                    <li><a class="site-nav__link" href="index.html">Home</a></li>
-                    <li><a class="site-nav__link" href="about.html">About</a></li>
-                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
-                    <li><a class="site-nav__link" href="step1.html" aria-current="page">Discovery</a></li>
-                    <li><a class="site-nav__link" href="step2.html">Entity Analysis</a></li>
-                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
-                    <li><a class="site-nav__link" href="references.html">References</a></li>
-                    <li class="site-nav__more">
-                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
-                            More
-                        </button>
-                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
-                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class="site-main">
-        <a class="result-back" href="step1.html">&larr; Back to Step 1</a>
-        <h1 class="result-title">SPARQL Results — <span>Discovery</span></h1>
-
-        <div class="table-scroll">
-      <table>
-          <tr>
-              <th>entity</th>
-              <th>label</th>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
-              </td>
-              <td>
-                  <pre>"Il settimo splendore. La modernità della malinconia da Botticelli a Bocklin, da Giorgione a De Chirico, da Caravaggio a Magritte"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
-              </td>
-              <td>
-                  <pre>"Sala di Botticelli"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
-              </td>
-              <td>
-                  <pre>"Sandro Botticelli, Nascita di Venere (1485 ca)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
-              </td>
-              <td>
-                  <pre>"San Vincenzo Ferrer (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
-              </td>
-              <td>
-                  <pre>"San Vincenzo Ferrer (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
-              </td>
-              <td>
-                  <pre>"ultima comunione di San Girolamo (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
-              </td>
-              <td>
-                  <pre>"ultima comunione di San Girolamo (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
-              </td>
-              <td>
-                  <pre>"San Francesco d&#39;Assisi (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
-              </td>
-              <td>
-                  <pre>"San Francesco d&#39;Assisi (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4</a>
-              </td>
-              <td>
-                  <pre>"profeti (formella, serie) by Giuliano da Maiano, Filipepi Alessandro detto Botticelli Sandro (sec. XV)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4</a>
-              </td>
-              <td>
-                  <pre>"profeti (formella, serie) di Giuliano da Maiano, Filipepi Alessandro detto Botticelli Sandro (sec. XV)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153</a>
-              </td>
-              <td>
-                  <pre>"Madonna con Bambino e San Giovannino (dipinto) di Filipepi Alessandro detto Botticelli (sec. XV)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153</a>
-              </td>
-              <td>
-                  <pre>"Madonna con Bambino e San Giovannino (dipinto) by Filipepi Alessandro detto Botticelli (sec. XV)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</a>
-              </td>
-              <td>
-                  <pre>"Madonna con Bambino, San Giovannino e angeli (dipinto) by Filipepi Alessandro detto Sandro Botticelli (sec. XV)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</a>
-              </td>
-              <td>
-                  <pre>"Madonna con Bambino, San Giovannino e angeli (dipinto) di Filipepi Alessandro detto Sandro Botticelli (sec. XV)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004108">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004108</a>
-              </td>
-              <td>
-                  <pre>"Madonna col bambino di Botticelli (stampa a colori/ cartolina postale) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004113">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004113</a>
-              </td>
-              <td>
-                  <pre>"La Madonna del Magnificat di Botticelli (stampa a colori/ cartolina postale) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004449">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004449</a>
-              </td>
-              <td>
-                  <pre>"La Primavera di Botticelli - Particolare (stampa a colori/ cartolina postale) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004461">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004461</a>
-              </td>
-              <td>
-                  <pre>"La nascita della Venere di Botticelli (stampa a colori/ cartolina postale) (1926-1950)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004466">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004466</a>
-              </td>
-              <td>
-                  <pre>"La Primavera di Botticelli - Particolare (stampa a colori/ cartolina postale) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004467">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004467</a>
-              </td>
-              <td>
-                  <pre>"La nascita della Venere di Botticelli (stampa a colori/ cartolina postale) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005479">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005479</a>
-              </td>
-              <td>
-                  <pre>"Ritratto di Giuliano de&#39; Medici di Botticelli e bottega (stampa a colori/ cartolina postale) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005595">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005595</a>
-              </td>
-              <td>
-                  <pre>"Venere e Marte di Botticelli - Particolare (stampa a colori/ cartolina postale) (2001-2010)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000081">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000081</a>
-              </td>
-              <td>
-                  <pre>"La Primavera di Botticelli - Dettaglio (positivo) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000082">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000082</a>
-              </td>
-              <td>
-                  <pre>"La Primavera di Botticelli - Dettaglio (positivo) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000083">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000083</a>
-              </td>
-              <td>
-                  <pre>"Adorazione dei Pastori di Botticelli (positivo) (1951-2000)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082019">https://w3id.org/arco/resource/PhotographicHeritage/0800082019</a>
-              </td>
-              <td>
-                  <pre>"Ritratti di papi - Affreschi (positivo) di Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082019">https://w3id.org/arco/resource/PhotographicHeritage/0800082019</a>
-              </td>
-              <td>
-                  <pre>"Ritratti di papi - Affreschi (positivo) by Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082021">https://w3id.org/arco/resource/PhotographicHeritage/0800082021</a>
-              </td>
-              <td>
-                  <pre>"Ritratti di papi - Affreschi (positivo) di Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082021">https://w3id.org/arco/resource/PhotographicHeritage/0800082021</a>
-              </td>
-              <td>
-                  <pre>"Ritratti di papi - Affreschi (positivo) by Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082022">https://w3id.org/arco/resource/PhotographicHeritage/0800082022</a>
-              </td>
-              <td>
-                  <pre>"Ritratti di papi - Affreschi (positivo) di Botticelli, Sandro (scuola), Fratelli Alinari (ditta) (XIX)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082022">https://w3id.org/arco/resource/PhotographicHeritage/0800082022</a>
-              </td>
-              <td>
-                  <pre>"Ritratti di papi - Affreschi (positivo) by Botticelli, Sandro (scuola), Fratelli Alinari (ditta) (XIX)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082024">https://w3id.org/arco/resource/PhotographicHeritage/0800082024</a>
-              </td>
-              <td>
-                  <pre>"Storie di Cristo - Affreschi (positivo) by Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082024">https://w3id.org/arco/resource/PhotographicHeritage/0800082024</a>
-              </td>
-              <td>
-                  <pre>"Storie di Cristo - Affreschi (positivo) di Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082026">https://w3id.org/arco/resource/PhotographicHeritage/0800082026</a>
-              </td>
-              <td>
-                  <pre>"Annunciazione - Dipinti (positivo) by Botticelli, Sandro, Anonimo (XIX/ XX)"@en</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082026">https://w3id.org/arco/resource/PhotographicHeritage/0800082026</a>
-              </td>
-              <td>
-                  <pre>"Annunciazione - Dipinti (positivo) di Botticelli, Sandro, Anonimo (XIX/ XX)"@it</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Subject/4e086dcd28868772bb664d0c19e4a785">https://w3id.org/arco/resource/Subject/4e086dcd28868772bb664d0c19e4a785</a>
-              </td>
-              <td>
-                  <pre>"Riproduzione Di Dettagli Di Dipinti: Arnold Böcklin, Malinconia; Sandro Botticelli, Il Ritorno Di Giuditta A Betulia; Caravaggio, Maddalena Addolorata; Giorgio De Chirico, Piazza D’italia (souvenir D’italie)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082003-firenze-galleria-uffizi-ritratto-di-alessandro-filipepi-detto-botticelli-dettaglio-del-suo-quadro-ladorazione-dei-re-magi">https://w3id.org/arco/resource/Title/0800082003-firenze-galleria-uffizi-ritratto-di-alessandro-filipepi-detto-botticelli-dettaglio-del-suo-quadro-ladorazione-dei-re-magi</a>
-              </td>
-              <td>
-                  <pre>"Firenze - Galleria Uffizi. Ritratto di Alessandro Filipepi detto Botticelli./ (Dettaglio del suo quadro l&#39;Adorazione dei Re Magi)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082004-firenze-galleria-uffizi-la-calunnia-a-filipepi-detto-botticelli">https://w3id.org/arco/resource/Title/0800082004-firenze-galleria-uffizi-la-calunnia-a-filipepi-detto-botticelli</a>
-              </td>
-              <td>
-                  <pre>"Firenze - Galleria Uffizi. La Calunnia (A. Filipepi, detto Botticelli)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082005-firenze-r-galleria-antica-e-moderna-larcangiolo-raffaello-con-tobia-botticelli">https://w3id.org/arco/resource/Title/0800082005-firenze-r-galleria-antica-e-moderna-larcangiolo-raffaello-con-tobia-botticelli</a>
-              </td>
-              <td>
-                  <pre>"Firenze - R. Galleria Antica e Moderna/ l&#39;Arcangiolo Raffaello con Tobia (Botticelli)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082006-firenze-r-galleria-antica-e-moderna-salome-con-la-testa-di-sgiovanni-la-pieta-botticelli">https://w3id.org/arco/resource/Title/0800082006-firenze-r-galleria-antica-e-moderna-salome-con-la-testa-di-sgiovanni-la-pieta-botticelli</a>
-              </td>
-              <td>
-                  <pre>"Firenze - R. Galleria Antica e Moderna./ Salomè con la testa di S.Giovanni - La Pietà (Botticelli)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082006-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-gesu-cristo-che-esce-dal-sepolcro-e-salome-con-la-testa-di-san-giovanni">https://w3id.org/arco/resource/Title/0800082006-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-gesu-cristo-che-esce-dal-sepolcro-e-salome-con-la-testa-di-san-giovanni</a>
-              </td>
-              <td>
-                  <pre>"R.Galleria Antica e Moderna/ Filipepi Alessandro (Botticelli.) - Gesù Cristo che esce dal sepolcro e Salome con la testa di San Giovanni"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082007-firenze-r-galleria-antica-e-moderna-visione-di-santagostino-botticelli-santagostino-morto-botticelli">https://w3id.org/arco/resource/Title/0800082007-firenze-r-galleria-antica-e-moderna-visione-di-santagostino-botticelli-santagostino-morto-botticelli</a>
-              </td>
-              <td>
-                  <pre>"Firenze - R. Galleria Antica e Moderna. Visione di Sant&#39;Agostino. (Botticelli)./ Sant&#39;Agostino morto. (Botticelli.)"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082007-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-la-visione-di-santagostino-e-santagostino-morto">https://w3id.org/arco/resource/Title/0800082007-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-la-visione-di-santagostino-e-santagostino-morto</a>
-              </td>
-              <td>
-                  <pre>"R.Galleria Antica e Moderna/ Filipepi Alessandro (Botticelli.) - La Visione di Sant&#39;Agostino e Sant&#39;Agostino morto"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082008-botticelli-sandro-bottega-di-ritratto-di-giovane-ignoto-firenze-galleria-degli-uffizi">https://w3id.org/arco/resource/Title/0800082008-botticelli-sandro-bottega-di-ritratto-di-giovane-ignoto-firenze-galleria-degli-uffizi</a>
-              </td>
-              <td>
-                  <pre>"Botticelli Sandro, (bottega di). Ritratto di giovane ignoto, Firenze, Galleria degli Uffizi"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082009-botticelli-sandro-adorazione-dei-magi-londra-the-national-gallery">https://w3id.org/arco/resource/Title/0800082009-botticelli-sandro-adorazione-dei-magi-londra-the-national-gallery</a>
-              </td>
-              <td>
-                  <pre>"Botticelli Sandro. Adorazione dei Magi, Londra, The National Gallery"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082010-milano-ambrosiana-madonna-col-figlio-ed-angioli-sandro-botticelli">https://w3id.org/arco/resource/Title/0800082010-milano-ambrosiana-madonna-col-figlio-ed-angioli-sandro-botticelli</a>
-              </td>
-              <td>
-                  <pre>"Milano (Ambrosiana) Madonna col Figlio ed Angioli.- - Sandro Botticelli"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082011-botticelli-sandro-ultima-comunione-di-s-girolamo-new-york-metropolitan-museum-of-art">https://w3id.org/arco/resource/Title/0800082011-botticelli-sandro-ultima-comunione-di-s-girolamo-new-york-metropolitan-museum-of-art</a>
-              </td>
-              <td>
-                  <pre>"Botticelli Sandro. Ultima comunione di S. Girolamo, New York, Metropolitan Museum of Art"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082012-preparatory-final-work-title-roma-palazzo-vaticano-cappella-sistina-filipepi-alessandro-detto-botticelli-era-cristiana-551-san-cornelio-id">https://w3id.org/arco/resource/Title/0800082012-preparatory-final-work-title-roma-palazzo-vaticano-cappella-sistina-filipepi-alessandro-detto-botticelli-era-cristiana-551-san-cornelio-id</a>
-              </td>
-              <td>
-                  <pre>"Roma./ Palazzo Vaticano - Cappella Sistina/ Filipepi Alessandro, detto Botticelli./ Era Cristiana 551, San Cornelio, id"</pre>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <a href="https://w3id.org/arco/resource/Title/0800082012-roma-palazzo-vaticano-cappella-sistina-s-cornelio-affresco-fra-le-finestre-afilipepi-detto-botticelli">https://w3id.org/arco/resource/Title/0800082012-roma-palazzo-vaticano-cappella-sistina-s-cornelio-affresco-fra-le-finestre-afilipepi-detto-botticelli</a>
-              </td>
-              <td>
-                  <pre>"Roma - Palazzo Vaticano Cappella Sistina. S. Cornelio. Affresco fra le finestre/ (A.Filipepi detto Botticelli)"</pre>
-              </td>
-          </tr>
-      </table>
-        </div>
-    </main>
-
-    <footer class="site-footer">
-        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
-    </footer>
-
-    <script src="resources/main.js"></script>
+<body>
+<div class="container-fluid">
+<nav class="navbar navbar-expand-md sticky-top navbar-light bg-light"><a class="navbar-brand" href="#" onclick="javascript:history.go(-1); return false;">SPARQL | HTML5 table</a></nav>
+<table class="table table-striped table-sm table-borderless">
+  <tr>
+    <th>entity</th>
+    <th>label</th>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a></td>
+    <td><pre>"Il settimo splendore. La modernità della malinconia da Botticelli a Bocklin, da Giorgione a De Chirico, da Caravaggio a Magritte"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a></td>
+    <td><pre>"Sala di Botticelli"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a></td>
+    <td><pre>"Sandro Botticelli, Nascita di Venere (1485 ca)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a></td>
+    <td><pre>"San Vincenzo Ferrer (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a></td>
+    <td><pre>"San Vincenzo Ferrer (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a></td>
+    <td><pre>"ultima comunione di San Girolamo (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a></td>
+    <td><pre>"ultima comunione di San Girolamo (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a></td>
+    <td><pre>"San Francesco d&#39;Assisi (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a></td>
+    <td><pre>"San Francesco d&#39;Assisi (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4</a></td>
+    <td><pre>"profeti (formella, serie) by Giuliano da Maiano, Filipepi Alessandro detto Botticelli Sandro (sec. XV)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900665692-4</a></td>
+    <td><pre>"profeti (formella, serie) di Giuliano da Maiano, Filipepi Alessandro detto Botticelli Sandro (sec. XV)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153</a></td>
+    <td><pre>"Madonna con Bambino e San Giovannino (dipinto) di Filipepi Alessandro detto Botticelli (sec. XV)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900187153</a></td>
+    <td><pre>"Madonna con Bambino e San Giovannino (dipinto) by Filipepi Alessandro detto Botticelli (sec. XV)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</a></td>
+    <td><pre>"Madonna con Bambino, San Giovannino e angeli (dipinto) by Filipepi Alessandro detto Sandro Botticelli (sec. XV)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</a></td>
+    <td><pre>"Madonna con Bambino, San Giovannino e angeli (dipinto) di Filipepi Alessandro detto Sandro Botticelli (sec. XV)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004108">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004108</a></td>
+    <td><pre>"Madonna col bambino di Botticelli (stampa a colori/ cartolina postale) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004113">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004113</a></td>
+    <td><pre>"La Madonna del Magnificat di Botticelli (stampa a colori/ cartolina postale) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004449">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004449</a></td>
+    <td><pre>"La Primavera di Botticelli - Particolare (stampa a colori/ cartolina postale) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004461">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004461</a></td>
+    <td><pre>"La nascita della Venere di Botticelli (stampa a colori/ cartolina postale) (1926-1950)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004466">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004466</a></td>
+    <td><pre>"La Primavera di Botticelli - Particolare (stampa a colori/ cartolina postale) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004467">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC004467</a></td>
+    <td><pre>"La nascita della Venere di Botticelli (stampa a colori/ cartolina postale) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005479">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005479</a></td>
+    <td><pre>"Ritratto di Giuliano de&#39; Medici di Botticelli e bottega (stampa a colori/ cartolina postale) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005595">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/DVC005595</a></td>
+    <td><pre>"Venere e Marte di Botticelli - Particolare (stampa a colori/ cartolina postale) (2001-2010)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000081">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000081</a></td>
+    <td><pre>"La Primavera di Botticelli - Dettaglio (positivo) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000082">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000082</a></td>
+    <td><pre>"La Primavera di Botticelli - Dettaglio (positivo) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000083">http://dati.beniculturali.it/iccd/fotografico/resource/CulturalProperty/OF000083</a></td>
+    <td><pre>"Adorazione dei Pastori di Botticelli (positivo) (1951-2000)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082019">https://w3id.org/arco/resource/PhotographicHeritage/0800082019</a></td>
+    <td><pre>"Ritratti di papi - Affreschi (positivo) di Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082019">https://w3id.org/arco/resource/PhotographicHeritage/0800082019</a></td>
+    <td><pre>"Ritratti di papi - Affreschi (positivo) by Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082021">https://w3id.org/arco/resource/PhotographicHeritage/0800082021</a></td>
+    <td><pre>"Ritratti di papi - Affreschi (positivo) di Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082021">https://w3id.org/arco/resource/PhotographicHeritage/0800082021</a></td>
+    <td><pre>"Ritratti di papi - Affreschi (positivo) by Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082022">https://w3id.org/arco/resource/PhotographicHeritage/0800082022</a></td>
+    <td><pre>"Ritratti di papi - Affreschi (positivo) di Botticelli, Sandro (scuola), Fratelli Alinari (ditta) (XIX)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082022">https://w3id.org/arco/resource/PhotographicHeritage/0800082022</a></td>
+    <td><pre>"Ritratti di papi - Affreschi (positivo) by Botticelli, Sandro (scuola), Fratelli Alinari (ditta) (XIX)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082024">https://w3id.org/arco/resource/PhotographicHeritage/0800082024</a></td>
+    <td><pre>"Storie di Cristo - Affreschi (positivo) by Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082024">https://w3id.org/arco/resource/PhotographicHeritage/0800082024</a></td>
+    <td><pre>"Storie di Cristo - Affreschi (positivo) di Botticelli, Sandro, Fratelli Alinari (ditta) (XIX)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082026">https://w3id.org/arco/resource/PhotographicHeritage/0800082026</a></td>
+    <td><pre>"Annunciazione - Dipinti (positivo) by Botticelli, Sandro, Anonimo (XIX/ XX)"@en</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/PhotographicHeritage/0800082026">https://w3id.org/arco/resource/PhotographicHeritage/0800082026</a></td>
+    <td><pre>"Annunciazione - Dipinti (positivo) di Botticelli, Sandro, Anonimo (XIX/ XX)"@it</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Subject/4e086dcd28868772bb664d0c19e4a785">https://w3id.org/arco/resource/Subject/4e086dcd28868772bb664d0c19e4a785</a></td>
+    <td><pre>"Riproduzione Di Dettagli Di Dipinti: Arnold Böcklin, Malinconia; Sandro Botticelli, Il Ritorno Di Giuditta A Betulia; Caravaggio, Maddalena Addolorata; Giorgio De Chirico, Piazza D’italia (souvenir D’italie)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082003-firenze-galleria-uffizi-ritratto-di-alessandro-filipepi-detto-botticelli-dettaglio-del-suo-quadro-ladorazione-dei-re-magi">https://w3id.org/arco/resource/Title/0800082003-firenze-galleria-uffizi-ritratto-di-alessandro-filipepi-detto-botticelli-dettaglio-del-suo-quadro-ladorazione-dei-re-magi</a></td>
+    <td><pre>"Firenze - Galleria Uffizi. Ritratto di Alessandro Filipepi detto Botticelli./ (Dettaglio del suo quadro l&#39;Adorazione dei Re Magi)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082004-firenze-galleria-uffizi-la-calunnia-a-filipepi-detto-botticelli">https://w3id.org/arco/resource/Title/0800082004-firenze-galleria-uffizi-la-calunnia-a-filipepi-detto-botticelli</a></td>
+    <td><pre>"Firenze - Galleria Uffizi. La Calunnia (A. Filipepi, detto Botticelli)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082005-firenze-r-galleria-antica-e-moderna-larcangiolo-raffaello-con-tobia-botticelli">https://w3id.org/arco/resource/Title/0800082005-firenze-r-galleria-antica-e-moderna-larcangiolo-raffaello-con-tobia-botticelli</a></td>
+    <td><pre>"Firenze - R. Galleria Antica e Moderna/ l&#39;Arcangiolo Raffaello con Tobia (Botticelli)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082006-firenze-r-galleria-antica-e-moderna-salome-con-la-testa-di-sgiovanni-la-pieta-botticelli">https://w3id.org/arco/resource/Title/0800082006-firenze-r-galleria-antica-e-moderna-salome-con-la-testa-di-sgiovanni-la-pieta-botticelli</a></td>
+    <td><pre>"Firenze - R. Galleria Antica e Moderna./ Salomè con la testa di S.Giovanni - La Pietà (Botticelli)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082006-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-gesu-cristo-che-esce-dal-sepolcro-e-salome-con-la-testa-di-san-giovanni">https://w3id.org/arco/resource/Title/0800082006-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-gesu-cristo-che-esce-dal-sepolcro-e-salome-con-la-testa-di-san-giovanni</a></td>
+    <td><pre>"R.Galleria Antica e Moderna/ Filipepi Alessandro (Botticelli.) - Gesù Cristo che esce dal sepolcro e Salome con la testa di San Giovanni"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082007-firenze-r-galleria-antica-e-moderna-visione-di-santagostino-botticelli-santagostino-morto-botticelli">https://w3id.org/arco/resource/Title/0800082007-firenze-r-galleria-antica-e-moderna-visione-di-santagostino-botticelli-santagostino-morto-botticelli</a></td>
+    <td><pre>"Firenze - R. Galleria Antica e Moderna. Visione di Sant&#39;Agostino. (Botticelli)./ Sant&#39;Agostino morto. (Botticelli.)"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082007-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-la-visione-di-santagostino-e-santagostino-morto">https://w3id.org/arco/resource/Title/0800082007-preparatory-final-work-title-rgalleria-antica-e-moderna-filipepi-alessandro-botticelli-la-visione-di-santagostino-e-santagostino-morto</a></td>
+    <td><pre>"R.Galleria Antica e Moderna/ Filipepi Alessandro (Botticelli.) - La Visione di Sant&#39;Agostino e Sant&#39;Agostino morto"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082008-botticelli-sandro-bottega-di-ritratto-di-giovane-ignoto-firenze-galleria-degli-uffizi">https://w3id.org/arco/resource/Title/0800082008-botticelli-sandro-bottega-di-ritratto-di-giovane-ignoto-firenze-galleria-degli-uffizi</a></td>
+    <td><pre>"Botticelli Sandro, (bottega di). Ritratto di giovane ignoto, Firenze, Galleria degli Uffizi"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082009-botticelli-sandro-adorazione-dei-magi-londra-the-national-gallery">https://w3id.org/arco/resource/Title/0800082009-botticelli-sandro-adorazione-dei-magi-londra-the-national-gallery</a></td>
+    <td><pre>"Botticelli Sandro. Adorazione dei Magi, Londra, The National Gallery"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082010-milano-ambrosiana-madonna-col-figlio-ed-angioli-sandro-botticelli">https://w3id.org/arco/resource/Title/0800082010-milano-ambrosiana-madonna-col-figlio-ed-angioli-sandro-botticelli</a></td>
+    <td><pre>"Milano (Ambrosiana) Madonna col Figlio ed Angioli.- - Sandro Botticelli"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082011-botticelli-sandro-ultima-comunione-di-s-girolamo-new-york-metropolitan-museum-of-art">https://w3id.org/arco/resource/Title/0800082011-botticelli-sandro-ultima-comunione-di-s-girolamo-new-york-metropolitan-museum-of-art</a></td>
+    <td><pre>"Botticelli Sandro. Ultima comunione di S. Girolamo, New York, Metropolitan Museum of Art"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082012-preparatory-final-work-title-roma-palazzo-vaticano-cappella-sistina-filipepi-alessandro-detto-botticelli-era-cristiana-551-san-cornelio-id">https://w3id.org/arco/resource/Title/0800082012-preparatory-final-work-title-roma-palazzo-vaticano-cappella-sistina-filipepi-alessandro-detto-botticelli-era-cristiana-551-san-cornelio-id</a></td>
+    <td><pre>"Roma./ Palazzo Vaticano - Cappella Sistina/ Filipepi Alessandro, detto Botticelli./ Era Cristiana 551, San Cornelio, id"</pre></td>
+  </tr>
+  <tr>
+    <td><a href="https://w3id.org/arco/resource/Title/0800082012-roma-palazzo-vaticano-cappella-sistina-s-cornelio-affresco-fra-le-finestre-afilipepi-detto-botticelli">https://w3id.org/arco/resource/Title/0800082012-roma-palazzo-vaticano-cappella-sistina-s-cornelio-affresco-fra-le-finestre-afilipepi-detto-botticelli</a></td>
+    <td><pre>"Roma - Palazzo Vaticano Cappella Sistina. S. Cornelio. Affresco fra le finestre/ (A.Filipepi detto Botticelli)"</pre></td>
+  </tr>
+</table></div>
 </body>
 </html>
