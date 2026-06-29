@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>RDF Enrichment</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html" aria-current="page">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>RDF Triples and Proposed Enrichment</h2>
+
+            <p>
+                This section presents the RDF triples proposed to enrich the representation of the
+                selected Botticelli painting in the ArCo knowledge graph. The enrichment addresses gaps
+                identified through <a href="sparql.html">SPARQL</a> and
+                <a href="llm-prompts.html">LLM</a> analysis.
+            </p>
+
+            <h3>Main resource</h3>
+            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
+
+            <h3>Enrichment strategy</h3>
+            <ul>
+                <li><strong>Gap 1:</strong> philosophical / interpretative context appears in photographic labels but not as structured subjects</li>
+                <li><strong>Gap 2:</strong> no direct triples link the painting to Neoplatonism</li>
+            </ul>
+            <p>
+                The enrichment reuses existing ArCo properties from the
+                <a href="https://w3id.org/arco/ontology/context-description/" target="_blank">Context Description</a>
+                and <a href="https://w3id.org/arco/ontology/core/" target="_blank">Core</a> modules.
+            </p>
+
+            <figure>
+                <img src="../images/scheme.png" alt="Diagram of proposed RDF enrichment linking the painting to Neoplatonism as a subject">
+                <figcaption>Proposed enrichment: linking the painting to Neoplatonism through <code>a-cd:hasSubject</code>.</figcaption>
+            </figure>
+
+            <h3>Vocabulary reused</h3>
+            <ul>
+                <li><code>a-cd:hasSubject</code> — links the cultural property to a subject resource</li>
+                <li><code>a-cd:Subject</code> — types the subject entity</li>
+                <li><code>core:involvesAgent</code> — optional link to Marsilio Ficino as intellectual agent</li>
+                <li><code>rdfs:label</code> — bilingual labels for new resources</li>
+            </ul>
+
+            <h3>SPARQL CONSTRUCT query</h3>
+<pre>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
+PREFIX core: &lt;https://w3id.org/arco/ontology/core/&gt;
+PREFIX ex: &lt;https://example.org/botticelli-enrichment/&gt;
+
+CONSTRUCT {
+  &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt;
+      a-cd:hasSubject ex:Neoplatonism ;
+      core:involvesAgent ex:MarsilioFicino .
+
+  ex:Neoplatonism
+      rdf:type a-cd:Subject ;
+      rdfs:label "Neoplatonism"@en ;
+      rdfs:label "Neoplatonismo"@it .
+
+  ex:MarsilioFicino
+      rdf:type core:Agent ;
+      rdfs:label "Marsilio Ficino"@en ;
+      rdfs:label "Marsilio Ficino"@it .
+}
+WHERE { }</pre>
+
+            <h3>Produced RDF triples (Turtle)</h3>
+<pre>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt; .
+@prefix core: &lt;https://w3id.org/arco/ontology/core/&gt; .
+@prefix ex: &lt;https://example.org/botticelli-enrichment/&gt; .
+
+&lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt;
+    a-cd:hasSubject ex:Neoplatonism ;
+    core:involvesAgent ex:MarsilioFicino .
+
+ex:Neoplatonism
+    rdf:type a-cd:Subject ;
+    rdfs:label "Neoplatonism"@en ;
+    rdfs:label "Neoplatonismo"@it .
+
+ex:MarsilioFicino
+    rdf:type core:Agent ;
+    rdfs:label "Marsilio Ficino"@en ;
+    rdfs:label "Marsilio Ficino"@it .</pre>
+
+            <h3>Interpretation</h3>
+            <p>
+                Instead of introducing a custom predicate such as <code>influencedBy</code>, the enrichment
+                models Neoplatonism as an <code>a-cd:Subject</code> linked through <code>a-cd:hasSubject</code>,
+                following the modelling pattern illustrated in the KE4H course materials (e.g. subject representation
+                for cultural properties). Marsilio Ficino is included as an optional
+                <code>core:Agent</code> connected to the intellectual context of Botticelli's Florence.
+            </p>
+
+            <h3>Modelling decision</h3>
+            <p>
+                An initial version of this project used <code>ex:influencedBy</code> on the
+                <code>example.org</code> namespace. After reviewing the ArCo ontology network,
+                that approach was replaced: <code>a-cd:hasSubject</code> and <code>core:involvesAgent</code>
+                are already defined for cultural properties and agents. Custom properties were therefore
+                not introduced. Only new URIs under <code>ex:</code> identify specific subject and agent
+                resources missing from the original RDF description.
+            </p>
+
+            <h3>Why these triples improve the knowledge graph</h3>
+            <ul>
+                <li>Philosophical context becomes directly queryable via <code>a-cd:hasSubject</code></li>
+                <li>The enrichment is aligned with ArCo's Context Description module</li>
+                <li>Future SPARQL queries can retrieve subjects without parsing photographic labels</li>
+            </ul>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="llm-prompts.html">&larr; LLM Prompts</a>
+                <a href="validation.html">Validation &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

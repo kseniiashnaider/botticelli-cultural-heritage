@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Topic — Sandro Botticelli in ArCo</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html" aria-current="page">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Topic</h2>
+
+            <figure>
+                <img src="../images/BotticelliPortrait.jpg" alt="Portrait of Sandro Botticelli" width="300">
+                <figcaption>
+                    <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
+                    (1445–1510), Florentine painter of the Early Renaissance.
+                </figcaption>
+            </figure>
+
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
+                (born Alessandro di Mariano Filipepi) was one of the leading painters of the
+                <a href="https://en.wikipedia.org/wiki/Italian_Renaissance" target="_blank">Italian Renaissance</a>.
+                Works such as
+                <a href="https://en.wikipedia.org/wiki/The_Birth_of_Venus" target="_blank"><em>The Birth of Venus</em></a>
+                and
+                <a href="https://en.wikipedia.org/wiki/Primavera_(Botticelli)" target="_blank"><em>Primavera</em></a>
+                are frequently discussed in relation to
+                <a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">Neoplatonic</a>
+                and humanist culture in
+                <a href="https://en.wikipedia.org/wiki/Florence" target="_blank">Florence</a>.
+            </p>
+
+            <h3>Why ArCo?</h3>
+            <p>
+                The
+                <a href="https://arco.istc.cnr.it/" target="_blank">ArCo</a>
+                (<em>Architettura del Conoscimento</em>) knowledge graph catalogues Italian cultural heritage
+                using a network of ontologies. It is well suited to this project because it combines
+                catalogue metadata, context description and links to photographic documentation — allowing
+                us to compare what is explicitly modelled in RDF with what appears only in related resource labels.
+            </p>
+
+            <h3>Selected main resource</h3>
+            <p>
+                After an initial discovery query (see
+                <a href="sparql.html#query-1">Query 1</a>),
+                the following resource was selected as the anchor of the analysis:
+            </p>
+            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
+            <p>
+                <strong>Label:</strong>
+                <em>Madonna con Bambino, San Giovannino e angeli (dipinto) di Filipepi Alessandro detto Sandro Botticelli (sec. XV)</em>
+            </p>
+            <p>
+                <strong>Type:</strong>
+                <a href="https://w3id.org/arco/ontology/arco/" target="_blank">HistoricOrArtisticProperty</a>
+                — a catalogued painting with clear attribution to Botticelli.
+                All subsequent SPARQL queries use this URI through the <code>VALUES</code> clause.
+            </p>
+            <p>
+                <a href="https://dati.cultura.gov.it/sparql" target="_blank">Browse the resource in the ArCo SPARQL endpoint</a>
+            </p>
+
+            <h3>Major works (context)</h3>
+            <figure>
+                <img src="../images/BirthOfVenus.jpg" alt="The Birth of Venus by Botticelli" width="560">
+                <figcaption>
+                    <a href="https://en.wikipedia.org/wiki/The_Birth_of_Venus" target="_blank"><em>The Birth of Venus</em></a>
+                    — often discussed in relation to Neoplatonic interpretation.
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="../images/Primavera.jpg" alt="Primavera by Botticelli" width="560">
+                <figcaption>
+                    <a href="https://en.wikipedia.org/wiki/Primavera_(Botticelli)" target="_blank"><em>Primavera</em></a>
+                    — allegorical and mythological readings are common in art historical literature.
+                </figcaption>
+            </figure>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="../index.html">&larr; Home</a>
+                <a href="methodology.html">Methodology &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

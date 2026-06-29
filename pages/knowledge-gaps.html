@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Identifying Knowledge Gaps</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html" aria-current="page">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>How We Identified the Information Gaps</h2>
+
+            <p>
+                This section explains how the main information gaps were identified in the ArCo
+                representation of the selected Botticelli painting. The analysis compares information
+                directly represented in the RDF description of the anchor resource with information
+                that appears indirectly in related photographic resources, and cross-checks the
+                findings with LLM-assisted review.
+            </p>
+            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
+
+            <hr>
+
+            <h3 id="gap-1">1. Gap — Missing structured philosophical / interpretative context</h3>
+            <p>
+                The first gap concerns interpretative and philosophical context associated with
+                Botticelli's work. We checked whether concepts such as
+                <a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">Neoplatonism</a>
+                are modelled through <code>a-cd:hasSubject</code> or similar properties.
+            </p>
+
+            <h4>SPARQL evidence — Query 4</h4>
+            <p>See <a href="sparql.html#query-4">Query 4</a> (UNION: direct relations vs photographic labels).</p>
+
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Insert Query 4 result table here after running at the endpoint.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="Placeholder for Query 4 results">
+            </div>
+
+            <h4>Interpretation</h4>
+            <p>
+                When philosophical entities appear repeatedly in photographic labels but not as direct
+                semantic relations, the knowledge exists in the dataset but is not represented at the
+                right level. The proposed enrichment adds explicit
+                <code>a-cd:hasSubject</code> relations (see
+                <a href="rdf-enrichment.html">RDF Enrichment</a>).
+            </p>
+
+            <hr>
+
+            <h3 id="gap-2">2. Gap — No direct triples linking the painting to Neoplatonism</h3>
+            <p>
+                The second gap was verified by excluding <code>rdfs:seeAlso</code> and searching only
+                among direct properties of the anchor resource.
+            </p>
+
+            <h4>SPARQL evidence — Query 6</h4>
+            <p>See <a href="sparql.html#query-6">Query 6</a>.</p>
+
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Expected: empty result set.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="Placeholder for Query 6 results">
+            </div>
+
+            <h4>Interpretation</h4>
+            <p>
+                The absence of results confirms that Neoplatonism and related entities are not directly
+                linked to the painting through structured properties. This gap motivates the RDF
+                enrichment discussed in the next sections.
+            </p>
+
+            <hr>
+
+            <h3>3. LLM-assisted gap analysis</h3>
+            <p>
+                Three LLMs were asked which contextual information about Botticelli is commonly discussed
+                in art history but may be missing from cultural heritage knowledge graphs. Details of
+                prompts and techniques are in <a href="llm-prompts.html">LLM Prompts</a>.
+            </p>
+
+            <table>
+                <tr>
+                    <th>LLM</th>
+                    <th>Main suggestions</th>
+                </tr>
+                <tr>
+                    <td><a href="https://chatgpt.com" target="_blank">ChatGPT</a></td>
+                    <td>Neoplatonism, Renaissance Humanism, artistic symbolism</td>
+                </tr>
+                <tr>
+                    <td><a href="https://claude.ai" target="_blank">Claude</a></td>
+                    <td>Medici intellectual circle, philosophical influences, symbolism</td>
+                </tr>
+                <tr>
+                    <td><a href="https://gemini.google.com" target="_blank">Gemini</a></td>
+                    <td>Mythological interpretation, cultural context, Renaissance philosophy</td>
+                </tr>
+            </table>
+
+            <p>
+                Although wording differed, all models pointed to philosophical and interpretative themes
+                not typically encoded as catalogue fields. Among candidates,
+                <strong>Neoplatonism</strong> was selected for enrichment because it recurred across models
+                and is supported by art historical literature
+                (<a href="https://plato.stanford.edu/entries/neoplatonism/" target="_blank">SEP — Neoplatonism</a>).
+            </p>
+
+            <h3>Summary of missing information</h3>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Missing information</th>
+                    <th>Importance</th>
+                </tr>
+                <tr>
+                    <td>Philosophy</td>
+                    <td><a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">Neoplatonism</a></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Intellectual context</td>
+                    <td><a href="https://en.wikipedia.org/wiki/Renaissance_humanism" target="_blank">Renaissance Humanism</a></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Social context</td>
+                    <td><a href="https://en.wikipedia.org/wiki/House_of_Medici" target="_blank">Medici circle</a></td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>Symbolism</td>
+                    <td>Allegorical readings of major works</td>
+                    <td>High</td>
+                </tr>
+            </table>
+
+            <figure>
+                <img src="../images/tableAvailableInAcrco.png" alt="Comparison of information available in ArCo versus missing contextual knowledge">
+                <figcaption>Comparison of catalogue metadata available in ArCo and contextual knowledge identified as missing.</figcaption>
+            </figure>
+
+            <h3>Final conclusion</h3>
+            <p>
+                Gap identification combined SPARQL evidence (Queries 4 and 6) with LLM comparison.
+                The proposed enrichment aims to transform implicit textual information into explicit,
+                machine-readable RDF triples using existing ArCo vocabulary.
+            </p>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="sparql.html">&larr; SPARQL</a>
+                <a href="llm-prompts.html">LLM Prompts &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

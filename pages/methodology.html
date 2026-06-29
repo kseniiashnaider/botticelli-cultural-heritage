@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Methodology</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html" aria-current="page">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Methodology</h2>
+
+            <p>
+                This project follows the <strong>Project 1</strong> track defined in the KE4H course:
+                enriching a knowledge graph through SPARQL exploration, gap identification and proposed RDF triples.
+                The methodology combines graph-based evidence with LLM-assisted analysis.
+            </p>
+
+            <figure>
+                <img src="../images/scheme.png" alt="Methodology diagram">
+                <figcaption>Overview of the methodological pipeline.</figcaption>
+            </figure>
+
+            <h3>Tools</h3>
+            <ul>
+                <li>
+                    <a href="https://dati.cultura.gov.it/sparql" target="_blank">ArCo SPARQL endpoint</a>
+                    — querying the live knowledge graph
+                </li>
+                <li>
+                    <a href="http://wit.istc.cnr.it/arco/" target="_blank">ArCo ontology documentation</a>
+                    — identifying classes and properties (Core, Context Description, Catalogue)
+                </li>
+                <li>
+                    <a href="https://chatgpt.com" target="_blank">ChatGPT</a>,
+                    <a href="https://claude.ai" target="_blank">Claude</a>,
+                    <a href="https://gemini.google.com" target="_blank">Gemini</a>
+                    — LLM comparison and prompting experiments
+                </li>
+                <li>GitHub Pages — publication of this report</li>
+            </ul>
+
+            <h3>Methodological steps</h3>
+            <ol>
+                <li><strong>Topic selection</strong> — Sandro Botticelli within ArCo (<a href="topic.html">Topic</a>)</li>
+                <li><strong>SPARQL exploration</strong> — discovery, direct RDF description, structured vs implicit information (<a href="sparql.html">SPARQL</a>)</li>
+                <li><strong>Gap identification</strong> — compare SPARQL results with art historical context; LLM-assisted analysis (<a href="knowledge-gaps.html">Knowledge Gaps</a>, <a href="llm-prompts.html">LLM Prompts</a>)</li>
+                <li><strong>Ontology enrichment</strong> — propose triples using ArCo properties and SPARQL CONSTRUCT (<a href="rdf-enrichment.html">RDF Enrichment</a>)</li>
+                <li><strong>Validation</strong> — future queries that would become possible after enrichment (<a href="validation.html">Validation</a>)</li>
+                <li><strong>Evaluation</strong> — KG-only, LLM-only and hybrid approaches (<a href="evaluation.html">Evaluation</a>)</li>
+            </ol>
+
+            <h3>How the gap was identified</h3>
+            <p>
+                The gap was identified in two complementary ways. First, SPARQL queries compared
+                <em>structured</em> relations of the anchor resource (e.g. <code>a-cd:hasSubject</code>)
+                with <em>implicit</em> mentions of philosophical entities in labels of resources linked through
+                <code>rdfs:seeAlso</code> (see
+                <a href="sparql.html#query-4">Query 4</a>).
+                Second, three LLMs were prompted to suggest contextual information commonly discussed in
+                art history but absent from typical catalogue representations.
+            </p>
+
+            <h3>Approaches tested</h3>
+            <ul>
+                <li><strong>KG-only</strong> — SPARQL queries on ArCo without LLM input</li>
+                <li><strong>LLM-only</strong> — prompts without injecting SPARQL subgraphs</li>
+                <li><strong>Hybrid</strong> — SPARQL results inform LLM prompts; LLM suggestions checked against ArCo and scholarly sources</li>
+            </ul>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="topic.html">&larr; Topic</a>
+                <a href="sparql.html">SPARQL &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

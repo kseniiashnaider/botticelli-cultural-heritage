@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>SPARQL Queries &amp; Results</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html" aria-current="page">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>SPARQL Queries &amp; Results</h2>
+
+            <p>
+                This section presents the main SPARQL queries used to explore the
+                <a href="https://arco.istc.cnr.it/" target="_blank">ArCo</a>
+                knowledge graph and analyse the RDF description of the selected Botticelli painting.
+            </p>
+            <p>
+                <strong>Anchor resource:</strong>
+            </p>
+            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
+            <p>
+                Queries 3–6 use this URI through <code>VALUES</code>.
+                Queries 3–6 are also discussed in the
+                <a href="knowledge-gaps.html">Knowledge Gaps</a> section.
+            </p>
+            <p>
+                <a href="https://dati.cultura.gov.it/sparql" target="_blank">ArCo SPARQL Endpoint</a>
+            </p>
+
+            <hr>
+
+            <h3 id="query-1">Query 1 — Finding Botticelli-related resources</h3>
+            <p>The first step was to confirm that ArCo contains resources related to Botticelli and to select the main artwork for the project.</p>
+
+            <h4>Explanation of keywords used</h4>
+            <ul>
+                <li><code>rdfs:label</code> — textual label of a resource</li>
+                <li><code>FILTER</code> — restricts results to a condition</li>
+                <li><code>REGEX</code> — pattern search inside a string (case-insensitive flag <code>"i"</code>)</li>
+                <li><code>DISTINCT</code> — removes duplicate rows</li>
+                <li><code>ORDER BY</code> — sorts results by label</li>
+                <li><code>LIMIT</code> — caps the number of rows returned</li>
+            </ul>
+
+            <h4>SPARQL Query</h4>
+<pre>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT DISTINCT ?cp ?label
+WHERE {
+  ?cp rdfs:label ?label .
+  FILTER(REGEX(STR(?label), "botticelli", "i"))
+}
+ORDER BY ?label
+LIMIT 50</pre>
+
+            <h4>Results</h4>
+            <figure>
+                <img src="../images/sparqlTable.png" alt="SPARQL Query 1 results — Botticelli-related entities in ArCo">
+                <figcaption>Query 1 results — Botticelli-related entities returned by the ArCo endpoint.</figcaption>
+            </figure>
+            <p>
+                The query confirmed that ArCo contains numerous resources whose labels mention Botticelli,
+                including paintings, photographic reproductions and cultural events.
+                The resource <code>HistoricOrArtisticProperty/1201008107</code> was selected because it is
+                a catalogued painting with explicit attribution to Sandro Botticelli.
+            </p>
+
+            <hr>
+
+            <h3 id="query-2">Query 2 — Exploring the direct RDF description</h3>
+            <p>After identifying the anchor resource, we retrieved all properties and values directly connected to it.</p>
+
+            <h4>Explanation of keywords used</h4>
+            <ul>
+                <li><code>VALUES</code> — restricts the query to the selected resource URI</li>
+                <li><code>?p</code> / <code>?o</code> — predicate and object of each triple</li>
+                <li><code>OPTIONAL</code> — retrieves human-readable labels when available</li>
+                <li><code>ORDER BY</code> — sorts by predicate</li>
+            </ul>
+
+            <h4>SPARQL Query</h4>
+<pre>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT DISTINCT ?p ?pLabel ?o ?oLabel
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+
+  ?cp ?p ?o .
+
+  OPTIONAL { ?p rdfs:label ?pLabel . }
+  OPTIONAL { ?o rdfs:label ?oLabel . }
+}
+ORDER BY ?p
+LIMIT 100</pre>
+
+            <h4>Results</h4>
+            <figure>
+                <img src="../images/sparqlTable2.png" alt="SPARQL Query 2 results — direct RDF properties of the anchor resource">
+                <figcaption>Query 2 results — direct properties of the selected painting.</figcaption>
+            </figure>
+            <p>
+                The query shows that the painting is described through type, labels, location, catalogue links
+                and <code>rdfs:seeAlso</code> connections to photographic documentation.
+                However, the direct RDF description does not explicitly represent philosophical or
+                interpretative context such as Neoplatonism.
+            </p>
+
+            <hr>
+
+            <h3 id="query-3">Query 3 — Checking structured subject and catalogue relations</h3>
+            <p>This query checks whether contextual information is already modelled through ArCo Context Description or Catalogue modules.</p>
+
+            <h4>Explanation of keywords used</h4>
+            <ul>
+                <li><code>UNION</code> — combines two graph patterns in one result set</li>
+                <li><code>a-cd:hasSubject</code> — links a cultural property to a subject resource (Context Description)</li>
+                <li><code>arco-catalogue:</code> / <code>roapit:</code> — catalogue and role-in-time properties</li>
+                <li><code>OPTIONAL</code> — optional labels for predicates and objects</li>
+            </ul>
+
+            <h4>SPARQL Query</h4>
+<pre>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
+PREFIX arco-catalogue: &lt;https://w3id.org/arco/ontology/catalogue/&gt;
+PREFIX roapit: &lt;https://w3id.org/italia/onto/RO/&gt;
+
+SELECT DISTINCT ?relation ?object ?objectLabel
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+
+  {
+    ?cp a-cd:hasSubject ?object .
+    BIND("hasSubject" AS ?relation)
+  }
+  UNION
+  {
+    ?cp arco-catalogue:hasCatalogueRecordVersion/arco-catalogue:hasCatalogueRecordVersionRiT ?rit .
+    ?rit roapit:isRoleInTimeOf ?object .
+    BIND("author (catalogue)" AS ?relation)
+  }
+
+  OPTIONAL { ?object rdfs:label ?objectLabel . }
+}
+ORDER BY ?relation
+LIMIT 50</pre>
+
+            <h4>Results</h4>
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Run Query 3 at the
+                <a href="https://dati.cultura.gov.it/sparql" target="_blank">ArCo SPARQL endpoint</a>
+                and replace this block with a screenshot or HTML table.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="ArCo SPARQL endpoint — placeholder for Query 3 results">
+            </div>
+            <p>
+                The query retrieves structured subject relations and authorship information when present.
+                Philosophical movements such as Neoplatonism are not expected among these direct relations.
+            </p>
+
+            <hr>
+
+            <h3 id="query-4">Query 4 — Structured relations vs photographic labels</h3>
+            <p>
+                This query uses <code>UNION</code> to compare information modelled as direct semantic relations
+                with philosophical and cultural entities mentioned only in labels of photographic resources
+                linked through <code>rdfs:seeAlso</code>.
+            </p>
+
+            <h4>Explanation of keywords used</h4>
+            <ul>
+                <li><code>UNION</code> — compares two types of evidence in one query</li>
+                <li><code>rdfs:seeAlso</code> — links the main resource to related documentation</li>
+                <li><code>REGEX</code> — detects named entities inside photographic labels</li>
+                <li><code>COUNT</code> / <code>GROUP BY</code> — counts resources per entity</li>
+                <li><code>ORDER BY DESC(?numberOfResources)</code> — ranks by frequency</li>
+            </ul>
+
+            <h4>SPARQL Query</h4>
+<pre>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
+
+SELECT ?source ?entityName (COUNT(DISTINCT ?item) AS ?numberOfResources)
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+
+  {
+    ?cp a-cd:hasSubject ?item .
+    BIND("Direct semantic relation" AS ?source)
+    OPTIONAL { ?item rdfs:label ?lbl . }
+    BIND(COALESCE(?lbl, STR(?item)) AS ?entityName)
+  }
+
+  UNION
+
+  {
+    ?cp rdfs:seeAlso ?item .
+    ?item rdfs:label ?photoLabel .
+    BIND("Photographic resource label" AS ?source)
+
+    BIND(
+      IF(REGEX(STR(?photoLabel), "Neoplaton", "i"), "Neoplatonism",
+      IF(REGEX(STR(?photoLabel), "Ficino", "i"), "Marsilio Ficino",
+      IF(REGEX(STR(?photoLabel), "Platon", "i"), "Platonic philosophy",
+      IF(REGEX(STR(?photoLabel), "Humanism", "i"), "Renaissance Humanism",
+      IF(REGEX(STR(?photoLabel), "Medici", "i"), "Medici circle",
+      ""))))) AS ?entityName
+    )
+    FILTER(?entityName != "")
+  }
+}
+GROUP BY ?source ?entityName
+ORDER BY ?source DESC(?numberOfResources)</pre>
+
+            <h4>Results</h4>
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Expected: few or no rows under "Direct semantic relation" for Neoplatonism;
+                multiple rows under "Photographic resource label" if related photos mention philosophical themes.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="Placeholder for Query 4 results">
+            </div>
+
+            <h4>Interpretation</h4>
+            <p>
+                If philosophical entities appear mainly under photographic labels but not as direct
+                <code>a-cd:hasSubject</code> relations, the information exists in ArCo but is not represented
+                at the appropriate semantic level — this supports
+                <a href="knowledge-gaps.html#gap-1">Gap 1</a>.
+            </p>
+
+            <hr>
+
+            <h3 id="query-5">Query 5 — Philosophical entities in photographic labels</h3>
+            <p>This query counts how often selected philosophical and cultural entities appear in labels of resources linked to the anchor painting.</p>
+
+            <h4>SPARQL Query</h4>
+<pre>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?entityName (COUNT(DISTINCT ?photo) AS ?numberOfPhotos)
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+
+  ?cp rdfs:seeAlso ?photo .
+  ?photo rdfs:label ?photoLabel .
+
+  BIND(
+    IF(REGEX(STR(?photoLabel), "Neoplaton", "i"), "Neoplatonism",
+    IF(REGEX(STR(?photoLabel), "Ficino", "i"), "Marsilio Ficino",
+    IF(REGEX(STR(?photoLabel), "Platon", "i"), "Platonic philosophy",
+    IF(REGEX(STR(?photoLabel), "Humanism", "i"), "Renaissance Humanism",
+    IF(REGEX(STR(?photoLabel), "Medici", "i"), "Medici circle",
+  IF(REGEX(STR(?photoLabel), "Primavera", "i"), "Primavera",
+    "")))))) AS ?entityName
+  )
+
+  FILTER(?entityName != "")
+}
+GROUP BY ?entityName
+ORDER BY DESC(?numberOfPhotos)</pre>
+
+            <h4>Results</h4>
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Replace with result table after running at the endpoint.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="Placeholder for Query 5 results">
+            </div>
+
+            <hr>
+
+            <h3 id="query-6">Query 6 — Checking direct links to philosophical entities</h3>
+            <p>
+                This query checks whether philosophical entities are already directly linked to the anchor
+                resource through structured properties other than <code>rdfs:seeAlso</code>.
+            </p>
+
+            <h4>Explanation of keywords used</h4>
+            <ul>
+                <li><code>FILTER(?p != rdfs:seeAlso)</code> — excludes photographic links</li>
+                <li><code>REGEX</code> — searches object values and labels for selected names</li>
+                <li><code>OPTIONAL</code> — retrieves labels for properties and objects</li>
+            </ul>
+
+            <h4>SPARQL Query</h4>
+<pre>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT DISTINCT ?p ?pLabel ?o ?oLabel
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+
+  ?cp ?p ?o .
+
+  OPTIONAL { ?p rdfs:label ?pLabel . }
+  OPTIONAL { ?o rdfs:label ?oLabel . }
+
+  FILTER(?p != rdfs:seeAlso)
+
+  FILTER(
+    REGEX(STR(?o), "Neoplaton|Ficino|Platon|Humanism|Medici", "i") ||
+    REGEX(STR(?oLabel), "Neoplaton|Ficino|Platon|Humanism|Medici", "i")
+  )
+}
+ORDER BY ?p
+LIMIT 100</pre>
+
+            <h4>Results</h4>
+            <div class="result-placeholder">
+                <p><strong>Placeholder.</strong> Expected result: <em>no rows</em> — confirming that philosophical context is not directly linked.</p>
+                <img src="../images/dati-beniculturali-screen.png" alt="Placeholder for Query 6 results — expected empty result">
+            </div>
+
+            <h4>Interpretation</h4>
+            <p>
+                An empty result set confirms that the selected philosophical entities are not directly
+                connected to the painting through structured RDF properties. They appear mainly through
+                related photographic documentation. This is the basis for
+                <a href="knowledge-gaps.html#gap-2">Gap 2</a> and the proposed enrichment in
+                <a href="rdf-enrichment.html">RDF Enrichment</a>.
+            </p>
+
+            <hr>
+
+            <h3>Conclusion of the SPARQL exploration</h3>
+            <p>
+                The SPARQL exploration shows that Botticelli's painting is documented in ArCo with
+                catalogue and photographic metadata. Important interpretative information, however,
+                is often present only indirectly in textual labels rather than as explicit semantic relations
+                of the main resource. These findings are developed in the
+                <a href="knowledge-gaps.html">Knowledge Gaps</a> section.
+            </p>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="methodology.html">&larr; Methodology</a>
+                <a href="knowledge-gaps.html">Knowledge Gaps &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

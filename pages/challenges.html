@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Challenges</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html" aria-current="page">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Challenges and Solutions</h2>
+
+            <table>
+                <tr>
+                    <th>Challenge</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td>Many ArCo resources mention "Botticelli" (paintings, photos, exhibitions)</td>
+                    <td>Selected one anchor URI (<code>HistoricOrArtisticProperty/1201008107</code>) and used <code>VALUES</code> in all focused queries</td>
+                </tr>
+                <tr>
+                    <td>Philosophical context appears only in photographic labels, not as triples</td>
+                    <td>Designed <a href="sparql.html#query-4">Query 4</a> with <code>UNION</code> to compare direct relations vs label mentions; proposed <code>a-cd:hasSubject</code> enrichment</td>
+                </tr>
+                <tr>
+                    <td>No obvious ArCo property for "influencedBy"</td>
+                    <td>Reviewed Context Description module; replaced custom <code>ex:influencedBy</code> with <code>a-cd:hasSubject</code> and <code>core:involvesAgent</code> (<a href="rdf-enrichment.html">RDF Enrichment</a>)</td>
+                </tr>
+                <tr>
+                    <td>LLM outputs differ across ChatGPT, Claude and Gemini</td>
+                    <td>Compared models under three prompting techniques; selected enrichment candidate supported by multiple models and art historical literature</td>
+                </tr>
+                <tr>
+                    <td>Validation query previously unrelated to proposed enrichment</td>
+                    <td>Replaced with future queries that retrieve <code>a-cd:hasSubject</code> and <code>core:involvesAgent</code> after CONSTRUCT (<a href="validation.html">Validation</a>)</td>
+                </tr>
+                <tr>
+                    <td>Interpretative knowledge is debated in scholarship</td>
+                    <td>Documented enrichment as <em>proposed</em> interpretative layer; cited scholarly sources; stated limitations in <a href="evaluation.html">Evaluation</a></td>
+                </tr>
+                <tr>
+                    <td>Publishing the site on GitHub Pages</td>
+                    <td>Static HTML/CSS site with GitHub Actions deploy workflow to <code>gh-pages</code> branch</td>
+                </tr>
+            </table>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="evaluation.html">&larr; Evaluation</a>
+                <a href="conclusion.html">Conclusion &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

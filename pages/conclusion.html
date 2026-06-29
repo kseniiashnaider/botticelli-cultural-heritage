@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Conclusion</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html" aria-current="page">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Conclusion</h2>
+            <p>
+                This project examined how
+                <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
+                is represented in the
+                <a href="https://arco.istc.cnr.it/" target="_blank">ArCo Knowledge Graph</a>,
+                using the painting
+                <code>HistoricOrArtisticProperty/1201008107</code> as the anchor resource.
+            </p>
+            <p>
+                SPARQL queries showed that catalogue and photographic metadata are well represented,
+                while philosophical and interpretative context — though present in labels of related
+                resources — is not always modelled through structured properties such as
+                <code>a-cd:hasSubject</code>. Queries 4 and 6 provided graph-based evidence for this gap.
+            </p>
+            <p>
+                LLM comparison (zero-shot, few-shot and chain-of-thought prompting) supported the same
+                conclusion from an art historical perspective. The hybrid approach — SPARQL first,
+                then LLM, then scholarly verification — proved more reliable than either method alone.
+            </p>
+            <p>
+                The proposed enrichment links the painting to Neoplatonism as an
+                <code>a-cd:Subject</code> and optionally to Marsilio Ficino as a
+                <code>core:Agent</code>, reusing ArCo vocabulary rather than inventing new predicates.
+                Future validation queries illustrate how the enriched graph would support direct semantic retrieval.
+            </p>
+            <p>
+                In sum, the project shows that combining knowledge graph exploration, ontology-aware
+                enrichment and LLM-assisted analysis can make implicit cultural knowledge more explicit,
+                searchable and reusable for heritage research.
+            </p>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="challenges.html">&larr; Challenges</a>
+                <a href="references.html">References &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>
