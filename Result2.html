@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>SPARQL Results — Step 2 Entity Analysis</title>
+    <link rel="stylesheet" href="resources/style.css">
+</head>
+<body class="result-page">
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="about.html">About</a></li>
+                    <li><a class="site-nav__link" href="rdf.html">RDF</a></li>
+                    <li><a class="site-nav__link" href="step1.html">Discovery</a></li>
+                    <li><a class="site-nav__link" href="step2.html" aria-current="page">Entity Analysis</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step3.html">Knowledge Gaps</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step4.html">Ontology Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step5.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="step6.html">Evaluation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <a class="result-back" href="step2.html">&larr; Back to Step 2</a>
+        <h1 class="result-title">SPARQL Results — <span>Entity Analysis</span></h1>
+
+        <div class="table-scroll">
+      <table>
+          <tr>
+              <th>entity</th>
+              <th>property</th>
+              <th>value</th>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="http://dati.beniculturali.it/cis/CulturalEvent">http://dati.beniculturali.it/cis/CulturalEvent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Il settimo splendore. La modernità della malinconia da Botticelli a Bocklin, da Giorgione a De Chirico, da Caravaggio a Magritte"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
+              </td>
+              <td>
+                  <a href="http://dati.beniculturali.it/cis/involvesCulturalEntity">http://dati.beniculturali.it/cis/involvesCulturalEntity</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900687524">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900687524</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/CLV/hasSpatialCoverage">https://w3id.org/italia/onto/CLV/hasSpatialCoverage</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/GeographicalFeature/fcf434f2763c0fbd19a6e83059268b50">https://w3id.org/arco/resource/GeographicalFeature/fcf434f2763c0fbd19a6e83059268b50</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/TI/time">https://w3id.org/italia/onto/TI/time</a>
+              </td>
+              <td>
+                  <pre>"2007"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c">https://w3id.org/arco/resource/CulturalEvent/8981e5629dd7cb6da58b96e08e17fe6c</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/l0/name">https://w3id.org/italia/onto/l0/name</a>
+              </td>
+              <td>
+                  <pre>"Il settimo splendore. La modernità della malinconia da Botticelli a Bocklin, da Giorgione a De Chirico, da Caravaggio a Magritte"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="http://dati.beniculturali.it/cis/CreativeWork">http://dati.beniculturali.it/cis/CreativeWork</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="http://dati.beniculturali.it/cis/CreativeWork">http://dati.beniculturali.it/cis/CreativeWork</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"La tribuna"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Caravaggio, Testa di Medusa (1498 ca)"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Corridoio di Levante"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Primo Corridoio"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala degli autoritratti"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala delle Maestà"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala di Botticelli"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala di Leonardo"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala di Michelangelo"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sandro Botticelli, Nascita di Venere (1485 ca)"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Terzo Corridoio"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"La tribuna"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Caravaggio, Testa di Medusa (1498 ca)"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Corridoio di Levante"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Primo Corridoio"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala degli autoritratti"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala delle Maestà"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala di Botticelli"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala di Leonardo"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sala di Michelangelo"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Sandro Botticelli, Nascita di Venere (1485 ca)"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"Terzo Corridoio"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/be78e33bc8ca0c99bff70aa174035096/Luoghi/23_Firenze-Uffizi.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Toscana/Firenze/Firenze,%20Galleria%20degli%20Uffizi.JPG"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Primo%20Corridoio.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/sala%20di%20Botticelli.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Corridoio%20di%20Levante.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Copertina,%20La%20tribuna.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Testa%20di%20Medusa%20di%20Caravaggio%201498%20circa.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20di%20Michelangelo.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Terzo%20Corridoio.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20degli%20autoritratti.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Nascita%20di%20Venere%20di%20Sandro%20Botticelli%201485%20circa.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20di%20Leonardo.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20delle%20Maestà.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/be78e33bc8ca0c99bff70aa174035096/Luoghi/23_Firenze-Uffizi.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Toscana/Firenze/Firenze,%20Galleria%20degli%20Uffizi.JPG"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Primo%20Corridoio.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/sala%20di%20Botticelli.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Corridoio%20di%20Levante.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Copertina,%20La%20tribuna.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Testa%20di%20Medusa%20di%20Caravaggio%201498%20circa.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20di%20Michelangelo.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Terzo%20Corridoio.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20degli%20autoritratti.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Nascita%20di%20Venere%20di%20Sandro%20Botticelli%201485%20circa.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20di%20Leonardo.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_">http://dati.beniculturali.it/mibact/luoghi/resource/CreativeWork/687_</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/italia/onto/SM/URL">https://w3id.org/italia/onto/SM/URL</a>
+              </td>
+              <td>
+                  <pre>"http://media.beniculturali.it/mibac/files/boards/17e86a7864029bbbbdcc36519bbd6fa6/Galleria%20Uffizi%20LDG/Sala%20delle%20Maestà.jpg"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/CulturalPropertyComponent">https://w3id.org/arco/ontology/arco/CulturalPropertyComponent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty">https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/MovableCulturalProperty">https://w3id.org/arco/ontology/arco/MovableCulturalProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/CulturalPropertyComponent">https://w3id.org/arco/ontology/arco/CulturalPropertyComponent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty">https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/MovableCulturalProperty">https://w3id.org/arco/ontology/arco/MovableCulturalProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/CulturalPropertyComponent">https://w3id.org/arco/ontology/arco/CulturalPropertyComponent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty">https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/MovableCulturalProperty">https://w3id.org/arco/ontology/arco/MovableCulturalProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/CulturalPropertyComponent">https://w3id.org/arco/ontology/arco/CulturalPropertyComponent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty">https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/MovableCulturalProperty">https://w3id.org/arco/ontology/arco/MovableCulturalProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/CulturalPropertyComponent">https://w3id.org/arco/ontology/arco/CulturalPropertyComponent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty">https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/MovableCulturalProperty">https://w3id.org/arco/ontology/arco/MovableCulturalProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/CulturalPropertyComponent">https://w3id.org/arco/ontology/arco/CulturalPropertyComponent</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty">https://w3id.org/arco/ontology/arco/HistoricOrArtisticProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/ontology/arco/MovableCulturalProperty">https://w3id.org/arco/ontology/arco/MovableCulturalProperty</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Vincenzo Ferrer (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Vincenzo Ferrer (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Vincenzo Ferrer (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Vincenzo Ferrer (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"ultima comunione di San Girolamo (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"ultima comunione di San Girolamo (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"ultima comunione di San Girolamo (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"ultima comunione di San Girolamo (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Francesco d&#39;Assisi (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Francesco d&#39;Assisi (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Francesco d&#39;Assisi (scomparto di predella) di Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@it</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a>
+              </td>
+              <td>
+                  <pre>"San Francesco d&#39;Assisi (scomparto di predella) by Filipepi Alessandro detto Botticelli (bottega) (fine/inizio secc. XV/ XVI)"@en</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#comment">http://www.w3.org/2000/01/rdf-schema#comment</a>
+              </td>
+              <td>
+                  <pre>"scomparto di predella, primo a sinistra San Vincenzo Ferrer"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#comment">http://www.w3.org/2000/01/rdf-schema#comment</a>
+              </td>
+              <td>
+                  <pre>"scomparto di predella, primo a sinistra San Vincenzo Ferrer"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#comment">http://www.w3.org/2000/01/rdf-schema#comment</a>
+              </td>
+              <td>
+                  <pre>"scomparto di predella, al centro ultima comunione di San Girolamo"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#comment">http://www.w3.org/2000/01/rdf-schema#comment</a>
+              </td>
+              <td>
+                  <pre>"scomparto di predella, al centro ultima comunione di San Girolamo"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#comment">http://www.w3.org/2000/01/rdf-schema#comment</a>
+              </td>
+              <td>
+                  <pre>"scomparto di predella, quarto da sinistra San Francesco d&#39;Assisi"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://www.w3.org/2000/01/rdf-schema#comment">http://www.w3.org/2000/01/rdf-schema#comment</a>
+              </td>
+              <td>
+                  <pre>"scomparto di predella, quarto da sinistra San Francesco d&#39;Assisi"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147">https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147">https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147">https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-3</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147">https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147">https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-4</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a>
+              </td>
+              <td>
+                  <a href="https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147">https://w3id.org/arco/resource/Agent/e17f44b0e0d1a3db66392c81896f4147</a>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/date">http://purl.org/dc/elements/1.1/date</a>
+              </td>
+              <td>
+                  <pre>"1490-1510"</pre>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <a href="https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1">https://w3id.org/arco/resource/HistoricOrArtisticProperty/0900621792-1</a>
+              </td>
+              <td>
+                  <a href="http://purl.org/dc/elements/1.1/date">http://purl.org/dc/elements/1.1/date</a>
+              </td>
+              <td>
+                  <pre>"1490-1510"</pre>
+              </td>
+          </tr>
+      </table>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+
+    <script src="resources/main.js"></script>
+</body>
+</html>
