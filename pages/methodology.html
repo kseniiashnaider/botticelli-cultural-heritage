@@ -54,63 +54,73 @@
         <section class="content-section">
             <h2>Methodology</h2>
 
+            <h3>1. Introduction</h3>
             <p>
-                This project follows the <strong>Project 1</strong> track defined in the KE4H course:
-                enriching a knowledge graph through SPARQL exploration, gap identification and proposed RDF triples.
-                The methodology combines graph-based evidence with LLM-assisted analysis.
+                The purpose of this project is to present the complete methodology used to identify,
+                validate and enrich semantic knowledge gaps in the ArCo Knowledge Graph. Rather than
+                simply listing missing information, this report explains the entire workflow followed during
+                the project. Every proposed enrichment is supported by SPARQL exploration, comparison
+                with the existing RDF description, validation through multiple Large Language Models and
+                transformation into RDF triples. This section represents the final methodological
+                summary of the Knowledge Engineering project.
             </p>
 
-            <figure>
-                <img src="../images/scheme.png" alt="Methodology diagram">
-                <figcaption>Overview of the methodological pipeline.</figcaption>
-            </figure>
+            <h3>2. Research Objective</h3>
+            <p>
+                The selected case study is Sandro Botticelli's <em>Madonna con Bambino, San Giovannino e angeli</em>.
+                The main objective was to determine whether the ArCo Knowledge Graph already
+                contained all relevant semantic information describing the artwork or whether important
+                interpretative concepts were absent. If semantic gaps were confirmed, the project aimed to
+                generate validated knowledge suitable for RDF enrichment while preserving the original
+                ArCo metadata.
+            </p>
 
-            <h3>Tools</h3>
-            <ul>
-                <li>
-                    <a href="https://dati.cultura.gov.it/sparql" target="_blank">ArCo SPARQL endpoint</a>
-                    — querying the live knowledge graph
-                </li>
-                <li>
-                    <a href="http://wit.istc.cnr.it/arco/" target="_blank">ArCo ontology documentation</a>
-                    — identifying classes and properties (Core, Context Description, Catalogue)
-                </li>
-                <li>
-                    <a href="https://chatgpt.com" target="_blank">ChatGPT</a>,
-                    <a href="https://claude.ai" target="_blank">Claude</a>,
-                    <a href="https://gemini.google.com" target="_blank">Gemini</a>
-                    — LLM comparison and prompting experiments
-                </li>
-                <li>GitHub Pages — publication of this report</li>
-            </ul>
-
-            <h3>Methodological steps</h3>
+            <h3>3. Overall Workflow</h3>
             <ol>
-                <li><strong>Topic selection</strong> — Sandro Botticelli within ArCo (<a href="topic.html">Topic</a>)</li>
-                <li><strong>SPARQL exploration</strong> — discovery, direct RDF description, structured vs implicit information (<a href="sparql.html">SPARQL</a>)</li>
-                <li><strong>Gap identification</strong> — compare SPARQL results with art historical context; LLM-assisted analysis (<a href="knowledge-gaps.html">Knowledge Gaps</a>, <a href="llm-prompts.html">LLM Prompts</a>)</li>
-                <li><strong>Ontology enrichment</strong> — propose triples using ArCo properties and SPARQL CONSTRUCT (<a href="rdf-enrichment.html">RDF Enrichment</a>)</li>
-                <li><strong>Validation</strong> — future queries that would become possible after enrichment (<a href="validation.html">Validation</a>)</li>
-                <li><strong>Evaluation</strong> — KG-only, LLM-only and hybrid approaches (<a href="evaluation.html">Evaluation</a>)</li>
+                <li>Selection of the cultural property.</li>
+                <li>Exploration of the ArCo Knowledge Graph using SPARQL.</li>
+                <li>Verification of existing metadata.</li>
+                <li>Identification of evidence-based semantic gaps.</li>
+                <li>Extraction of contextual knowledge using ChatGPT and Gemini.</li>
+                <li>Comparison and validation of generated knowledge.</li>
+                <li>Transformation of validated concepts into RDF triples.</li>
+                <li>Proposal for semantic enrichment of the Knowledge Graph.</li>
             </ol>
 
-            <h3>How the gap was identified</h3>
+            <h3>4. Exploration of Existing Knowledge</h3>
             <p>
-                The gap was identified in two complementary ways. First, SPARQL queries compared
-                <em>structured</em> relations of the anchor resource (e.g. <code>a-cd:hasSubject</code>)
-                with <em>implicit</em> mentions of philosophical entities in labels of resources linked through
-                <code>rdfs:seeAlso</code> (see
-                <a href="sparql.html#query-4">Query 4</a>).
-                Second, three LLMs were prompted to suggest contextual information commonly discussed in
-                art history but absent from typical catalogue representations.
+                The first phase focused on understanding what information was already available in ArCo.
+                SPARQL Query 1 verified that the selected URI represented a valid
+                HistoricOrArtisticProperty. Query 2 retrieved the complete RDF description of the artwork,
+                revealing rich cataloguing metadata including authorship, dating, materials, dimensions,
+                inventory identifiers, bibliography, documentation, descriptions and image references.
+                Query 3 confirmed that the painting already possesses a structured subject through the
+                property <code>hasSubject</code>. These results demonstrated that ArCo already provides reliable
+                administrative and descriptive information. See <a href="sparql.html">SPARQL</a>.
             </p>
 
-            <h3>Approaches tested</h3>
-            <ul>
-                <li><strong>KG-only</strong> — SPARQL queries on ArCo without LLM input</li>
-                <li><strong>LLM-only</strong> — prompts without injecting SPARQL subgraphs</li>
-                <li><strong>Hybrid</strong> — SPARQL results inform LLM prompts; LLM suggestions checked against ArCo and scholarly sources</li>
-            </ul>
+            <h3>9. Semantic Enrichment Strategy</h3>
+            <p>
+                The enrichment strategy deliberately preserved every existing ArCo statement. Only
+                concepts confirmed to be absent from the graph were represented as additional RDF triples.
+                Existing ontology properties were reused whenever possible, while illustrative properties
+                were introduced only for concepts that currently lack direct representation in ArCo. This
+                approach maintains interoperability while demonstrating how knowledge graphs can be
+                extended through carefully validated semantic information. See
+                <a href="rdf-enrichment.html">RDF Enrichment</a>.
+            </p>
+
+            <h3>13. RDF Enrichment Workflow</h3>
+            <ol>
+                <li>Identify a confirmed semantic gap.</li>
+                <li>Retrieve candidate knowledge using LLMs.</li>
+                <li>Compare responses across models.</li>
+                <li>Validate the information using scholarly sources.</li>
+                <li>Map concepts to existing ArCo properties whenever possible.</li>
+                <li>Introduce illustrative properties only where ArCo has no equivalent.</li>
+                <li>Generate RDF triples.</li>
+                <li>Preserve compatibility with the original Knowledge Graph.</li>
+            </ol>
 
             <nav class="page-nav-links" aria-label="Section navigation">
                 <a href="topic.html">&larr; Topic</a>

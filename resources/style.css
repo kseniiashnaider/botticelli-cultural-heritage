@@ -37,6 +37,21 @@
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     word-break: break-all;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.content-section blockquote {
+    margin: 0 0 var(--space-lg);
+    padding: var(--space-md);
+    border-left: 3px solid var(--color-accent-muted);
+    background: var(--color-secondary-soft);
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.content-section blockquote pre {
+    margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -136,6 +151,7 @@
 html {
     scroll-behavior: smooth;
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -148,6 +164,8 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 img {
@@ -193,12 +211,14 @@ pre {
     font-size: var(--font-size-sm);
     line-height: 1.5;
     overflow-x: auto;
+    max-width: 100%;
     margin: 0 0 var(--space-lg);
     padding: var(--space-lg);
     background: var(--color-primary);
     color: var(--color-secondary-soft);
     border-radius: var(--radius-md);
     border-left: 3px solid var(--color-accent);
+    -webkit-overflow-scrolling: touch;
 }
 
 /* ==========================================================================
@@ -298,7 +318,7 @@ pre {
 }
 
 .site-nav.is-open {
-    max-height: 32rem;
+    max-height: 85vh;
     overflow-y: auto;
     box-shadow: var(--shadow-md);
 }
@@ -415,6 +435,51 @@ pre {
 
 .nav-more__link[aria-current="page"] {
     color: var(--color-accent);
+}
+
+/* Mobile: flat nav — no "More" dropdown, all links in burger menu */
+@media (max-width: 991px) {
+    .site-nav__more {
+        display: contents;
+    }
+
+    .nav-more__toggle {
+        display: none;
+    }
+
+    .nav-more__menu {
+        display: contents;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    .nav-more__menu > li {
+        list-style: none;
+    }
+
+    .nav-more__link {
+        display: block;
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--color-secondary);
+        border-radius: var(--radius-sm);
+        transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .nav-more__link:hover {
+        background: var(--color-primary-soft);
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+
+    .nav-more__link[aria-current="page"] {
+        background: var(--color-primary-muted);
+        color: var(--color-accent);
+    }
 }
 
 @media (min-width: 992px) {
@@ -583,6 +648,8 @@ pre {
     width: 100%;
     margin: 0 auto;
     padding: var(--section-padding-y) var(--section-padding-x);
+    min-width: 0;
+    overflow-x: auto;
 }
 
 .content-section {
@@ -592,6 +659,9 @@ pre {
     margin-bottom: var(--grid-gap);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--color-border);
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
 }
 
 .content-section:last-child {
@@ -649,6 +719,7 @@ figcaption {
 
 table {
     width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
     margin: var(--space-lg) 0;
     font-size: var(--font-size-sm);
@@ -786,6 +857,44 @@ tr:nth-child(even) td {
 
 .text-muted {
     color: var(--color-text-muted);
+}
+
+@media (max-width: 991px) {
+    :root {
+        --section-padding-x: 0.75rem;
+        --section-padding-y: 1rem;
+    }
+
+    .site-header__inner {
+        padding: var(--space-sm) var(--section-padding-x);
+    }
+
+    .site-nav__list {
+        padding: var(--space-md) var(--section-padding-x);
+    }
+
+    .hero__inner {
+        padding: var(--space-lg) var(--section-padding-x);
+    }
+
+    .site-main {
+        padding: var(--section-padding-y) var(--section-padding-x);
+    }
+
+    .content-section {
+        padding: 1rem;
+        border-radius: var(--radius-md);
+    }
+
+    pre {
+        padding: var(--space-md);
+        font-size: var(--font-size-xs);
+    }
+
+    th,
+    td {
+        padding: var(--space-xs) var(--space-sm);
+    }
 }
 
 @media (max-width: 575px) {

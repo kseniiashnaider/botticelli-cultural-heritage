@@ -51,7 +51,8 @@ function toggleNavMore(moreNav) {
 }
 
 /**
- * Initialises the "More" dropdown navigation behaviour.
+ * Initialises the "More" dropdown navigation behaviour (desktop only).
+ * On mobile, all links are shown in the burger menu without a nested dropdown.
  * @returns {void}
  */
 function initNavMore() {
@@ -68,27 +69,53 @@ function initNavMore() {
         return;
     }
 
+    var desktopQuery = window.matchMedia('(min-width: 992px)');
+
+    /**
+     * Attaches or detaches desktop dropdown listeners based on viewport width.
+     * @param {boolean} isDesktop - Whether the desktop breakpoint is active.
+     * @returns {void}
+     */
+    function handleViewportChange(isDesktop) {
+        if (!isDesktop) {
+            closeNavMore(moreNav);
+        }
+    }
+
     toggle.addEventListener('click', function (event) {
+        if (!desktopQuery.matches) {
+            return;
+        }
         event.stopPropagation();
         toggleNavMore(moreNav);
     });
 
     menu.querySelectorAll('.nav-more__link').forEach(function (link) {
         link.addEventListener('click', function () {
-            closeNavMore(moreNav);
+            if (desktopQuery.matches) {
+                closeNavMore(moreNav);
+            }
         });
     });
 
     document.addEventListener('click', function (event) {
+        if (!desktopQuery.matches) {
+            return;
+        }
         if (!moreNav.contains(event.target)) {
             closeNavMore(moreNav);
         }
     });
 
     document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && desktopQuery.matches) {
             closeNavMore(moreNav);
         }
+    });
+
+    handleViewportChange(desktopQuery.matches);
+    desktopQuery.addEventListener('change', function (event) {
+        handleViewportChange(event.matches);
     });
 }
 

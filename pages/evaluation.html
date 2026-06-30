@@ -52,73 +52,45 @@
 
     <main class="site-main">
         <section class="content-section">
-            <h2>Evaluation and Discussion</h2>
+            <h2>Evaluation</h2>
 
-            <h3>Evaluation of the knowledge graph (ArCo)</h3>
+            <h3>11. Comparative Evaluation of Large Language Models</h3>
             <p>
-                ArCo provides solid catalogue metadata for Botticelli's works: types, labels, locations,
-                authorship and links to photographic reproductions. SPARQL exploration confirms that the
-                graph is rich at the documentation level. Interpretative and philosophical context, however,
-                is often implicit in labels of related resources rather than expressed through Context
-                Description properties such as <code>a-cd:hasSubject</code>.
+                After the semantic gaps had been objectively identified through SPARQL exploration, Large
+                Language Models were employed to retrieve contextual knowledge absent from the ArCo
+                Knowledge Graph. Three prompting strategies were applied throughout the project:
+                Standard Prompting, Few-shot Prompting and Chain-of-Thought Prompting. ChatGPT and
+                Gemini were systematically compared, while the project structure also allowed comparison
+                with Claude and Mistral. The objective was not to determine which model produced the
+                longest answer, but which generated the most reliable semantic concepts suitable for
+                knowledge graph enrichment.
             </p>
 
-            <h3>Comparison of approaches</h3>
             <table>
                 <tr>
-                    <th>Approach</th>
-                    <th>Strengths</th>
-                    <th>Limitations</th>
+                    <th>Criterion</th>
+                    <th>ChatGPT</th>
+                    <th>Gemini</th>
+                    <th>Agreement</th>
+                    <th>Use for RDF</th>
                 </tr>
-                <tr>
-                    <td><strong>KG-only</strong> (SPARQL)</td>
-                    <td>Verifiable, reproducible, grounded in actual triples; UNION query exposes implicit vs explicit information</td>
-                    <td>Cannot infer missing knowledge; REGEX on labels is a workaround, not a semantic relation</td>
-                </tr>
-                <tr>
-                    <td><strong>LLM-only</strong></td>
-                    <td>Suggests art historical context (Neoplatonism, Medici, symbolism) quickly; useful for brainstorming enrichment</td>
-                    <td>Risk of unsupported claims; no guarantee that suggestions match ArCo modelling patterns</td>
-                </tr>
-                <tr>
-                    <td><strong>Hybrid</strong> (SPARQL + LLM)</td>
-                    <td>SPARQL proves the gap; LLM proposes candidates; scholar checks + ArCo properties shape the final enrichment</td>
-                    <td>More steps; requires aligning LLM output with ontology constraints</td>
-                </tr>
+                <tr><td>Represented figures</td><td>Excellent</td><td>Excellent</td><td>High</td><td>Yes</td></tr>
+                <tr><td>Iconography</td><td>Excellent</td><td>Excellent</td><td>High</td><td>Yes</td></tr>
+                <tr><td>Symbolism</td><td>Excellent</td><td>Very good</td><td>High</td><td>Yes</td></tr>
+                <tr><td>Theology</td><td>Excellent</td><td>Good</td><td>High</td><td>Yes</td></tr>
+                <tr><td>Renaissance context</td><td>Excellent</td><td>Excellent</td><td>High</td><td>Yes</td></tr>
+                <tr><td>RDF suitability</td><td>Excellent</td><td>Very good</td><td>High</td><td>Yes</td></tr>
             </table>
 
-            <h3>Evaluation of LLM-assisted analysis</h3>
+            <h3>15. Contribution to Knowledge Engineering</h3>
             <p>
-                Three models were compared under zero-shot, few-shot and chain-of-thought prompting
-                (see <a href="llm-prompts.html">LLM Prompts</a>). Recurring themes — Neoplatonism,
-                Humanism, Medici patronage — converged despite different phrasing. Few-shot prompts
-                produced output closer to valid RDF shapes. Chain-of-thought helped justify the final
-                enrichment choice. All LLM suggestions were treated as hypotheses until checked against
-                SPARQL and sources such as the
-                <a href="https://plato.stanford.edu/entries/neoplatonism/" target="_blank">Stanford Encyclopedia of Philosophy</a>.
+                The project demonstrates an evidence-based methodology for enriching a cultural heritage
+                knowledge graph. SPARQL queries were used to identify what was already present,
+                preventing unnecessary duplication. LLMs acted as semantic assistants rather than
+                authorities, producing candidate knowledge that was validated and formalised as RDF. This
+                combination of symbolic knowledge representation and generative AI illustrates how
+                knowledge engineering can bridge structured metadata and rich contextual interpretation.
             </p>
-
-            <h3>Evaluation of the proposed enrichment</h3>
-            <p>
-                Linking the painting to Neoplatonism via <code>a-cd:hasSubject</code> addresses a documented gap
-                and uses existing ArCo vocabulary. The validation queries in
-                <a href="validation.html">Validation</a> show how the enriched graph would support direct
-                retrieval of philosophical context.
-            </p>
-
-            <h3>Limitations</h3>
-            <ul>
-                <li>Enrichment was not deployed to the production ArCo endpoint</li>
-                <li>Neoplatonic influence on Botticelli is debated in art history — the triple represents a proposed interpretative layer, not catalogue fact</li>
-                <li>Query 4–6 results depend on how many photographic resources are linked to the anchor URI</li>
-            </ul>
-
-            <h3>Future work</h3>
-            <ul>
-                <li>Extend enrichment to <em>Primavera</em> and <em>Birth of Venus</em> with separate anchor resources</li>
-                <li>Add further subjects (Renaissance Humanism, mythological allegory)</li>
-                <li>Test RAG-style prompts with larger SPARQL subgraphs injected into LLM context</li>
-            </ul>
 
             <nav class="page-nav-links" aria-label="Section navigation">
                 <a href="validation.html">&larr; Validation</a>

@@ -54,38 +54,44 @@
         <section class="content-section">
             <h2>Challenges and Solutions</h2>
 
+            <h3>16. Project Limitations</h3>
+            <p>
+                The enrichment presented in this project is intentionally illustrative. Some proposed RDF
+                properties belong to an example namespace because equivalent concepts are not currently
+                available in the ArCo ontology. Only one artwork was analysed, and only a limited set of
+                LLMs was evaluated. Future work could align the enrichment with CIDOC CRM, Iconclass
+                and Getty vocabularies and test the workflow on larger cultural heritage collections.
+            </p>
+
+            <h3>4.9 Limitations (RDF Enrichment)</h3>
+            <p>
+                The illustrative properties defined within the <code>ex:</code> namespace are introduced solely for
+                demonstration purposes because equivalent properties are not currently available in the
+                explored ArCo model. Before integration into a production knowledge graph, all
+                proposed RDF statements should be validated by domain experts and, where appropriate,
+                aligned with established ontologies such as CIDOC CRM or Iconclass.
+            </p>
+
             <table>
                 <tr>
                     <th>Challenge</th>
                     <th>Solution</th>
                 </tr>
                 <tr>
-                    <td>Many ArCo resources mention "Botticelli" (paintings, photos, exhibitions)</td>
-                    <td>Selected one anchor URI (<code>HistoricOrArtisticProperty/1201008107</code>) and used <code>VALUES</code> in all focused queries</td>
+                    <td>Risk of duplicating metadata already in ArCo</td>
+                    <td>SPARQL queries Q1–Q3 verified existing subject and catalogue data before enrichment</td>
                 </tr>
                 <tr>
-                    <td>Philosophical context appears only in photographic labels, not as triples</td>
-                    <td>Designed <a href="sparql.html#query-4">Query 4</a> with <code>UNION</code> to compare direct relations vs label mentions; proposed <code>a-cd:hasSubject</code> enrichment</td>
+                    <td>No ArCo property for iconography / symbolism / theology</td>
+                    <td>Introduced illustrative <code>ex:</code> properties; documented in ontology mapping</td>
                 </tr>
                 <tr>
-                    <td>No obvious ArCo property for "influencedBy"</td>
-                    <td>Reviewed Context Description module; replaced custom <code>ex:influencedBy</code> with <code>a-cd:hasSubject</code> and <code>core:involvesAgent</code> (<a href="rdf-enrichment.html">RDF Enrichment</a>)</td>
+                    <td>LLM hallucination risk</td>
+                    <td>Cross-model validation (ChatGPT + Gemini) and art-historical sources</td>
                 </tr>
                 <tr>
-                    <td>LLM outputs differ across ChatGPT, Claude and Gemini</td>
-                    <td>Compared models under three prompting techniques; selected enrichment candidate supported by multiple models and art historical literature</td>
-                </tr>
-                <tr>
-                    <td>Validation query previously unrelated to proposed enrichment</td>
-                    <td>Replaced with future queries that retrieve <code>a-cd:hasSubject</code> and <code>core:involvesAgent</code> after CONSTRUCT (<a href="validation.html">Validation</a>)</td>
-                </tr>
-                <tr>
-                    <td>Interpretative knowledge is debated in scholarship</td>
-                    <td>Documented enrichment as <em>proposed</em> interpretative layer; cited scholarly sources; stated limitations in <a href="evaluation.html">Evaluation</a></td>
-                </tr>
-                <tr>
-                    <td>Publishing the site on GitHub Pages</td>
-                    <td>Static HTML/CSS site with GitHub Actions deploy workflow to <code>gh-pages</code> branch</td>
+                    <td>Single artwork scope</td>
+                    <td>Anchor URI methodology is transferable to other HistoricOrArtisticProperty resources</td>
                 </tr>
             </table>
 
