@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>LLM Knowledge Extraction</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html" aria-current="page">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>LLM Knowledge Extraction and Validation</h2>
+
+            <h3>3.1 Objective</h3>
+            <p>
+                This stage addresses the semantic gaps identified during the SPARQL exploration. The
+                objective is to use multiple Large Language Models (LLMs) to generate contextual
+                information that is absent from the ArCo Knowledge Graph and evaluate whether this
+                information can be transformed into RDF triples.
+            </p>
+
+            <h3>3.2 Confirmed Knowledge Gaps</h3>
+            <table>
+                <tr><th>Gap</th><th>Evidence</th><th>LLM Task</th></tr>
+                <tr><td>Iconclass classification</td><td>Q4 returned no value</td><td>Suggest an appropriate iconographic classification</td></tr>
+                <tr><td>Symbolic interpretation</td><td>Not represented in ArCo</td><td>Explain symbolic meaning of lilies, angels and composition</td></tr>
+                <tr><td>Theological interpretation</td><td>Not represented in ArCo</td><td>Explain theological significance</td></tr>
+                <tr><td>Renaissance context</td><td>Not represented in ArCo</td><td>Relate the artwork to Renaissance thought</td></tr>
+            </table>
+
+            <h3>3.3 Standard Prompt</h3>
+            <blockquote>
+                <p>Describe Sandro Botticelli's 'Madonna con Bambino, San Giovannino e angeli'. Focus on:</p>
+                <ol>
+                    <li>Iconography.</li>
+                    <li>Symbolic meaning.</li>
+                    <li>Theological interpretation.</li>
+                    <li>Renaissance cultural context.</li>
+                </ol>
+                <p>Return factual information only.</p>
+            </blockquote>
+
+            <h3>3.4 Few-shot Prompt</h3>
+            <blockquote>
+                <p>You are an art historian.</p>
+                <p>Example:<br>Artwork: The Birth of Venus<br>Output:<br>- Iconography: Venus emerging from the sea.<br>- Symbolism: Beauty, rebirth.<br>- Context: Florentine Neoplatonism.</p>
+                <p>Now analyse:<br>Madonna con Bambino, San Giovannino e angeli</p>
+                <p>Return the answer with the same structure.</p>
+            </blockquote>
+
+            <h3>3.5 Chain-of-Thought Prompt</h3>
+            <blockquote>
+                <p>Analyse the artwork step by step:</p>
+                <p>Step 1. Identify represented figures.<br>Step 2. Explain their symbolic meaning.<br>Step 3. Explain the theological meaning.<br>Step 4. Explain the Renaissance historical context.<br>Step 5. Summarise which information could enrich a knowledge graph.</p>
+            </blockquote>
+
+            <h3>3.6 Models to Compare</h3>
+            <table>
+                <tr><th>Model</th><th>Prompt Used</th><th>Screenshot</th><th>Comments</th></tr>
+                <tr><td>ChatGPT</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><td>Claude</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><td>Gemini</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><td>Mistral</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+            </table>
+
+            <h3>3.7 Evaluation Criteria</h3>
+            <ul>
+                <li>Historical accuracy</li>
+                <li>Completeness</li>
+                <li>Consistency with art-historical literature</li>
+                <li>Usefulness for RDF enrichment</li>
+                <li>Hallucination risk</li>
+            </ul>
+
+            <h3>3.8 Transition to RDF Enrichment</h3>
+            <p>
+                The validated statements produced by the LLMs will be converted into RDF triples in the
+                next stage. Only information supported by reliable sources will be proposed for enriching
+                the ArCo Knowledge Graph. See <a href="rdf-enrichment.html">RDF Enrichment</a>.
+            </p>
+
+            <h3>PROMPT 1 — Standard Prompt</h3>
+            <blockquote>
+                <p>You are an art historian specialising in Italian Renaissance painting.</p>
+                <p>Analyse Sandro Botticelli's painting "Madonna con Bambino, San Giovannino e angeli".</p>
+                <p>Provide a structured analysis including:</p>
+                <ol>
+                    <li>The represented figures.</li>
+                    <li>The iconography.</li>
+                    <li>The symbolic meaning of the lilies.</li>
+                    <li>The theological meaning of the composition.</li>
+                    <li>The historical context of the painting.</li>
+                    <li>The relationship of the artwork to Renaissance humanism.</li>
+                    <li>Information that could enrich a cultural heritage knowledge graph.</li>
+                </ol>
+                <p>Do not invent facts. Use only well-established art historical knowledge.</p>
+            </blockquote>
+
+            <figure><img src="../images/doc3-01.png" alt="Standard Prompt response 1"><figcaption>Standard Prompt — screenshot 1.</figcaption></figure>
+            <figure><img src="../images/doc3-02.png" alt="Standard Prompt response 2"><figcaption>Standard Prompt — screenshot 2.</figcaption></figure>
+            <figure><img src="../images/doc3-03.png" alt="Standard Prompt response 3"><figcaption>Standard Prompt — screenshot 3.</figcaption></figure>
+            <figure><img src="../images/doc3-04.png" alt="Standard Prompt response 4"><figcaption>Standard Prompt — screenshot 4.</figcaption></figure>
+            <figure><img src="../images/doc3-05.png" alt="Standard Prompt response 5"><figcaption>Standard Prompt — screenshot 5.</figcaption></figure>
+            <figure><img src="../images/doc3-06.png" alt="Standard Prompt response 6"><figcaption>Standard Prompt — screenshot 6.</figcaption></figure>
+            <figure><img src="../images/doc3-07.png" alt="Standard Prompt response 7"><figcaption>Standard Prompt — screenshot 7.</figcaption></figure>
+            <figure><img src="../images/doc3-08.png" alt="Standard Prompt response 8"><figcaption>Standard Prompt — screenshot 8.</figcaption></figure>
+            <figure><img src="../images/doc3-09.png" alt="Standard Prompt response 9"><figcaption>Standard Prompt — screenshot 9.</figcaption></figure>
+            <figure><img src="../images/doc3-10.png" alt="Standard Prompt response 10"><figcaption>Standard Prompt — screenshot 10.</figcaption></figure>
+
+            <p>
+                The Standard Prompt generated comprehensive responses in both ChatGPT and Gemini.
+                Both models correctly identified the represented figures, including the Virgin Mary, the
+                Christ Child, Saint John the Baptist and the accompanying angels. They also recognised
+                the artwork as a Renaissance representation of the Sacra Conversazione and explained
+                the principal iconographic characteristics of the composition.
+            </p>
+            <p>
+                In addition, both models provided information that is not explicitly represented in the
+                ArCo Knowledge Graph, including the symbolic meaning of lilies, the theological
+                interpretation of the Incarnation and the relationship between the painting and
+                Renaissance Humanism. These semantic descriptions extend beyond the cataloguing
+                metadata currently available in ArCo and therefore represent valuable candidates for
+                knowledge graph enrichment.
+            </p>
+
+            <h3>PROMPT 2 — Few-shot Prompt</h3>
+            <blockquote>
+                <p>You are an expert in cultural heritage knowledge graphs.</p>
+                <p><strong>Example</strong><br>Artwork: The Birth of Venus<br>Output<br>Represented figures: Venus, Zephyrus, Aura, Hora.<br>Iconography: The birth of Venus from classical mythology.<br>Symbolism: Beauty, purity, divine love.<br>Historical context: Florentine Renaissance.<br>Knowledge Graph enrichment: represented figures, iconography, symbolism, historical context</p>
+                <p>Now analyse Madonna con Bambino, San Giovannino e angeli. Return your answer using exactly the same structure.</p>
+            </blockquote>
+
+            <figure><img src="../images/doc3-11.png" alt="Few-shot Prompt response 1"><figcaption>Few-shot Prompt — screenshot 11.</figcaption></figure>
+            <figure><img src="../images/doc3-12.png" alt="Few-shot Prompt response 2"><figcaption>Few-shot Prompt — screenshot 12.</figcaption></figure>
+            <figure><img src="../images/doc3-13.png" alt="Few-shot Prompt response 3"><figcaption>Few-shot Prompt — screenshot 13.</figcaption></figure>
+            <figure><img src="../images/doc3-14.png" alt="Few-shot Prompt response 4"><figcaption>Few-shot Prompt — screenshot 14.</figcaption></figure>
+
+            <p>
+                The Few-shot Prompt produced more structured responses than the Standard Prompt.
+                Because both models received an example before analysing Botticelli's painting, their
+                answers followed a consistent semantic organisation. The information was divided into
+                represented figures, iconography, symbolism, historical context and potential knowledge
+                graph enrichment.
+            </p>
+            <p>
+                This structure facilitates comparison between different LLMs and simplifies the
+                transformation of textual descriptions into RDF triples. From a knowledge engineering
+                perspective, Few-shot prompting therefore improves the consistency of semantic
+                extraction.
+            </p>
+
+            <h3>PROMPT 3 — Chain-of-Thought</h3>
+            <blockquote>
+                <p>You are an art historian. Think step by step.</p>
+                <p>Step 1. Identify every represented figure.<br>Step 2. Explain the iconography.<br>Step 3. Explain the symbolic meaning of each important object.<br>Step 4. Explain the theological interpretation.<br>Step 5. Explain the Renaissance cultural context.<br>Step 6. Identify which information is already present in ArCo.<br>Step 7. Identify which information is missing from ArCo.<br>Step 8. Suggest semantic information that could enrich the knowledge graph.</p>
+                <p>Return the final answer in structured sections.</p>
+            </blockquote>
+
+            <figure><img src="../images/doc3-15.png" alt="Chain-of-Thought response 15"><figcaption>Chain-of-Thought — screenshot 15.</figcaption></figure>
+            <figure><img src="../images/doc3-16.png" alt="Chain-of-Thought response 16"><figcaption>Chain-of-Thought — screenshot 16.</figcaption></figure>
+            <figure><img src="../images/doc3-17.png" alt="Chain-of-Thought response 17"><figcaption>Chain-of-Thought — screenshot 17.</figcaption></figure>
+            <figure><img src="../images/doc3-18.png" alt="Chain-of-Thought response 18"><figcaption>Chain-of-Thought — screenshot 18.</figcaption></figure>
+            <figure><img src="../images/doc3-19.png" alt="Chain-of-Thought response 19"><figcaption>Chain-of-Thought — screenshot 19.</figcaption></figure>
+            <figure><img src="../images/doc3-20.png" alt="Chain-of-Thought response 20"><figcaption>Chain-of-Thought — screenshot 20.</figcaption></figure>
+            <figure><img src="../images/doc3-21.png" alt="Chain-of-Thought response 21"><figcaption>Chain-of-Thought — screenshot 21.</figcaption></figure>
+            <figure><img src="../images/doc3-22.png" alt="Chain-of-Thought response 22"><figcaption>Chain-of-Thought — screenshot 22.</figcaption></figure>
+            <figure><img src="../images/doc3-23.png" alt="Chain-of-Thought response 23"><figcaption>Chain-of-Thought — screenshot 23.</figcaption></figure>
+            <figure><img src="../images/doc3-24.png" alt="Chain-of-Thought response 24"><figcaption>Chain-of-Thought — screenshot 24.</figcaption></figure>
+            <figure><img src="../images/doc3-25.png" alt="Chain-of-Thought response 25"><figcaption>Chain-of-Thought — screenshot 25.</figcaption></figure>
+            <figure><img src="../images/doc3-26.png" alt="Chain-of-Thought response 26"><figcaption>Chain-of-Thought — screenshot 26.</figcaption></figure>
+            <figure><img src="../images/doc3-27.png" alt="Chain-of-Thought response 27"><figcaption>Chain-of-Thought — screenshot 27.</figcaption></figure>
+            <figure><img src="../images/doc3-28.png" alt="Chain-of-Thought response 28"><figcaption>Chain-of-Thought — screenshot 28.</figcaption></figure>
+            <figure><img src="../images/doc3-29.png" alt="Chain-of-Thought response 29"><figcaption>Chain-of-Thought — screenshot 29.</figcaption></figure>
+            <figure><img src="../images/doc3-30.png" alt="Chain-of-Thought response 30"><figcaption>Chain-of-Thought — screenshot 30.</figcaption></figure>
+            <figure><img src="../images/doc3-31.png" alt="Chain-of-Thought response 31"><figcaption>Chain-of-Thought — screenshot 31.</figcaption></figure>
+            <figure><img src="../images/doc3-32.png" alt="Chain-of-Thought response 32"><figcaption>Chain-of-Thought — screenshot 32.</figcaption></figure>
+            <figure><img src="../images/doc3-33.png" alt="Chain-of-Thought response 33"><figcaption>Chain-of-Thought — screenshot 33.</figcaption></figure>
+            <figure><img src="../images/doc3-34.png" alt="Chain-of-Thought response 34"><figcaption>Chain-of-Thought — screenshot 34.</figcaption></figure>
+            <figure><img src="../images/doc3-35.png" alt="Chain-of-Thought response 35"><figcaption>Chain-of-Thought — screenshot 35.</figcaption></figure>
+
+            <p>
+                The Chain-of-Thought Prompt generated the most detailed responses among all
+                prompting strategies. Instead of immediately producing an answer, both models
+                decomposed the task into several reasoning steps. This resulted in a clearer distinction
+                between factual metadata already contained in ArCo and additional semantic knowledge
+                absent from the knowledge graph.
+            </p>
+            <p>
+                Both ChatGPT and Gemini explicitly identified which information was already available
+                in ArCo and proposed additional semantic concepts such as iconographic themes,
+                symbolic meanings, theological interpretations and historical context. This reasoning-
+                oriented approach produced the most useful information for RDF enrichment.
+            </p>
+
+            <h3>Comparative Analysis</h3>
+            <figure><img src="../images/doc3-table1.png" alt="Comparative table 1"><figcaption>Table 1.</figcaption></figure>
+            <figure><img src="../images/doc3-table2.png" alt="Comparative table 2"><figcaption>Table 2.</figcaption></figure>
+            <figure><img src="../images/doc3-36.png" alt="Comparative analysis screenshot 36"><figcaption>Comparative analysis — screenshot 36.</figcaption></figure>
+            <figure><img src="../images/doc3-37.png" alt="Comparative analysis screenshot 37"><figcaption>Comparative analysis — screenshot 37.</figcaption></figure>
+            <figure><img src="../images/doc3-38.png" alt="Comparative analysis screenshot 38"><figcaption>Comparative analysis — screenshot 38.</figcaption></figure>
+            <figure><img src="../images/doc3-39.png" alt="Comparative analysis screenshot 39"><figcaption>Comparative analysis — screenshot 39.</figcaption></figure>
+            <figure><img src="../images/doc3-40.png" alt="Comparative analysis screenshot 40"><figcaption>Comparative analysis — screenshot 40.</figcaption></figure>
+            <figure><img src="../images/doc3-41.png" alt="Comparative analysis screenshot 41"><figcaption>Comparative analysis — screenshot 41.</figcaption></figure>
+            <figure><img src="../images/doc3-42.png" alt="Comparative analysis screenshot 42"><figcaption>Comparative analysis — screenshot 42.</figcaption></figure>
+
+            <p>
+                The comparative evaluation demonstrates that both ChatGPT and Gemini generated high-
+                quality semantic descriptions that substantially extend the information currently available
+                in the ArCo Knowledge Graph. ChatGPT produced richer theological and symbolic
+                interpretations, whereas Gemini generated responses that were more structured from a
+                knowledge engineering perspective and more directly applicable to RDF modelling.
+                Consequently, both systems proved highly effective for identifying semantic information
+                suitable for cultural heritage knowledge graph enrichment.
+            </p>
+
+            <h3>Knowledge Extraction Summary</h3>
+            <p>
+                The comparison clearly indicates that the contribution of Large Language Models lies
+                primarily at the semantic level rather than at the descriptive level. ArCo already provides
+                reliable cataloguing metadata, including authorship, dating, dimensions, materials, and
+                basic subject information. In contrast, both ChatGPT and Gemini generated contextual
+                knowledge concerning iconography, symbolism, theology, Renaissance cultural context,
+                and semantic relationships between entities. These concepts correspond directly to the
+                knowledge gaps identified during the SPARQL exploration and therefore represent the
+                most promising candidates for RDF-based knowledge graph enrichment in the following
+                stage of the project.
+            </p>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="knowledge-gaps.html">&larr; Knowledge Gaps</a>
+                <a href="rdf-enrichment.html">RDF Enrichment &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>
