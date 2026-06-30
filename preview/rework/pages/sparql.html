@@ -84,7 +84,7 @@ WHERE {
 }
 ORDER BY ?type</pre>
             <figure>
-                <img src="../images/doc2-q1.png" alt="Figure 1. Verification of the selected cultural property.">
+                <img src="../images/sparql-q1.png" alt="Figure 1. Verification of the selected cultural property.">
                 <figcaption>Figure 1. Verification of the selected cultural property.</figcaption>
             </figure>
             <p><strong>Results.</strong> The query returns the RDF classes HistoricOrArtisticProperty and MovableCulturalProperty.</p>
@@ -101,20 +101,16 @@ WHERE {
 }
 ORDER BY ?property</pre>
             <figure>
-                <img src="../images/doc2-q2.png" alt="Figure 2. Complete RDF description.">
+                <img src="../images/sparql-q2-1.png" alt="Figure 2. Complete RDF description.">
                 <figcaption>Figure 2. Complete RDF description.</figcaption>
             </figure>
             <figure>
-                <img src="../images/doc2-q3.png" alt="Figure 3. Complete RDF description.">
+                <img src="../images/sparql-q2-2.png" alt="Figure 3. Complete RDF description.">
                 <figcaption>Figure 3. Complete RDF description.</figcaption>
             </figure>
             <figure>
-                <img src="../images/doc2-q4.png" alt="Figure 4. Complete RDF description.">
+                <img src="../images/sparql-q2-3.png" alt="Figure 4. Complete RDF description.">
                 <figcaption>Figure 4. Complete RDF description.</figcaption>
-            </figure>
-            <figure>
-                <img src="../images/doc2-q5.png" alt="Figure 5. Complete RDF description.">
-                <figcaption>Figure 5. Complete RDF description.</figcaption>
             </figure>
             <p><strong>Results.</strong> Returned metadata include authorship, dating, dimensions, materials, techniques, bibliography, documentation, descriptions, subject, identifiers, legal information and images.</p>
             <p><strong>Interpretation.</strong> The RDF graph already contains comprehensive cataloguing metadata. The description explicitly mentions the represented figures, therefore represented figures are not a knowledge gap. The graph is rich in administrative information but still needs to be evaluated for higher-level semantic interpretation.</p>
@@ -142,8 +138,8 @@ WHERE {
   }
 }</pre>
             <figure>
-                <img src="../images/doc2-q6.png" alt="Figure 6. Structured subject associated with the artwork.">
-                <figcaption>Figure 6. Structured subject associated with the artwork.</figcaption>
+                <img src="../images/sparql-q3.png" alt="Figure 5. Structured subject associated with the artwork.">
+                <figcaption>Figure 5. Structured subject associated with the artwork.</figcaption>
             </figure>
             <p><strong>Results.</strong> The query returned a subject resource linked to the selected painting.</p>
             <p><strong>Interpretation.</strong> The result demonstrates that ArCo already contains structured subject information. Together with the textual description retrieved in Query 2, this confirms that the represented figures are already documented in the knowledge graph.</p>
@@ -162,8 +158,8 @@ WHERE {
   }
 }</pre>
             <figure>
-                <img src="../images/doc2-q7.png" alt="Figure 7. Query for Iconclass classification.">
-                <figcaption>Figure 7. Query for Iconclass classification.</figcaption>
+                <img src="../images/sparql-q4.png" alt="Figure 6. Query for Iconclass classification.">
+                <figcaption>Figure 6. Query for Iconclass classification.</figcaption>
             </figure>
             <p><strong>Results.</strong> No Iconclass value was returned by the endpoint.</p>
             <p><strong>Interpretation.</strong> The absence of an Iconclass classification is the first evidence-based semantic gap identified during the exploration. While the artwork is described through cataloguing metadata and a textual description, it is not linked to a controlled iconographic vocabulary.</p>
@@ -218,8 +214,8 @@ WHERE {
 }
 ORDER BY ?property</pre>
             <figure>
-                <img src="../images/doc2-q8.png" alt="Figure 8. Contextual properties of the selected artwork.">
-                <figcaption>Figure 8. Contextual properties of the selected artwork.</figcaption>
+                <img src="../images/sparql-q5.png" alt="Figure 7. Contextual properties of the selected artwork.">
+                <figcaption>Figure 7. Contextual properties of the selected artwork.</figcaption>
             </figure>
             <p><strong>Results.</strong> The query retrieves only a limited number of contextual properties compared with the complete RDF description.</p>
             <p><strong>Interpretation.</strong> The exploration shows that ArCo focuses primarily on cataloguing information. Contextual interpretation is represented only partially and lacks richer semantic descriptions such as symbolism or theological interpretation.</p>
@@ -237,7 +233,11 @@ WHERE {
 }
 ORDER BY ?property</pre>
             <figure>
-                <img src="../images/doc2-q9.png" alt="Figure 9. Complete RDF description used to verify the identified knowledge gaps.">
+                <img src="../images/sparql-q6-1.png" alt="Figure 8. Complete RDF description used to verify the identified knowledge gaps.">
+                <figcaption>Figure 8. Complete RDF description used to verify the identified knowledge gaps.</figcaption>
+            </figure>
+            <figure>
+                <img src="../images/sparql-q6-2.png" alt="Figure 9. Complete RDF description used to verify the identified knowledge gaps.">
                 <figcaption>Figure 9. Complete RDF description used to verify the identified knowledge gaps.</figcaption>
             </figure>
             <p><strong>Results.</strong> The query retrieves the complete RDF description of the selected cultural property. The returned metadata include authorship, dating, material and technique, catalogue identifiers, documentation, measurements, legal status and represented subjects.</p>
