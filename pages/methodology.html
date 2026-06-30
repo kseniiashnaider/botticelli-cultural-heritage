@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Methodology</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html" aria-current="page">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Methodology</h2>
+
+            <h3>1. Introduction</h3>
+            <p>
+                The purpose of this project is to present the complete methodology used to identify,
+                validate and enrich semantic knowledge gaps in the ArCo Knowledge Graph. Rather than
+                simply listing missing information, this report explains the entire workflow followed during
+                the project. Every proposed enrichment is supported by SPARQL exploration, comparison
+                with the existing RDF description, validation through multiple Large Language Models and
+                transformation into RDF triples. This section represents the final methodological
+                summary of the Knowledge Engineering project.
+            </p>
+
+            <h3>2. Research Objective</h3>
+            <p>
+                The selected case study is Sandro Botticelli's <em>Madonna con Bambino, San Giovannino e angeli</em>.
+                The main objective was to determine whether the ArCo Knowledge Graph already
+                contained all relevant semantic information describing the artwork or whether important
+                interpretative concepts were absent. If semantic gaps were confirmed, the project aimed to
+                generate validated knowledge suitable for RDF enrichment while preserving the original
+                ArCo metadata.
+            </p>
+
+            <h3>3. Overall Workflow</h3>
+            <ol>
+                <li>Selection of the cultural property.</li>
+                <li>Exploration of the ArCo Knowledge Graph using SPARQL.</li>
+                <li>Verification of existing metadata.</li>
+                <li>Identification of evidence-based semantic gaps.</li>
+                <li>Extraction of contextual knowledge using ChatGPT and Gemini.</li>
+                <li>Comparison and validation of generated knowledge.</li>
+                <li>Transformation of validated concepts into RDF triples.</li>
+                <li>Proposal for semantic enrichment of the Knowledge Graph.</li>
+            </ol>
+
+            <h3>4. Exploration of Existing Knowledge</h3>
+            <p>
+                The first phase focused on understanding what information was already available in ArCo.
+                SPARQL Query 1 verified that the selected URI represented a valid
+                HistoricOrArtisticProperty. Query 2 retrieved the complete RDF description of the artwork,
+                revealing rich cataloguing metadata including authorship, dating, materials, dimensions,
+                inventory identifiers, bibliography, documentation, descriptions and image references.
+                Query 3 confirmed that the painting already possesses a structured subject through the
+                property <code>hasSubject</code>. These results demonstrated that ArCo already provides reliable
+                administrative and descriptive information. See <a href="sparql.html">SPARQL</a>.
+            </p>
+
+            <h3>9. Semantic Enrichment Strategy</h3>
+            <p>
+                The enrichment strategy deliberately preserved every existing ArCo statement. Only
+                concepts confirmed to be absent from the graph were represented as additional RDF triples.
+                Existing ontology properties were reused whenever possible, while illustrative properties
+                were introduced only for concepts that currently lack direct representation in ArCo. This
+                approach maintains interoperability while demonstrating how knowledge graphs can be
+                extended through carefully validated semantic information. See
+                <a href="rdf-enrichment.html">RDF Enrichment</a>.
+            </p>
+
+            <h3>13. RDF Enrichment Workflow</h3>
+            <ol>
+                <li>Identify a confirmed semantic gap.</li>
+                <li>Retrieve candidate knowledge using LLMs.</li>
+                <li>Compare responses across models.</li>
+                <li>Validate the information using scholarly sources.</li>
+                <li>Map concepts to existing ArCo properties whenever possible.</li>
+                <li>Introduce illustrative properties only where ArCo has no equivalent.</li>
+                <li>Generate RDF triples.</li>
+                <li>Preserve compatibility with the original Knowledge Graph.</li>
+            </ol>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="topic.html">&larr; Topic</a>
+                <a href="sparql.html">SPARQL &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

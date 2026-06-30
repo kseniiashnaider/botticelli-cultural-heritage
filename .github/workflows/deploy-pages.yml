@@ -1,0 +1,172 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve deployment target
+        id: target
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+          SANITIZED=$(echo "$BRANCH" | sed 's/[^a-zA-Z0-9._-]/_/g')
+
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "sanitized=$SANITIZED" >> "$GITHUB_OUTPUT"
+
+          if [ "$BRANCH" = "main" ]; then
+            echo "is_main=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_main=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout trigger branch
+        uses: actions/checkout@v4
+
+      - name: Build preview artifact
+        if: steps.target.outputs.is_main == 'false'
+        run: |
+          mkdir -p _publish_preview
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.idea' \
+            --exclude='_publish_preview' \
+            --exclude='_publish_production' \
+            --exclude='main-source' \
+            --exclude='gh-pages-checkout' \
+            --exclude='*.docx' \
+            ./ _publish_preview/
+          touch _publish_preview/.nojekyll
+
+      - name: Checkout main
+        if: steps.target.outputs.is_main == 'false'
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-source
+
+      - name: Build production artifact
+        run: |
+          mkdir -p _publish_production
+
+          if [ "${{ steps.target.outputs.is_main }}" = "true" ]; then
+            SOURCE_DIR="."
+          else
+            SOURCE_DIR="main-source"
+          fi
+
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.idea' \
+            --exclude='_publish_preview' \
+            --exclude='_publish_production' \
+            --exclude='main-source' \
+            --exclude='gh-pages-checkout' \
+            --exclude='*.docx' \
+            "$SOURCE_DIR/" _publish_production/
+          touch _publish_production/.nojekyll
+
+      - name: Checkout gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          REPO="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          if git ls-remote --heads "$REPO" gh-pages | grep -q gh-pages; then
+            git clone --depth=1 --branch=gh-pages "$REPO" gh-pages-checkout
+          else
+            mkdir gh-pages-checkout
+            cd gh-pages-checkout
+            git init
+            git remote add origin "$REPO"
+            git checkout -b gh-pages
+          fi
+
+      - name: Publish to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          cd gh-pages-checkout
+          IS_MAIN="${{ steps.target.outputs.is_main }}"
+          SANITIZED="${{ steps.target.outputs.sanitized }}"
+          BRANCH="${{ steps.target.outputs.branch }}"
+
+          if [ -d preview ]; then
+            mv preview /tmp/preview-backup
+          fi
+
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+
+          if [ -d /tmp/preview-backup ]; then
+            mv /tmp/preview-backup preview
+          fi
+
+          rsync -a ../_publish_production/ .
+          touch .nojekyll
+
+          if [ "$IS_MAIN" = "false" ]; then
+            PREVIEW_DIR="preview/$SANITIZED"
+            rm -rf "$PREVIEW_DIR"
+            mkdir -p "$PREVIEW_DIR"
+            rsync -a ../_publish_preview/ "$PREVIEW_DIR/"
+
+            mkdir -p preview
+            {
+              echo '<!DOCTYPE html>'
+              echo '<html lang="en">'
+              echo '<head>'
+              echo '<meta charset="UTF-8">'
+              echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+              echo '<title>Branch previews</title>'
+              echo '<style>'
+              echo 'body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }'
+              echo 'a { color: #a8864a; }'
+              echo '</style>'
+              echo '</head>'
+              echo '<body>'
+              echo '<h1>Branch previews</h1>'
+              echo '<p>Production site: <a href="../">main</a></p>'
+              echo '<ul>'
+              for dir in preview/*/; do
+                [ -d "$dir" ] || continue
+                name=$(basename "$dir")
+                echo "<li><a href=\"./${name}/\">${name}</a></li>"
+              done
+              echo '</ul>'
+              echo '</body>'
+              echo '</html>'
+            } > preview/index.html
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "No changes to deploy."
+            exit 0
+          fi
+
+          if [ "$IS_MAIN" = "true" ]; then
+            git commit -m "Deploy production from main (${GITHUB_SHA})"
+          else
+            git commit -m "Deploy preview for ${BRANCH} and refresh production from main"
+          fi
+
+          git push origin HEAD:gh-pages

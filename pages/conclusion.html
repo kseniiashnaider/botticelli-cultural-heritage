@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Conclusion</title>
+    <link rel="stylesheet" href="../resources/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="../index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="../index.html">Home</a></li>
+                    <li><a class="site-nav__link" href="topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="conclusion.html" aria-current="page">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">More</button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero--compact">
+        <div class="hero__inner">
+            <h1>Sandro Botticelli in the ArCo Knowledge Graph</h1>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Conclusion</h2>
+
+            <p>
+                The project demonstrates a complete Knowledge Engineering workflow. Knowledge gaps
+                were not assumed but objectively identified through SPARQL exploration. Large Language
+                Models were subsequently employed as knowledge extraction tools rather than
+                authoritative sources. Their outputs were compared, validated and transformed into RDF
+                triples that enrich the cultural heritage description of Botticelli's artwork. The resulting
+                methodology is transparent, reproducible and transferable to other cultural heritage
+                objects. Most importantly, the project shows that semantic enrichment should be evidence-
+                based: existing metadata must first be explored, genuine knowledge gaps identified,
+                generated knowledge validated and only then incorporated into a knowledge graph.
+            </p>
+
+            <p>
+                This project achieved its objective of identifying, validating and enriching semantic
+                knowledge gaps in the ArCo Knowledge Graph. Rather than assuming that information was
+                missing, each gap was demonstrated through SPARQL exploration. Large Language Models
+                generated contextual knowledge that was subsequently validated and transformed into RDF
+                triples. The final workflow is transparent, reproducible and suitable for reuse in other
+                cultural heritage knowledge engineering projects. It illustrates that semantic enrichment is
+                most effective when knowledge graphs and LLMs are combined in a carefully controlled
+                methodology.
+            </p>
+
+            <p>
+                This chapter demonstrated how semantic knowledge extracted from Large Language
+                Models can be transformed into structured RDF triples for the selected cultural
+                object, <em>Madonna con Bambino, San Giovannino e angeli</em>. The proposed enrichment
+                addresses the knowledge gaps identified during the SPARQL analysis by introducing
+                semantic descriptions of iconography, symbolism, theology and Renaissance cultural
+                context. Although the proposed RDF model is illustrative, it demonstrates a practical
+                workflow for enriching cultural heritage knowledge graphs while remaining consistent
+                with Semantic Web principles.
+            </p>
+
+            <nav class="page-nav-links" aria-label="Section navigation">
+                <a href="challenges.html">&larr; Challenges</a>
+                <a href="references.html">References &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
+    <script src="../resources/main.js"></script>
+</body>
+</html>

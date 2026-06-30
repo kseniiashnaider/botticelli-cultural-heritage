@@ -2,68 +2,106 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sandro Botticelli in the ArCo Knowledge Graph</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Sandro Botticelli in the ArCo Knowledge Graph</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo" href="index.html">Botticelli <span>ArCo</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
+                    <li><a class="site-nav__link" href="pages/topic.html">Topic</a></li>
+                    <li><a class="site-nav__link" href="pages/methodology.html">Methodology</a></li>
+                    <li><a class="site-nav__link" href="pages/sparql.html">SPARQL</a></li>
+                    <li><a class="site-nav__link" href="pages/knowledge-gaps.html">Knowledge Gaps</a></li>
+                    <li><a class="site-nav__link" href="pages/conclusion.html">Conclusion</a></li>
+                    <li><a class="site-nav__link" href="pages/references.html">References</a></li>
+                    <li class="site-nav__more">
+                        <button class="nav-more__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu" id="nav-more-toggle">
+                            More
+                        </button>
+                        <ul class="nav-more__menu" id="nav-more-menu" role="menu" aria-labelledby="nav-more-toggle">
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/llm-prompts.html">LLM Prompts</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/rdf-enrichment.html">RDF Enrichment</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/validation.html">Validation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/evaluation.html">Evaluation</a></li>
+                            <li role="none"><a role="menuitem" class="nav-more__link" href="pages/challenges.html">Challenges</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
+    <section class="hero">
+        <div class="hero__inner">
+            <h1>Enhancing <em>Cultural Heritage</em> Knowledge</h1>
+            <p class="hero__subtitle">Madonna con Bambino, San Giovannino e angeli — Sandro Botticelli in ArCo</p>
+            <p class="hero__lead">
+                KE4H project — evidence-based knowledge gap identification and RDF enrichment
+            </p>
+        </div>
+    </section>
 
-<h1>Enhancing Cultural Heritage Knowledge</h1>
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Abstract</h2>
+            <p>
+                The purpose of this project is to present the complete methodology used to identify,
+                validate and enrich semantic knowledge gaps in the ArCo Knowledge Graph. Every proposed
+                enrichment is supported by SPARQL exploration, comparison with the existing RDF description,
+                validation through multiple Large Language Models and transformation into RDF triples.
+            </p>
+            <p>
+                The selected case study is Sandro Botticelli's <em>Madonna con Bambino, San Giovannino e angeli</em>
+                (<code>HistoricOrArtisticProperty/1201008107</code>). SPARQL queries confirmed rich catalogue
+                metadata but missing iconographic, symbolic, theological and Renaissance contextual semantics.
+                ChatGPT and Gemini were compared using Standard, Few-shot and Chain-of-Thought prompting.
+                Validated concepts were transformed into RDF triples for illustrative knowledge graph enrichment.
+            </p>
 
-<h2>Sandro Botticelli in the ArCo Knowledge Graph</h2>
+            <h3>Author</h3>
+            <p><em>Kseniia Schnaider</em> — individual project (KE4H).</p>
 
-<p>
-Final Project on Cultural Heritage Knowledge Graphs,
-Ontology Enrichment and Semantic Technologies
-</p>
+            <h3>Main ArCo resource</h3>
+            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
 
-</header>
+            <h3>Overall Workflow</h3>
+            <ol>
+                <li>Selection of the cultural property — <a href="pages/topic.html">Topic</a></li>
+                <li>Exploration of the ArCo Knowledge Graph using SPARQL — <a href="pages/sparql.html">SPARQL</a></li>
+                <li>Verification of existing metadata</li>
+                <li>Identification of evidence-based semantic gaps — <a href="pages/knowledge-gaps.html">Knowledge Gaps</a></li>
+                <li>Extraction of contextual knowledge using LLMs — <a href="pages/llm-prompts.html">LLM Prompts</a></li>
+                <li>Comparison and validation — <a href="pages/evaluation.html">Evaluation</a></li>
+                <li>Transformation of validated concepts into RDF triples — <a href="pages/rdf-enrichment.html">RDF Enrichment</a></li>
+                <li>Proposal for semantic enrichment — <a href="pages/validation.html">Validation</a></li>
+            </ol>
 
-<nav>
+            <p>Full methodology: <a href="pages/methodology.html">Methodology</a> · Conclusion: <a href="pages/conclusion.html">Conclusion</a></p>
+        </section>
+    </main>
 
-<a href="index.html">Home</a>
+    <footer class="site-footer">
+        <p>Sandro Botticelli in the ArCo Knowledge Graph</p>
+    </footer>
 
-<a href="about.html">About</a>
-
-<a href="rdf.html">RDF</a>
-
-<a href="step1.html">Discovery</a>
-
-<a href="step2.html">Entity Analysis</a>
-
-<a href="step3.html">Knowledge Gaps</a>
-
-<a href="step4.html">Ontology Enrichment</a>
-
-<a href="step5.html">Validation</a>
-
-<a href="step6.html">Evaluation</a>
-
-<a href="conclusion.html">Conclusion</a>
-
-<a href="references.html">References</a>
-
-</nav>
-  
-<section>
-
-<h2>Welcome</h2>
-
-<p>
-This website presents the project
-"Sandro Botticelli in the ArCo Knowledge Graph".
-Use the navigation menu to explore the different sections
-of the project.
-</p>
-
-</section>
-
+    <script src="resources/main.js"></script>
 </body>
+
 </html>

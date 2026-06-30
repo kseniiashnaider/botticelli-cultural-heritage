@@ -1,0 +1,98 @@
+name: Cleanup branch preview
+
+on:
+  delete:
+    branches:
+      - '**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    if: >-
+      github.event.ref != 'refs/heads/main' &&
+      github.event.ref != 'refs/heads/master' &&
+      github.event.ref != 'refs/heads/gh-pages'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sanitize branch name
+        id: branch
+        run: |
+          NAME="${GITHUB_EVENT_REF#refs/heads/}"
+          SANITIZED=$(echo "$NAME" | sed 's/[^a-zA-Z0-9._-]/_/g')
+          echo "sanitized=$SANITIZED" >> "$GITHUB_OUTPUT"
+
+      - name: Check gh-pages branch exists
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --heads "$REPO" gh-pages | grep -q gh-pages; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout gh-pages
+        if: steps.check.outputs.exists == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Remove preview directory
+        if: steps.check.outputs.exists == 'true'
+        run: |
+          rm -rf "preview/${{ steps.branch.outputs.sanitized }}"
+
+      - name: Regenerate previews index
+        if: steps.check.outputs.exists == 'true'
+        run: |
+          mkdir -p preview
+          {
+            echo '<!DOCTYPE html>'
+            echo '<html lang="en">'
+            echo '<head>'
+            echo '<meta charset="UTF-8">'
+            echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+            echo '<title>Branch previews</title>'
+            echo '<style>'
+            echo 'body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }'
+            echo 'a { color: #a8864a; }'
+            echo '</style>'
+            echo '</head>'
+            echo '<body>'
+            echo '<h1>Branch previews</h1>'
+            echo '<p>Production site: <a href="../">main</a></p>'
+            echo '<ul>'
+            for dir in preview/*/; do
+              [ -d "$dir" ] || continue
+              name=$(basename "$dir")
+              echo "<li><a href=\"./${name}/\">${name}</a></li>"
+            done
+            echo '</ul>'
+            echo '</body>'
+            echo '</html>'
+          } > preview/index.html
+
+      - name: Commit and push
+        if: steps.check.outputs.exists == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "Nothing to clean up."
+          else
+            git commit -m "Remove preview for deleted branch ${{ steps.branch.outputs.sanitized }}"
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:gh-pages
+          fi
