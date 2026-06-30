@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <title>Topic — Sandro Botticelli in ArCo</title>
+    <title>Topic — Selection and Preliminary Exploration</title>
     <link rel="stylesheet" href="../resources/style.css">
 </head>
 <body>
@@ -52,76 +52,143 @@
 
     <main class="site-main">
         <section class="content-section">
-            <h2>Topic</h2>
+            <h2>Selection of the Cultural Property and Preliminary SPARQL Exploration</h2>
+
+            <h3>Project Objective</h3>
+            <p>
+                This section presents the first stage of the project. The goal is to select one cultural
+                property, verify its representation in the ArCo Knowledge Graph and perform an initial
+                exploration before identifying knowledge gaps.
+            </p>
+
+            <h3>Selected Cultural Property</h3>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Artwork</td>
+                    <td>Madonna con Bambino, San Giovannino e angeli</td>
+                </tr>
+                <tr>
+                    <td>Artist</td>
+                    <td>Sandro Botticelli</td>
+                </tr>
+                <tr>
+                    <td>Knowledge Graph</td>
+                    <td>ArCo</td>
+                </tr>
+                <tr>
+                    <td>Resource Type</td>
+                    <td>HistoricOrArtisticProperty</td>
+                </tr>
+                <tr>
+                    <td>Anchor URI</td>
+                    <td><code>https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code></td>
+                </tr>
+                <tr>
+                    <td>Research Goal</td>
+                    <td>Identify missing semantic knowledge for KG enrichment</td>
+                </tr>
+            </table>
 
             <figure>
                 <img src="../images/BotticelliPortrait.jpg" alt="Portrait of Sandro Botticelli" width="300">
-                <figcaption>
-                    <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
-                    (1445–1510), Florentine painter of the Early Renaissance.
-                </figcaption>
+                <figcaption><a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a></figcaption>
             </figure>
 
-            <p>
-                <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
-                (born Alessandro di Mariano Filipepi) was one of the leading painters of the
-                <a href="https://en.wikipedia.org/wiki/Italian_Renaissance" target="_blank">Italian Renaissance</a>.
-                Works such as
-                <a href="https://en.wikipedia.org/wiki/The_Birth_of_Venus" target="_blank"><em>The Birth of Venus</em></a>
-                and
-                <a href="https://en.wikipedia.org/wiki/Primavera_(Botticelli)" target="_blank"><em>Primavera</em></a>
-                are frequently discussed in relation to
-                <a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank">Neoplatonic</a>
-                and humanist culture in
-                <a href="https://en.wikipedia.org/wiki/Florence" target="_blank">Florence</a>.
-            </p>
+            <h3>Q1</h3>
+            <p><strong>Purpose:</strong> Verify the selected cultural property</p>
+<pre>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
-            <h3>Why ArCo?</h3>
-            <p>
-                The
-                <a href="https://arco.istc.cnr.it/" target="_blank">ArCo</a>
-                (<em>Architettura del Conoscimento</em>) knowledge graph catalogues Italian cultural heritage
-                using a network of ontologies. It is well suited to this project because it combines
-                catalogue metadata, context description and links to photographic documentation — allowing
-                us to compare what is explicitly modelled in RDF with what appears only in related resource labels.
-            </p>
-
-            <h3>Selected main resource</h3>
-            <p>
-                After an initial discovery query (see
-                <a href="sparql.html#query-1">Query 1</a>),
-                the following resource was selected as the anchor of the analysis:
-            </p>
-            <code class="anchor-uri">https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code>
-            <p>
-                <strong>Label:</strong>
-                <em>Madonna con Bambino, San Giovannino e angeli (dipinto) di Filipepi Alessandro detto Sandro Botticelli (sec. XV)</em>
-            </p>
-            <p>
-                <strong>Type:</strong>
-                <a href="https://w3id.org/arco/ontology/arco/" target="_blank">HistoricOrArtisticProperty</a>
-                — a catalogued painting with clear attribution to Botticelli.
-                All subsequent SPARQL queries use this URI through the <code>VALUES</code> clause.
-            </p>
-            <p>
-                <a href="https://dati.cultura.gov.it/sparql" target="_blank">Browse the resource in the ArCo SPARQL endpoint</a>
-            </p>
-
-            <h3>Major works (context)</h3>
+SELECT DISTINCT ?type ?label
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+  ?cp rdf:type ?type .
+  OPTIONAL { ?cp rdfs:label ?label }
+}</pre>
             <figure>
-                <img src="../images/BirthOfVenus.jpg" alt="The Birth of Venus by Botticelli" width="560">
-                <figcaption>
-                    <a href="https://en.wikipedia.org/wiki/The_Birth_of_Venus" target="_blank"><em>The Birth of Venus</em></a>
-                    — often discussed in relation to Neoplatonic interpretation.
-                </figcaption>
+                <img src="../images/doc1-q1.png" alt="Q1 — verification of the selected cultural property">
+                <figcaption>Q1 results.</figcaption>
+            </figure>
+            <p><strong>Interpretation.</strong> The resource exists in ArCo and is classified as HistoricOrArtisticProperty and MovableCulturalProperty. The Anchor URI is valid.</p>
+
+            <h3>Q2</h3>
+            <p><strong>Purpose:</strong> Retrieve all RDF properties</p>
+<pre>SELECT DISTINCT ?property ?value
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+  ?cp ?property ?value .
+}
+ORDER BY ?property</pre>
+            <figure>
+                <img src="../images/doc1-q2-1.png" alt="Q2 — RDF properties (part 1)">
+                <figcaption>Q2 results (part 1).</figcaption>
             </figure>
             <figure>
-                <img src="../images/Primavera.jpg" alt="Primavera by Botticelli" width="560">
-                <figcaption>
-                    <a href="https://en.wikipedia.org/wiki/Primavera_(Botticelli)" target="_blank"><em>Primavera</em></a>
-                    — allegorical and mythological readings are common in art historical literature.
-                </figcaption>
+                <img src="../images/doc1-q2-2.png" alt="Q2 — RDF properties (part 2)">
+                <figcaption>Q2 results (part 2).</figcaption>
             </figure>
+            <figure>
+                <img src="../images/doc1-q2-3.png" alt="Q2 — RDF properties (part 3)">
+                <figcaption>Q2 results (part 3).</figcaption>
+            </figure>
+            <p><strong>Interpretation.</strong> The artwork contains rich structured metadata including author, dating, bibliography, documentation, inventory, legal status, measurements, material, technique, image and identifiers.</p>
+            <p><strong>Interpretation.</strong> Additional contextual and technical metadata.</p>
+            <p><strong>Interpretation.</strong> Additional Dublin Core and ArCo metadata including description and subject.</p>
+            <p><strong>Interpretation.</strong> Administrative metadata, labels and depiction links.</p>
+
+            <h3>Q3</h3>
+            <p><strong>Purpose:</strong> Check hasSubject</p>
+<pre>PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
+
+SELECT ?subject
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+  OPTIONAL { ?cp a-cd:hasSubject ?subject }
+}</pre>
+            <figure>
+                <img src="../images/doc1-q3.png" alt="Q3 — hasSubject">
+                <figcaption>Q3 results.</figcaption>
+            </figure>
+            <p><strong>Interpretation.</strong> The subject resource exists. Therefore the artwork already contains a structured subject reference.</p>
+
+            <h3>Q4</h3>
+            <p><strong>Purpose:</strong> Check Iconclass</p>
+<pre>PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
+
+SELECT ?iconclass
+WHERE {
+  VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
+  OPTIONAL { ?cp a-cd:iconclassCode ?iconclass }
+}</pre>
+            <figure>
+                <img src="../images/doc1-q4.png" alt="Q4 — Iconclass">
+                <figcaption>Q4 results.</figcaption>
+            </figure>
+            <p><strong>Interpretation.</strong> No Iconclass value is returned. This is the first confirmed knowledge gap.</p>
+
+            <h3>Preliminary Findings</h3>
+            <p><strong>Confirmed metadata available in ArCo:</strong></p>
+            <ul>
+                <li>Author attribution</li>
+                <li>Dating</li>
+                <li>Bibliography</li>
+                <li>Documentation</li>
+                <li>Measurements</li>
+                <li>Material and technique</li>
+                <li>Subject</li>
+                <li>Description of represented figures</li>
+                <li>Image</li>
+                <li>Inventory and legal information</li>
+            </ul>
+            <p><strong>Confirmed missing information:</strong></p>
+            <ul>
+                <li>Iconclass classification.</li>
+            </ul>
+            <p>This will be investigated further during the <a href="knowledge-gaps.html">Knowledge Gap Identification</a> stage. The full SPARQL exploration is presented in <a href="sparql.html">SPARQL</a>.</p>
 
             <nav class="page-nav-links" aria-label="Section navigation">
                 <a href="../index.html">&larr; Home</a>

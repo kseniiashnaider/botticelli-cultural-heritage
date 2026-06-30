@@ -53,35 +53,39 @@
     <main class="site-main">
         <section class="content-section">
             <h2>Conclusion</h2>
+
             <p>
-                This project examined how
-                <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank">Sandro Botticelli</a>
-                is represented in the
-                <a href="https://arco.istc.cnr.it/" target="_blank">ArCo Knowledge Graph</a>,
-                using the painting
-                <code>HistoricOrArtisticProperty/1201008107</code> as the anchor resource.
+                The project demonstrates a complete Knowledge Engineering workflow. Knowledge gaps
+                were not assumed but objectively identified through SPARQL exploration. Large Language
+                Models were subsequently employed as knowledge extraction tools rather than
+                authoritative sources. Their outputs were compared, validated and transformed into RDF
+                triples that enrich the cultural heritage description of Botticelli's artwork. The resulting
+                methodology is transparent, reproducible and transferable to other cultural heritage
+                objects. Most importantly, the project shows that semantic enrichment should be evidence-
+                based: existing metadata must first be explored, genuine knowledge gaps identified,
+                generated knowledge validated and only then incorporated into a knowledge graph.
             </p>
+
             <p>
-                SPARQL queries showed that catalogue and photographic metadata are well represented,
-                while philosophical and interpretative context — though present in labels of related
-                resources — is not always modelled through structured properties such as
-                <code>a-cd:hasSubject</code>. Queries 4 and 6 provided graph-based evidence for this gap.
+                This project achieved its objective of identifying, validating and enriching semantic
+                knowledge gaps in the ArCo Knowledge Graph. Rather than assuming that information was
+                missing, each gap was demonstrated through SPARQL exploration. Large Language Models
+                generated contextual knowledge that was subsequently validated and transformed into RDF
+                triples. The final workflow is transparent, reproducible and suitable for reuse in other
+                cultural heritage knowledge engineering projects. It illustrates that semantic enrichment is
+                most effective when knowledge graphs and LLMs are combined in a carefully controlled
+                methodology.
             </p>
+
             <p>
-                LLM comparison (zero-shot, few-shot and chain-of-thought prompting) supported the same
-                conclusion from an art historical perspective. The hybrid approach — SPARQL first,
-                then LLM, then scholarly verification — proved more reliable than either method alone.
-            </p>
-            <p>
-                The proposed enrichment links the painting to Neoplatonism as an
-                <code>a-cd:Subject</code> and optionally to Marsilio Ficino as a
-                <code>core:Agent</code>, reusing ArCo vocabulary rather than inventing new predicates.
-                Future validation queries illustrate how the enriched graph would support direct semantic retrieval.
-            </p>
-            <p>
-                In sum, the project shows that combining knowledge graph exploration, ontology-aware
-                enrichment and LLM-assisted analysis can make implicit cultural knowledge more explicit,
-                searchable and reusable for heritage research.
+                This chapter demonstrated how semantic knowledge extracted from Large Language
+                Models can be transformed into structured RDF triples for the selected cultural
+                object, <em>Madonna con Bambino, San Giovannino e angeli</em>. The proposed enrichment
+                addresses the knowledge gaps identified during the SPARQL analysis by introducing
+                semantic descriptions of iconography, symbolism, theology and Renaissance cultural
+                context. Although the proposed RDF model is illustrative, it demonstrates a practical
+                workflow for enriching cultural heritage knowledge graphs while remaining consistent
+                with Semantic Web principles.
             </p>
 
             <nav class="page-nav-links" aria-label="Section navigation">
