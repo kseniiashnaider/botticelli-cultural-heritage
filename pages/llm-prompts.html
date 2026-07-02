@@ -52,58 +52,58 @@
 
     <main class="site-main">
         <section class="content-section">
-            <h2>LLM Knowledge Extraction and Validation</h2>
+            <h2><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> Knowledge Extraction and Validation</h2>
 
             <h3>3.1 Objective</h3>
             <p>
-                This stage addresses the semantic gaps identified during the SPARQL exploration. The
-                objective is to use multiple Large Language Models (LLMs) to generate contextual
-                information that is absent from the ArCo Knowledge Graph and evaluate whether this
-                information can be transformed into RDF triples.
+                This stage addresses the semantic gaps identified during the <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> exploration. The
+                objective is to use multiple <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a> (<a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLMs</a>) to generate contextual
+                information that is absent from the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> and evaluate whether this
+                information can be transformed into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a>.
             </p>
 
-            <h3>3.2 Confirmed Knowledge Gaps</h3>
+            <h3>3.2 Confirmed <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge Gaps</a></h3>
             <table>
-                <tr><th>Gap</th><th>Evidence</th><th>LLM Task</th></tr>
-                <tr><td>Iconclass classification</td><td>Q4 returned no value</td><td>Suggest an appropriate iconographic classification</td></tr>
-                <tr><td>Symbolic interpretation</td><td>Not represented in ArCo</td><td>Explain symbolic meaning of lilies, angels and composition</td></tr>
-                <tr><td>Theological interpretation</td><td>Not represented in ArCo</td><td>Explain theological significance</td></tr>
-                <tr><td>Renaissance context</td><td>Not represented in ArCo</td><td>Relate the artwork to Renaissance thought</td></tr>
+                <tr><th>Gap</th><th>Evidence</th><th><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> Task</th></tr>
+                <tr><td>Iconclass classification</td><td>Q4 returned no value</td><td>Suggest an appropriate <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconographic</a> classification</td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolic interpretation</a></td><td>Not represented in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></td><td>Explain <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a> meaning of lilies, angels and composition</td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">Theological</a> interpretation</td><td>Not represented in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></td><td>Explain <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> significance</td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> context</td><td>Not represented in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></td><td>Relate the artwork to <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> thought</td></tr>
             </table>
 
-            <h3>3.3 Standard Prompt</h3>
+            <h3>3.3 Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a></h3>
             <blockquote>
-                <p>Describe Sandro Botticelli's 'Madonna con Bambino, San Giovannino e angeli'. Focus on:</p>
+                <p>Describe <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank" rel="noopener">Sandro Botticelli</a>'s '<a href="https://it.wikipedia.org/wiki/Madonna_col_Bambino" target="_blank" rel="noopener">Madonna con Bambino</a>, San Giovannino e angeli'. Focus on:</p>
                 <ol>
-                    <li>Iconography.</li>
-                    <li>Symbolic meaning.</li>
-                    <li>Theological interpretation.</li>
-                    <li>Renaissance cultural context.</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">Iconography</a>.</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolic</a> meaning.</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">Theological</a> interpretation.</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> cultural context.</li>
                 </ol>
                 <p>Return factual information only.</p>
             </blockquote>
 
-            <h3>3.4 Few-shot Prompt</h3>
+            <h3>3.4 <a href="https://www.promptingguide.ai/techniques/fewshot" target="_blank" rel="noopener">Few-shot Prompting</a></h3>
             <blockquote>
                 <p>You are an art historian.</p>
-                <p>Example:<br>Artwork: The Birth of Venus<br>Output:<br>- Iconography: Venus emerging from the sea.<br>- Symbolism: Beauty, rebirth.<br>- Context: Florentine Neoplatonism.</p>
-                <p>Now analyse:<br>Madonna con Bambino, San Giovannino e angeli</p>
+                <p>Example:<br>Artwork: The Birth of Venus<br>Output:<br>- <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">Iconography</a>: Venus emerging from the sea.<br>- <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolism</a>: Beauty, rebirth.<br>- Context: Florentine <a href="https://en.wikipedia.org/wiki/Neoplatonism" target="_blank" rel="noopener">Neoplatonism</a>.</p>
+                <p>Now analyse:<br><a href="https://it.wikipedia.org/wiki/Madonna_col_Bambino" target="_blank" rel="noopener">Madonna con Bambino</a>, San Giovannino e angeli</p>
                 <p>Return the answer with the same structure.</p>
             </blockquote>
 
-            <h3>3.5 Chain-of-Thought Prompt</h3>
+            <h3>3.5 <a href="https://www.promptingguide.ai/techniques/cot" target="_blank" rel="noopener">Chain-of-Thought Prompting</a></h3>
             <blockquote>
                 <p>Analyse the artwork step by step:</p>
-                <p>Step 1. Identify represented figures.<br>Step 2. Explain their symbolic meaning.<br>Step 3. Explain the theological meaning.<br>Step 4. Explain the Renaissance historical context.<br>Step 5. Summarise which information could enrich a knowledge graph.</p>
+                <p>Step 1. Identify represented figures.<br>Step 2. Explain their <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a> meaning.<br>Step 3. Explain the <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> meaning.<br>Step 4. Explain the <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> historical context.<br>Step 5. Summarise which information could enrich a <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.</p>
             </blockquote>
 
             <h3>3.6 Models to Compare</h3>
             <table>
-                <tr><th>Model</th><th>Prompt Used</th><th>Screenshot</th><th>Comments</th></tr>
-                <tr><td>ChatGPT</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
-                <tr><td>Claude</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
-                <tr><td>Gemini</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
-                <tr><td>Mistral</td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><th>Model</th><th><a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> Used</th><th>Screenshot</th><th>Comments</th></tr>
+                <tr><td><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a></td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><td><a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a></td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><td><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a></td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
+                <tr><td><a href="https://mistral.ai/" target="_blank" rel="noopener">Mistral</a></td><td>Standard + Few-shot + CoT</td><td>See below</td><td>Complete after testing</td></tr>
             </table>
 
             <h3>3.7 Evaluation Criteria</h3>
@@ -111,166 +111,165 @@
                 <li>Historical accuracy</li>
                 <li>Completeness</li>
                 <li>Consistency with art-historical literature</li>
-                <li>Usefulness for RDF enrichment</li>
-                <li>Hallucination risk</li>
+                <li>Usefulness for <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF enrichment</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)" target="_blank" rel="noopener">Hallucination</a> risk</li>
             </ul>
 
-            <h3>3.8 Transition to RDF Enrichment</h3>
+            <h3>3.8 Transition to <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF Enrichment</a></h3>
             <p>
-                The validated statements produced by the LLMs will be converted into RDF triples in the
+                The validated statements produced by the <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLMs</a> will be converted into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a> in the
                 next stage. Only information supported by reliable sources will be proposed for enriching
-                the ArCo Knowledge Graph. See <a href="rdf-enrichment.html">RDF Enrichment</a>.
+                the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>. See <a href="rdf-enrichment.html">RDF Enrichment</a>.
             </p>
 
-            <h3>PROMPT 1 — Standard Prompt</h3>
+            <h3><a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">PROMPT</a> 1 — Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a></h3>
             <blockquote>
-                <p>You are an art historian specialising in Italian Renaissance painting.</p>
-                <p>Analyse Sandro Botticelli's painting "Madonna con Bambino, San Giovannino e angeli".</p>
+                <p>You are an art historian specialising in <a href="https://en.wikipedia.org/wiki/Italian_Renaissance" target="_blank" rel="noopener">Italian Renaissance</a> painting.</p>
+                <p>Analyse <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank" rel="noopener">Sandro Botticelli</a>'s painting "<a href="https://it.wikipedia.org/wiki/Madonna_col_Bambino" target="_blank" rel="noopener">Madonna con Bambino</a>, San Giovannino e angeli".</p>
                 <p>Provide a structured analysis including:</p>
                 <ol>
                     <li>The represented figures.</li>
-                    <li>The iconography.</li>
-                    <li>The symbolic meaning of the lilies.</li>
-                    <li>The theological meaning of the composition.</li>
+                    <li>The <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconography</a>.</li>
+                    <li>The <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a> meaning of the lilies.</li>
+                    <li>The <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> meaning of the composition.</li>
                     <li>The historical context of the painting.</li>
-                    <li>The relationship of the artwork to Renaissance humanism.</li>
-                    <li>Information that could enrich a cultural heritage knowledge graph.</li>
+                    <li>The relationship of the artwork to <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> <a href="https://en.wikipedia.org/wiki/Renaissance_humanism" target="_blank" rel="noopener">humanism</a>.</li>
+                    <li>Information that could enrich a <a href="https://en.wikipedia.org/wiki/Cultural_heritage" target="_blank" rel="noopener">cultural heritage</a> <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.</li>
                 </ol>
                 <p>Do not invent facts. Use only well-established art historical knowledge.</p>
             </blockquote>
 
-            <h4>ChatGPT</h4>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 1.png" alt="Standard Prompt — ChatGPT response 1"><figcaption>Standard Prompt — ChatGPT response 1.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 2.png" alt="Standard Prompt — ChatGPT response 2"><figcaption>Standard Prompt — ChatGPT response 2.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 3.png" alt="Standard Prompt — ChatGPT response 3"><figcaption>Standard Prompt — ChatGPT response 3.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 4.png" alt="Standard Prompt — ChatGPT response 4"><figcaption>Standard Prompt — ChatGPT response 4.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 5.png" alt="Standard Prompt — ChatGPT response 5"><figcaption>Standard Prompt — ChatGPT response 5.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 6.png" alt="Standard Prompt — ChatGPT response 6"><figcaption>Standard Prompt — ChatGPT response 6.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 7.png" alt="Standard Prompt — ChatGPT response 7"><figcaption>Standard Prompt — ChatGPT response 7.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 8.png" alt="Standard Prompt — ChatGPT response 8"><figcaption>Standard Prompt — ChatGPT response 8.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 9.png" alt="Standard Prompt — ChatGPT response 9"><figcaption>Standard Prompt — ChatGPT response 9.</figcaption></figure>
+            <h4><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a></h4>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 1.png" alt="Standard Prompt — ChatGPT response 1"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 1.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 2.png" alt="Standard Prompt — ChatGPT response 2"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 2.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 3.png" alt="Standard Prompt — ChatGPT response 3"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 3.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 4.png" alt="Standard Prompt — ChatGPT response 4"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 4.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 5.png" alt="Standard Prompt — ChatGPT response 5"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 5.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 6.png" alt="Standard Prompt — ChatGPT response 6"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 6.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 7.png" alt="Standard Prompt — ChatGPT response 7"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 7.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 8.png" alt="Standard Prompt — ChatGPT response 8"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 8.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-chat-gpt/Standard Prompt Chat GPT Response 9.png" alt="Standard Prompt — ChatGPT response 9"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 9.</figcaption></figure>
 
-            <h4>Gemini</h4>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 1 .png" alt="Standard Prompt — Gemini response 1"><figcaption>Standard Prompt — Gemini response 1.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 2.png" alt="Standard Prompt — Gemini response 2"><figcaption>Standard Prompt — Gemini response 2.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 3.png" alt="Standard Prompt — Gemini response 3"><figcaption>Standard Prompt — Gemini response 3.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 4.png" alt="Standard Prompt — Gemini response 4"><figcaption>Standard Prompt — Gemini response 4.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 5.png" alt="Standard Prompt — Gemini response 5"><figcaption>Standard Prompt — Gemini response 5.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 6.png" alt="Standard Prompt — Gemini response 6"><figcaption>Standard Prompt — Gemini response 6.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 7.png" alt="Standard Prompt — Gemini response 7"><figcaption>Standard Prompt — Gemini response 7.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 8.png" alt="Standard Prompt — Gemini response 8"><figcaption>Standard Prompt — Gemini response 8.</figcaption></figure>
-            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 9.png" alt="Standard Prompt — Gemini response 9"><figcaption>Standard Prompt — Gemini response 9.</figcaption></figure>
+            <h4><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a></h4>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 1 .png" alt="Standard Prompt — Gemini response 1"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 1.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 2.png" alt="Standard Prompt — Gemini response 2"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 2.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 3.png" alt="Standard Prompt — Gemini response 3"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 3.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 4.png" alt="Standard Prompt — Gemini response 4"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 4.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 5.png" alt="Standard Prompt — Gemini response 5"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 5.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 6.png" alt="Standard Prompt — Gemini response 6"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 6.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 7.png" alt="Standard Prompt — Gemini response 7"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 7.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 8.png" alt="Standard Prompt — Gemini response 8"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 8.</figcaption></figure>
+            <figure><img src="../images/standard-prompt-gemini/Standard Prompt Gemini Response 9.png" alt="Standard Prompt — Gemini response 9"><figcaption>Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 9.</figcaption></figure>
 
             <p>
-                The Standard Prompt generated comprehensive responses in both ChatGPT and Gemini.
+                The Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> generated comprehensive responses in both <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>.
                 Both models correctly identified the represented figures, including the Virgin Mary, the
                 Christ Child, Saint John the Baptist and the accompanying angels. They also recognised
-                the artwork as a Renaissance representation of the Sacra Conversazione and explained
+                the artwork as a <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> representation of the Sacra Conversazione and explained
                 the principal iconographic characteristics of the composition.
             </p>
             <p>
                 In addition, both models provided information that is not explicitly represented in the
-                ArCo Knowledge Graph, including the symbolic meaning of lilies, the theological
+                <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>, including the <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a> meaning of lilies, the <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a>
                 interpretation of the Incarnation and the relationship between the painting and
-                Renaissance Humanism. These semantic descriptions extend beyond the cataloguing
-                metadata currently available in ArCo and therefore represent valuable candidates for
-                knowledge graph enrichment.
+                <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> <a href="https://en.wikipedia.org/wiki/Renaissance_humanism" target="_blank" rel="noopener">Humanism</a>. These semantic descriptions extend beyond the cataloguing
+                <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> currently available in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> and therefore represent valuable candidates for
+                <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a> enrichment.
             </p>
 
-            <h3>PROMPT 2 — Few-shot Prompt</h3>
+            <h3><a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">PROMPT</a> 2 — Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a></h3>
             <blockquote>
-                <p>You are an expert in cultural heritage knowledge graphs.</p>
-                <p><strong>Example</strong><br>Artwork: The Birth of Venus<br>Output<br>Represented figures: Venus, Zephyrus, Aura, Hora.<br>Iconography: The birth of Venus from classical mythology.<br>Symbolism: Beauty, purity, divine love.<br>Historical context: Florentine Renaissance.<br>Knowledge Graph enrichment: represented figures, iconography, symbolism, historical context</p>
-                <p>Now analyse Madonna con Bambino, San Giovannino e angeli. Return your answer using exactly the same structure.</p>
+                <p>You are an expert in <a href="https://en.wikipedia.org/wiki/Cultural_heritage" target="_blank" rel="noopener">cultural heritage</a> <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graphs</a>.</p>
+                <p><strong>Example</strong><br>Artwork: The Birth of Venus<br>Output<br>Represented figures: Venus, Zephyrus, Aura, Hora.<br><a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">Iconography</a>: The birth of Venus from classical mythology.<br><a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolism</a>: Beauty, purity, divine love.<br>Historical context: Florentine <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a>.<br><a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">Knowledge Graph</a> enrichment: represented figures, <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconography</a>, <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolism</a>, historical context</p>
+                <p>Now analyse <a href="https://it.wikipedia.org/wiki/Madonna_col_Bambino" target="_blank" rel="noopener">Madonna con Bambino</a>, San Giovannino e angeli. Return your answer using exactly the same structure.</p>
             </blockquote>
 
-            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Chat GPT Response 1.png" alt="Few-shot Prompt — ChatGPT response 1"><figcaption>Few-shot Prompt — ChatGPT response 1.</figcaption></figure>
-            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Chat GPT Response 2.png" alt="Few-shot Prompt — ChatGPT response 2"><figcaption>Few-shot Prompt — ChatGPT response 2.</figcaption></figure>
-            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Gemini Response 1.png" alt="Few-shot Prompt — Gemini response 1"><figcaption>Few-shot Prompt — Gemini response 1.</figcaption></figure>
-            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Gemini Response 2.png" alt="Few-shot Prompt — Gemini response 2"><figcaption>Few-shot Prompt — Gemini response 2.</figcaption></figure>
-            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Gemini Response 3.png" alt="Few-shot Prompt — Gemini response 3"><figcaption>Few-shot Prompt — Gemini response 3.</figcaption></figure>
+            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Chat GPT Response 1.png" alt="Few-shot Prompt — ChatGPT response 1"><figcaption>Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 1.</figcaption></figure>
+            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Chat GPT Response 2.png" alt="Few-shot Prompt — ChatGPT response 2"><figcaption>Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 2.</figcaption></figure>
+            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Gemini Response 1.png" alt="Few-shot Prompt — Gemini response 1"><figcaption>Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 1.</figcaption></figure>
+            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Gemini Response 2.png" alt="Few-shot Prompt — Gemini response 2"><figcaption>Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 2.</figcaption></figure>
+            <figure><img src="../images/few-shot-prompt-gemini-chat-gpt/Few-shot Prompt Gemini Response 3.png" alt="Few-shot Prompt — Gemini response 3"><figcaption>Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 3.</figcaption></figure>
 
             <p>
-                The Few-shot Prompt produced more structured responses than the Standard Prompt.
+                The Few-shot <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> produced more structured responses than the Standard <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a>.
                 Because both models received an example before analysing Botticelli's painting, their
                 answers followed a consistent semantic organisation. The information was divided into
-                represented figures, iconography, symbolism, historical context and potential knowledge
-                graph enrichment.
+                represented figures, <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconography</a>, <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolism</a>, historical context and potential <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a> enrichment.
             </p>
             <p>
-                This structure facilitates comparison between different LLMs and simplifies the
-                transformation of textual descriptions into RDF triples. From a knowledge engineering
-                perspective, Few-shot prompting therefore improves the consistency of semantic
+                This structure facilitates comparison between different <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLMs</a> and simplifies the
+                transformation of textual descriptions into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a>. From a knowledge engineering
+                perspective, <a href="https://www.promptingguide.ai/techniques/fewshot" target="_blank" rel="noopener">Few-shot prompting</a> therefore improves the consistency of semantic
                 extraction.
             </p>
 
-            <h3>PROMPT 3 — Chain-of-Thought</h3>
+            <h3><a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">PROMPT</a> 3 — Chain-of-Thought</h3>
             <blockquote>
                 <p>You are an art historian. Think step by step.</p>
-                <p>Step 1. Identify every represented figure.<br>Step 2. Explain the iconography.<br>Step 3. Explain the symbolic meaning of each important object.<br>Step 4. Explain the theological interpretation.<br>Step 5. Explain the Renaissance cultural context.<br>Step 6. Identify which information is already present in ArCo.<br>Step 7. Identify which information is missing from ArCo.<br>Step 8. Suggest semantic information that could enrich the knowledge graph.</p>
+                <p>Step 1. Identify every represented figure.<br>Step 2. Explain the <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconography</a>.<br>Step 3. Explain the <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a> meaning of each important <a href="https://en.wikipedia.org/wiki/Semantic_triple" target="_blank" rel="noopener">object</a>.<br>Step 4. Explain the <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> interpretation.<br>Step 5. Explain the <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> <a href="https://en.wikipedia.org/wiki/Cultural_history" target="_blank" rel="noopener">cultural context</a>.<br>Step 6. Identify which information is already present in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>.<br>Step 7. Identify which information is missing from the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>.<br>Step 8. Suggest semantic information that could enrich the <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.</p>
                 <p>Return the final answer in structured sections.</p>
             </blockquote>
 
-            <h4>ChatGPT</h4>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 1.png" alt="Chain-of-Thought — ChatGPT response 1"><figcaption>Chain-of-Thought — ChatGPT response 1.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 2.png" alt="Chain-of-Thought — ChatGPT response 2"><figcaption>Chain-of-Thought — ChatGPT response 2.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 3.png" alt="Chain-of-Thought — ChatGPT response 3"><figcaption>Chain-of-Thought — ChatGPT response 3.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 4.png" alt="Chain-of-Thought — ChatGPT response 4"><figcaption>Chain-of-Thought — ChatGPT response 4.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 5.png" alt="Chain-of-Thought — ChatGPT response 5"><figcaption>Chain-of-Thought — ChatGPT response 5.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 6.png" alt="Chain-of-Thought — ChatGPT response 6"><figcaption>Chain-of-Thought — ChatGPT response 6.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 7.png" alt="Chain-of-Thought — ChatGPT response 7"><figcaption>Chain-of-Thought — ChatGPT response 7.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 8.png" alt="Chain-of-Thought — ChatGPT response 8"><figcaption>Chain-of-Thought — ChatGPT response 8.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 9.png" alt="Chain-of-Thought — ChatGPT response 9"><figcaption>Chain-of-Thought — ChatGPT response 9.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 10.png" alt="Chain-of-Thought — ChatGPT response 10"><figcaption>Chain-of-Thought — ChatGPT response 10.</figcaption></figure>
+            <h4><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a></h4>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 1.png" alt="Chain-of-Thought — ChatGPT response 1"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 1.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 2.png" alt="Chain-of-Thought — ChatGPT response 2"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 2.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 3.png" alt="Chain-of-Thought — ChatGPT response 3"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 3.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 4.png" alt="Chain-of-Thought — ChatGPT response 4"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 4.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 5.png" alt="Chain-of-Thought — ChatGPT response 5"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 5.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 6.png" alt="Chain-of-Thought — ChatGPT response 6"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 6.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 7.png" alt="Chain-of-Thought — ChatGPT response 7"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 7.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 8.png" alt="Chain-of-Thought — ChatGPT response 8"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 8.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 9.png" alt="Chain-of-Thought — ChatGPT response 9"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 9.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-chat-gpt/Chain-of-Thought Chat GPT Response 10.png" alt="Chain-of-Thought — ChatGPT response 10"><figcaption>Chain-of-Thought — <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> response 10.</figcaption></figure>
 
-            <h4>Gemini</h4>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought Gemini Response 1.png.png" alt="Chain-of-Thought — Gemini response 1"><figcaption>Chain-of-Thought — Gemini response 1.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 2.png" alt="Chain-of-Thought — Gemini response 2"><figcaption>Chain-of-Thought — Gemini response 2.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 3.png" alt="Chain-of-Thought — Gemini response 3"><figcaption>Chain-of-Thought — Gemini response 3.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 4.png" alt="Chain-of-Thought — Gemini response 4"><figcaption>Chain-of-Thought — Gemini response 4.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 5.png" alt="Chain-of-Thought — Gemini response 5"><figcaption>Chain-of-Thought — Gemini response 5.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 6.png" alt="Chain-of-Thought — Gemini response 6"><figcaption>Chain-of-Thought — Gemini response 6.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 7.png" alt="Chain-of-Thought — Gemini response 7"><figcaption>Chain-of-Thought — Gemini response 7.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 8.png" alt="Chain-of-Thought — Gemini response 8"><figcaption>Chain-of-Thought — Gemini response 8.</figcaption></figure>
-            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 9.png" alt="Chain-of-Thought — Gemini response 9"><figcaption>Chain-of-Thought — Gemini response 9.</figcaption></figure>
+            <h4><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a></h4>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought Gemini Response 1.png.png" alt="Chain-of-Thought — Gemini response 1"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 1.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 2.png" alt="Chain-of-Thought — Gemini response 2"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 2.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 3.png" alt="Chain-of-Thought — Gemini response 3"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 3.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 4.png" alt="Chain-of-Thought — Gemini response 4"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 4.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 5.png" alt="Chain-of-Thought — Gemini response 5"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 5.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 6.png" alt="Chain-of-Thought — Gemini response 6"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 6.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 7.png" alt="Chain-of-Thought — Gemini response 7"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 7.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 8.png" alt="Chain-of-Thought — Gemini response 8"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 8.</figcaption></figure>
+            <figure><img src="../images/chain-of-thought-gemini/Chain-of-Thought  Gemini Response 9.png" alt="Chain-of-Thought — Gemini response 9"><figcaption>Chain-of-Thought — <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> response 9.</figcaption></figure>
 
             <p>
-                The Chain-of-Thought Prompt generated the most detailed responses among all
+                The Chain-of-Thought <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">Prompt</a> generated the most detailed responses among all
                 prompting strategies. Instead of immediately producing an answer, both models
-                decomposed the task into several reasoning steps. This resulted in a clearer distinction
-                between factual metadata already contained in ArCo and additional semantic knowledge
-                absent from the knowledge graph.
+                decomposed the task into several <a href="https://en.wikipedia.org/wiki/Automated_reasoning" target="_blank" rel="noopener">reasoning</a> steps. This resulted in a clearer distinction
+                between factual <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> already contained in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> and additional semantic knowledge
+                absent from the <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.
             </p>
             <p>
-                Both ChatGPT and Gemini explicitly identified which information was already available
-                in ArCo and proposed additional semantic concepts such as iconographic themes,
-                symbolic meanings, theological interpretations and historical context. This reasoning-
-                oriented approach produced the most useful information for RDF enrichment.
+                Both <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> explicitly identified which information was already available
+                in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> and proposed additional semantic concepts such as <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconographic</a> themes,
+                symbolic meanings, <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> interpretations and historical context. This <a href="https://en.wikipedia.org/wiki/Automated_reasoning" target="_blank" rel="noopener">reasoning</a>-
+                oriented approach produced the most useful information for <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF enrichment</a>.
             </p>
 
             <h3>Comparative Analysis</h3>
             <figure><img src="../images/doc3-table1.png" alt="Comparative table 1"><figcaption>Table 1.</figcaption></figure>
 
             <p>
-                The comparative evaluation demonstrates that both ChatGPT and Gemini generated high-
+                The comparative evaluation demonstrates that both <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> generated high-
                 quality semantic descriptions that substantially extend the information currently available
-                in the ArCo Knowledge Graph. ChatGPT produced richer theological and symbolic
-                interpretations, whereas Gemini generated responses that were more structured from a
-                knowledge engineering perspective and more directly applicable to RDF modelling.
+                in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>. <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> produced richer <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> and <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a>
+                interpretations, whereas <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> generated responses that were more structured from a
+                knowledge engineering perspective and more directly applicable to <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> modelling.
                 Consequently, both systems proved highly effective for identifying semantic information
-                suitable for cultural heritage knowledge graph enrichment.
+                suitable for <a href="https://en.wikipedia.org/wiki/Cultural_heritage" target="_blank" rel="noopener">cultural heritage</a> <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a> enrichment.
             </p>
 
             <h3>Knowledge Extraction Summary</h3>
             <p>
-                The comparison clearly indicates that the contribution of Large Language Models lies
-                primarily at the semantic level rather than at the descriptive level. ArCo already provides
-                reliable cataloguing metadata, including authorship, dating, dimensions, materials, and
-                basic subject information. In contrast, both ChatGPT and Gemini generated contextual
-                knowledge concerning iconography, symbolism, theology, Renaissance cultural context,
+                The comparison clearly indicates that the contribution of <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a> lies
+                primarily at the semantic level rather than at the descriptive level. The <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> already provides
+                reliable cataloguing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>, including authorship, dating, dimensions, materials, and
+                basic <a href="https://en.wikipedia.org/wiki/Semantic_triple" target="_blank" rel="noopener">subject</a> information. In contrast, both <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> generated contextual
+                knowledge concerning <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconography</a>, <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolism</a>, <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theology</a>, <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> cultural context,
                 and semantic relationships between entities. These concepts correspond directly to the
-                knowledge gaps identified during the SPARQL exploration and therefore represent the
-                most promising candidates for RDF-based knowledge graph enrichment in the following
+                <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> identified during the <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> exploration and therefore represent the
+                most promising candidates for <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a>-based <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a> enrichment in the following
                 stage of the project.
             </p>
 

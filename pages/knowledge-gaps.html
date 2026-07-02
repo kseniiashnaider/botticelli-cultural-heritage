@@ -52,9 +52,9 @@
 
     <main class="site-main">
         <section class="content-section">
-            <h2>Knowledge Gap Analysis: From SPARQL Discovery to RDF Enrichment</h2>
+            <h2><a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge Gap</a> Analysis: From <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> Discovery to <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> Enrichment</h2>
 
-            <h3>5. Metadata Already Available</h3>
+            <h3>5. <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">Metadata</a> Already Available</h3>
             <table>
                 <tr>
                     <th>Semantic Layer</th>
@@ -74,15 +74,15 @@
             </table>
             <p>
                 This analysis was essential because it prevented unnecessary enrichment. The objective of
-                the project was not to duplicate information already stored in ArCo, but to enrich only those
+                the project was not to duplicate information already stored in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>, but to enrich only those
                 semantic dimensions that were demonstrably absent.
             </p>
 
-            <h3>6. Evidence-Based Identification of Knowledge Gaps</h3>
+            <h3>6. Evidence-Based Identification of <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge Gaps</a></h3>
             <p>
-                The following SPARQL queries investigated whether higher-level semantic information was
+                The following <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> queries investigated whether higher-level semantic information was
                 explicitly represented. The results showed that several important interpretative concepts
-                were missing from the current RDF description. These missing concepts became the focus of
+                were missing from the current <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description. These missing concepts became the focus of
                 the enrichment process.
             </p>
 
@@ -91,76 +91,75 @@
                 Query 4 attempted to retrieve an Iconclass code but returned no value. Although the
                 painting is well described, it is not linked to a controlled iconographic vocabulary. This
                 prevents semantic comparison with artworks sharing the same iconographic tradition.
-                ChatGPT and Gemini independently identified the painting as belonging to the Sacra
+                <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> independently identified the painting as belonging to the Sacra
                 Conversazione type, providing a validated candidate for enrichment.
             </p>
 
-            <h4>6.2 Missing Symbolic Interpretation</h4>
+            <h4>6.2 Missing <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolic</a> Interpretation</h4>
             <p>
-                Queries exploring contextual metadata did not reveal structured descriptions of symbolic
-                meaning. The painting contains Marian symbolism, particularly through lilies, angels and
+                Queries exploring contextual <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> did not reveal structured descriptions of symbolic
+                meaning. The painting contains Marian <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolism</a>, particularly through lilies, angels and
                 the relationship between the Virgin and Child. Both language models consistently explained
                 these symbols and associated them with purity, virginity and Marian devotion. These
-                concepts were proposed as RDF semantic relationships.
+                concepts were proposed as <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> semantic relationships.
             </p>
 
-            <h4>6.3 Missing Theological Interpretation</h4>
+            <h4>6.3 Missing <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">Theological</a> Interpretation</h4>
             <p>
-                The RDF graph contains factual descriptions but not theological interpretation. The LLM
+                The <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> graph contains factual descriptions but not <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> interpretation. The <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a>
                 analysis identified concepts including the Incarnation, Divine Motherhood and the
                 foreshadowing of Christ's Passion. These ideas enrich the semantic understanding of the
-                artwork without modifying existing metadata.
+                artwork without modifying existing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.
             </p>
 
-            <h4>6.4 Missing Renaissance Context</h4>
+            <h4>6.4 Missing <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> Context</h4>
             <p>
-                The graph contains historical metadata but does not explicitly connect the painting with
-                Florentine Renaissance culture, Renaissance Humanism or Botticelli's intellectual
+                The graph contains historical <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> but does not explicitly connect the painting with
+                Florentine <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> culture, <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> <a href="https://en.wikipedia.org/wiki/Renaissance_humanism" target="_blank" rel="noopener">Humanism</a> or <a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank" rel="noopener">Botticelli</a>'s intellectual
                 environment. The LLM comparison consistently identified these concepts as central
-                contextual information suitable for semantic enrichment.
+                contextual information suitable for <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">semantic enrichment</a>.
             </p>
 
-            <h3>7. Validation Using Large Language Models</h3>
+            <h3>7. Validation Using <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a></h3>
             <p>
-                Knowledge generation was performed using Standard Prompting, Few-shot Prompting and
-                Chain-of-Thought Prompting. ChatGPT and Gemini were compared throughout the project.
+                Knowledge generation was performed using <a href="https://www.promptingguide.ai/techniques/zeroshot" target="_blank" rel="noopener">Standard Prompting</a>, <a href="https://www.promptingguide.ai/techniques/fewshot" target="_blank" rel="noopener">Few-shot Prompting</a> and
+                <a href="https://www.promptingguide.ai/techniques/cot" target="_blank" rel="noopener">Chain-of-Thought Prompting</a>. <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> were compared throughout the project.
                 Candidate concepts were accepted only when they were consistent across models and
                 supported by established art-historical knowledge. This validation reduced the risk of
                 introducing unsupported semantic statements into the enrichment model. See
                 <a href="llm-prompts.html">LLM Prompts</a>.
             </p>
 
-            <h3>8. Final Knowledge Gap Summary</h3>
+            <h3>8. Final <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge Gap</a> Summary</h3>
             <table>
                 <tr>
                     <th>Knowledge</th>
-                    <th>Present in ArCo</th>
+                    <th>Present in <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></th>
                     <th>Evidence</th>
                     <th>Gap</th>
                     <th>LLM Contribution</th>
-                    <th>RDF Enrichment</th>
+                    <th><a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> Enrichment</th>
                 </tr>
                 <tr><td>Author</td><td>Yes</td><td>Q2</td><td>No</td><td>—</td><td>—</td></tr>
                 <tr><td>Dating</td><td>Yes</td><td>Q2</td><td>No</td><td>—</td><td>—</td></tr>
                 <tr><td>Subject</td><td>Yes</td><td>Q3</td><td>No</td><td>—</td><td>—</td></tr>
                 <tr><td>Represented Figures</td><td>Yes</td><td>Q2/Q3</td><td>No</td><td>Extended with Angels</td><td><code>hasSubject</code></td></tr>
                 <tr><td>Iconclass</td><td>No</td><td>Q4</td><td>Yes</td><td>Sacra Conversazione</td><td><code>ex:hasIconographicTheme</code></td></tr>
-                <tr><td>Symbolism</td><td>No</td><td>Q5</td><td>Yes</td><td>Purity, Marian symbolism</td><td><code>ex:hasSymbolicMeaning</code></td></tr>
-                <tr><td>Theology</td><td>No</td><td>Q6</td><td>Yes</td><td>Incarnation, Divine Motherhood</td><td><code>ex:hasTheologicalMeaning</code></td></tr>
-                <tr><td>Renaissance Context</td><td>No</td><td>Q6</td><td>Yes</td><td>Humanism, Florence</td><td><code>ex:hasHistoricalContext</code></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolism</a></td><td>No</td><td>Q5</td><td>Yes</td><td>Purity, Marian <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolism</a></td><td><code>ex:hasSymbolicMeaning</code></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">Theology</a></td><td>No</td><td>Q6</td><td>Yes</td><td>Incarnation, Divine Motherhood</td><td><code>ex:hasTheologicalMeaning</code></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> Context</td><td>No</td><td>Q6</td><td>Yes</td><td><a href="https://en.wikipedia.org/wiki/Renaissance_humanism" target="_blank" rel="noopener">Humanism</a>, Florence</td><td><code>ex:hasHistoricalContext</code></td></tr>
             </table>
 
             <h3>10. Conclusions</h3>
             <p>
-                The project demonstrates a complete Knowledge Engineering workflow. Knowledge gaps
-                were not assumed but objectively identified through SPARQL exploration. Large Language
-                Models were subsequently employed as knowledge extraction tools rather than
-                authoritative sources. Their outputs were compared, validated and transformed into RDF
-                triples that enrich the cultural heritage description of Botticelli's artwork. The resulting
-                methodology is transparent, reproducible and transferable to other cultural heritage
-                objects. Most importantly, the project shows that semantic enrichment should be evidence-
-                based: existing metadata must first be explored, genuine knowledge gaps identified,
-                generated knowledge validated and only then incorporated into a knowledge graph.
+                The project demonstrates a complete Knowledge Engineering workflow. <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge gaps</a>
+                were not assumed but objectively identified through <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> exploration. <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a>
+                were subsequently employed as knowledge extraction tools rather than
+                authoritative sources. Their outputs were compared, validated and transformed into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a> that enrich the <a href="https://en.wikipedia.org/wiki/Cultural_heritage" target="_blank" rel="noopener">cultural heritage</a> description of Botticelli's artwork. The resulting
+                methodology is transparent, reproducible and transferable to other <a href="https://en.wikipedia.org/wiki/Cultural_heritage" target="_blank" rel="noopener">cultural heritage</a>
+                objects. Most importantly, the project shows that <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">semantic enrichment</a> should be evidence-
+                based: existing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> must first be explored, genuine <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> identified,
+                generated knowledge validated and only then incorporated into a <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.
             </p>
 
             <nav class="page-nav-links" aria-label="Section navigation">

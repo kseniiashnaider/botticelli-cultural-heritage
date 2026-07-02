@@ -52,27 +52,26 @@
 
     <main class="site-main">
         <section class="content-section">
-            <h2>SPARQL Exploration of <em>Madonna con Bambino, San Giovannino e angeli</em> in the ArCo Knowledge Graph</h2>
+            <h2><a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> Exploration of <em>Madonna con Bambino, San Giovannino e angeli</em> in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></h2>
 
             <h3>2.1 Introduction</h3>
             <p>
-                This chapter analyses the selected cultural property using SPARQL. The objective is to
-                determine which information is already represented in ArCo before identifying knowledge
-                gaps that can later be enriched using Large Language Models.
+                This chapter analyses the selected cultural property using <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a>. The objective is to
+                determine which information is already represented in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> before identifying <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> that can later be enriched using <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a>.
             </p>
 
             <h3>Anchor Resource</h3>
             <table>
                 <tr><th>Field</th><th>Value</th></tr>
                 <tr><td>Artwork</td><td>Madonna con Bambino, San Giovannino e angeli</td></tr>
-                <tr><td>Artist</td><td>Sandro Botticelli</td></tr>
-                <tr><td>Anchor URI</td><td><code>https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code></td></tr>
-                <tr><td>Knowledge Graph</td><td>ArCo</td></tr>
+                <tr><td>Artist</td><td><a href="https://en.wikipedia.org/wiki/Sandro_Botticelli" target="_blank" rel="noopener">Sandro Botticelli</a></td></tr>
+                <tr><td>Anchor <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank" rel="noopener">URI</a></td><td><code>https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107</code></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">Knowledge Graph</a></td><td><a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></td></tr>
             </table>
 
-            <h3 id="query-1">2.2 Query 1 — Verification of the Resource</h3>
-            <p><strong>Research Question.</strong> Is the selected Anchor URI correctly represented in ArCo?</p>
-            <p><strong>Purpose.</strong> Verify that the selected resource exists and retrieve its RDF classes.</p>
+            <h3 id="query-1">2.2 <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 1 — Verification of the Resource</h3>
+            <p><strong>Research Question.</strong> Is the selected Anchor <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank" rel="noopener">URI</a> correctly represented in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>?</p>
+            <p><strong>Purpose.</strong> Verify that the selected resource exists and retrieve its <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> classes.</p>
 <pre>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
@@ -87,13 +86,13 @@ ORDER BY ?type</pre>
                 <img src="../images/sparql-q1.png" alt="Figure 1. Verification of the selected cultural property.">
                 <figcaption>Figure 1. Verification of the selected cultural property.</figcaption>
             </figure>
-            <p><strong>Results.</strong> The query returns the RDF classes HistoricOrArtisticProperty and MovableCulturalProperty.</p>
-            <p><strong>Interpretation.</strong> The selected URI is valid and identifies the intended cultural property. The query confirms that all subsequent analyses refer to the same resource.</p>
-            <p><strong>Conclusion.</strong> The Anchor URI is verified and can be used throughout the project.</p>
+            <p><strong>Results.</strong> The <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">query</a> returns the <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> classes HistoricOrArtisticProperty and MovableCulturalProperty.</p>
+            <p><strong>Interpretation.</strong> The selected <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank" rel="noopener">URI</a> is valid and identifies the intended cultural property. The <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">query</a> confirms that all subsequent analyses refer to the same resource.</p>
+            <p><strong>Conclusion.</strong> The Anchor <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank" rel="noopener">URI</a> is verified and can be used throughout the project.</p>
 
-            <h3 id="query-2">2.3 Query 2 — Complete RDF Description</h3>
-            <p><strong>Research Question.</strong> Which RDF properties describe the selected artwork?</p>
-            <p><strong>Purpose.</strong> Retrieve all predicates associated with the resource to analyse the available metadata.</p>
+            <h3 id="query-2">2.3 <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 2 — Complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> Description</h3>
+            <p><strong>Research Question.</strong> Which <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> properties describe the selected artwork?</p>
+            <p><strong>Purpose.</strong> Retrieve all predicates associated with the resource to analyse the available <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.</p>
 <pre>SELECT DISTINCT ?property ?value
 WHERE {
   VALUES ?cp { &lt;https://w3id.org/arco/resource/HistoricOrArtisticProperty/1201008107&gt; }
@@ -102,32 +101,32 @@ WHERE {
 ORDER BY ?property</pre>
             <figure>
                 <img src="../images/sparql-q2-1.png" alt="Figure 2. Complete RDF description.">
-                <figcaption>Figure 2. Complete RDF description.</figcaption>
+                <figcaption>Figure 2. Complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description.</figcaption>
             </figure>
             <figure>
                 <img src="../images/sparql-q2-2.png" alt="Figure 3. Complete RDF description.">
-                <figcaption>Figure 3. Complete RDF description.</figcaption>
+                <figcaption>Figure 3. Complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description.</figcaption>
             </figure>
             <figure>
                 <img src="../images/sparql-q2-3.png" alt="Figure 4. Complete RDF description.">
-                <figcaption>Figure 4. Complete RDF description.</figcaption>
+                <figcaption>Figure 4. Complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description.</figcaption>
             </figure>
-            <p><strong>Results.</strong> Returned metadata include authorship, dating, dimensions, materials, techniques, bibliography, documentation, descriptions, subject, identifiers, legal information and images.</p>
-            <p><strong>Interpretation.</strong> The RDF graph already contains comprehensive cataloguing metadata. The description explicitly mentions the represented figures, therefore represented figures are not a knowledge gap. The graph is rich in administrative information but still needs to be evaluated for higher-level semantic interpretation.</p>
-            <p><strong>Conclusion.</strong> Administrative and descriptive metadata are well represented; the next queries focus on semantic context.</p>
+            <p><strong>Results.</strong> Returned <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> include authorship, dating, dimensions, materials, techniques, bibliography, documentation, descriptions, subject, identifiers, legal information and images.</p>
+            <p><strong>Interpretation.</strong> The <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF graph</a> already contains comprehensive cataloguing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>. The description explicitly mentions the represented figures, therefore represented figures are not a <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gap</a>. The graph is rich in administrative information but still needs to be evaluated for higher-level semantic interpretation.</p>
+            <p><strong>Conclusion.</strong> Administrative and descriptive <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> are well represented; the next queries focus on semantic context.</p>
 
             <h3>2.4 Intermediate Summary</h3>
             <p>
                 At this stage the exploration confirms that the selected artwork is well described from a
-                cataloguing perspective. The following metadata are already available: author, dating,
+                cataloguing perspective. The following <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> are already available: author, dating,
                 measurements, material, technique, documentation, bibliography, description, subject and
                 image references. Therefore, subsequent queries concentrate on semantic interpretation
-                rather than basic metadata.
+                rather than basic <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.
             </p>
 
-            <h3 id="query-3">2.5 Query 3 — Verification of Subject Information</h3>
+            <h3 id="query-3">2.5 <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 3 — Verification of Subject Information</h3>
             <p><strong>Research Question.</strong> Does the artwork already contain structured subject information?</p>
-            <p><strong>Purpose.</strong> Determine whether the represented subject is explicitly encoded in the knowledge graph.</p>
+            <p><strong>Purpose.</strong> Determine whether the represented subject is explicitly encoded in the <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.</p>
 <pre>PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
 
 SELECT ?subject
@@ -141,13 +140,13 @@ WHERE {
                 <img src="../images/sparql-q3.png" alt="Figure 5. Structured subject associated with the artwork.">
                 <figcaption>Figure 5. Structured subject associated with the artwork.</figcaption>
             </figure>
-            <p><strong>Results.</strong> The query returned a subject resource linked to the selected painting.</p>
-            <p><strong>Interpretation.</strong> The result demonstrates that ArCo already contains structured subject information. Together with the textual description retrieved in Query 2, this confirms that the represented figures are already documented in the knowledge graph.</p>
-            <p><strong>Conclusion.</strong> Subject identification is not a knowledge gap and does not require semantic enrichment.</p>
+            <p><strong>Results.</strong> The <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">query</a> returned a subject resource linked to the selected painting.</p>
+            <p><strong>Interpretation.</strong> The result demonstrates that the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> already contains structured <a href="https://en.wikipedia.org/wiki/Semantic_triple" target="_blank" rel="noopener">subject</a> information. Together with the textual description retrieved in <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 2, this confirms that the represented figures are already documented in the <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>.</p>
+            <p><strong>Conclusion.</strong> Subject identification is not a <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gap</a> and does not require <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">semantic enrichment</a>.</p>
 
-            <h3 id="query-4">2.6 Query 4 — Verification of Iconographic Classification</h3>
+            <h3 id="query-4">2.6 <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 4 — Verification of <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">Iconographic</a> Classification</h3>
             <p><strong>Research Question.</strong> Does the selected artwork contain an Iconclass classification?</p>
-            <p><strong>Purpose.</strong> Verify whether the artwork is connected to a structured iconographic classification.</p>
+            <p><strong>Purpose.</strong> Verify whether the artwork is connected to a structured <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconographic</a> classification.</p>
 <pre>PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
 
 SELECT ?iconclass
@@ -159,20 +158,20 @@ WHERE {
 }</pre>
             <figure>
                 <img src="../images/sparql-q4.png" alt="Figure 6. Query for Iconclass classification.">
-                <figcaption>Figure 6. Query for Iconclass classification.</figcaption>
+                <figcaption>Figure 6. <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> for Iconclass classification.</figcaption>
             </figure>
             <p><strong>Results.</strong> No Iconclass value was returned by the endpoint.</p>
-            <p><strong>Interpretation.</strong> The absence of an Iconclass classification is the first evidence-based semantic gap identified during the exploration. While the artwork is described through cataloguing metadata and a textual description, it is not linked to a controlled iconographic vocabulary.</p>
-            <p><strong>Conclusion.</strong> The missing Iconclass classification becomes the first confirmed candidate for semantic enrichment.</p>
+            <p><strong>Interpretation.</strong> The absence of an Iconclass classification is the first evidence-based semantic gap identified during the exploration. While the artwork is described through cataloguing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> and a textual description, it is not linked to a controlled <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconographic</a> vocabulary.</p>
+            <p><strong>Conclusion.</strong> The missing Iconclass classification becomes the first confirmed candidate for <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">semantic enrichment</a>.</p>
 
             <h3>2.7 Evidence-based Assessment</h3>
-            <p>Queries 1–4 show that ArCo provides extensive cataloguing metadata but not every semantic layer is represented. The artwork already has author, dating, measurements, materials, documentation, subject and description. However, no Iconclass classification was retrieved.</p>
+            <p>Queries 1–4 show that the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> provides extensive cataloguing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> but not every semantic layer is represented. The artwork already has author, dating, measurements, materials, documentation, <a href="https://en.wikipedia.org/wiki/Semantic_triple" target="_blank" rel="noopener">subject</a> and description. However, no <a href="https://iconclass.org/" target="_blank" rel="noopener">Iconclass</a> classification was retrieved.</p>
             <table>
                 <tr>
                     <th>Semantic Aspect</th>
                     <th>Evidence</th>
                     <th>Present</th>
-                    <th>Knowledge Gap</th>
+                    <th><a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge Gap</a></th>
                 </tr>
                 <tr>
                     <td>Subject</td>
@@ -193,17 +192,17 @@ WHERE {
                     <td>Yes</td>
                 </tr>
                 <tr>
-                    <td>Structured iconographic classification</td>
+                    <td>Structured <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconographic</a> classification</td>
                     <td>Q4</td>
                     <td>No</td>
                     <td>Yes</td>
                 </tr>
             </table>
-            <p>The next part investigates broader contextual knowledge and validates additional semantic gaps before preparing the LLM enrichment stage.</p>
+            <p>The next part investigates broader contextual knowledge and validates additional semantic gaps before preparing the <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> enrichment stage.</p>
 
-            <h3 id="query-5">2.8 Query 5 — Exploration of Contextual Metadata</h3>
+            <h3 id="query-5">2.8 <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 5 — Exploration of Contextual <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">Metadata</a></h3>
             <p><strong>Research Question.</strong> Which contextual properties are available for the selected artwork?</p>
-            <p><strong>Purpose.</strong> Inspect contextual metadata in order to compare descriptive metadata with interpretative metadata.</p>
+            <p><strong>Purpose.</strong> Inspect contextual <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> in order to compare descriptive <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> with interpretative <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.</p>
 <pre>PREFIX a-cd: &lt;https://w3id.org/arco/ontology/context-description/&gt;
 
 SELECT DISTINCT ?property ?value
@@ -217,13 +216,13 @@ ORDER BY ?property</pre>
                 <img src="../images/sparql-q5.png" alt="Figure 7. Contextual properties of the selected artwork.">
                 <figcaption>Figure 7. Contextual properties of the selected artwork.</figcaption>
             </figure>
-            <p><strong>Results.</strong> The query retrieves only a limited number of contextual properties compared with the complete RDF description.</p>
-            <p><strong>Interpretation.</strong> The exploration shows that ArCo focuses primarily on cataloguing information. Contextual interpretation is represented only partially and lacks richer semantic descriptions such as symbolism or theological interpretation.</p>
-            <p><strong>Conclusion.</strong> Contextual metadata exist but remain limited in comparison with administrative metadata.</p>
+            <p><strong>Results.</strong> The <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">query</a> retrieves only a limited number of contextual properties compared with the complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description.</p>
+            <p><strong>Interpretation.</strong> The exploration shows that the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> focuses primarily on cataloguing information. Contextual interpretation is represented only partially and lacks richer semantic descriptions such as <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolism</a> or <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> interpretation.</p>
+            <p><strong>Conclusion.</strong> Contextual <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> exist but remain limited in comparison with administrative <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.</p>
 
-            <h3 id="query-6">2.9 Query 6 — Validation of Semantic Gaps</h3>
-            <p><strong>Research Question.</strong> Which semantic interpretations are not explicitly represented in the knowledge graph?</p>
-            <p><strong>Purpose.</strong> Validate the candidate knowledge gaps identified during the previous queries.</p>
+            <h3 id="query-6">2.9 <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">Query</a> 6 — Validation of Semantic Gaps</h3>
+            <p><strong>Research Question.</strong> Which semantic interpretations are not explicitly represented in the <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graph</a>?</p>
+            <p><strong>Purpose.</strong> Validate the candidate <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> identified during the previous queries.</p>
 <pre>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
@@ -234,23 +233,23 @@ WHERE {
 ORDER BY ?property</pre>
             <figure>
                 <img src="../images/sparql-q6-1.png" alt="Figure 8. Complete RDF description used to verify the identified knowledge gaps.">
-                <figcaption>Figure 8. Complete RDF description used to verify the identified knowledge gaps.</figcaption>
+                <figcaption>Figure 8. Complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description used to verify the identified <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a>.</figcaption>
             </figure>
             <figure>
                 <img src="../images/sparql-q6-2.png" alt="Figure 9. Complete RDF description used to verify the identified knowledge gaps.">
-                <figcaption>Figure 9. Complete RDF description used to verify the identified knowledge gaps.</figcaption>
+                <figcaption>Figure 9. Complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description used to verify the identified <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a>.</figcaption>
             </figure>
-            <p><strong>Results.</strong> The query retrieves the complete RDF description of the selected cultural property. The returned metadata include authorship, dating, material and technique, catalogue identifiers, documentation, measurements, legal status and represented subjects.</p>
-            <p>The inspection confirms that no explicit RDF properties describe iconographic classification, symbolic interpretation, theological meaning, Renaissance Humanism or broader historical and cultural context.</p>
-            <p>The inspection of the complete RDF description confirms that the identified semantic concepts are not explicitly encoded as structured RDF properties. This finding does not indicate incomplete cataloguing but reflects the scope of the ArCo ontology, which prioritises administrative and descriptive metadata over detailed art-historical interpretation. Consequently, the absence of these concepts represents genuine semantic knowledge gaps suitable for semantic enrichment.</p>
-            <p><strong>Conclusion.</strong> The complete RDF inspection confirms that several important semantic concepts expected in an art-historical description are not explicitly represented in the current Knowledge Graph. These confirmed knowledge gaps define the scope of the next project stage, where validated semantic information generated through Large Language Models will be transformed into RDF triples for Knowledge Graph enrichment.</p>
+            <p><strong>Results.</strong> The <a href="https://en.wikipedia.org/wiki/Query_language" target="_blank" rel="noopener">query</a> retrieves the complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description of the selected cultural property. The returned <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> include authorship, dating, material and technique, catalogue identifiers, documentation, measurements, legal status and represented subjects.</p>
+            <p>The inspection confirms that no explicit <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> properties describe <a href="https://en.wikipedia.org/wiki/Iconography" target="_blank" rel="noopener">iconographic</a> classification, <a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">symbolic</a> interpretation, <a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">theological</a> meaning, <a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> <a href="https://en.wikipedia.org/wiki/Renaissance_humanism" target="_blank" rel="noopener">Humanism</a> or broader historical and <a href="https://en.wikipedia.org/wiki/Cultural_history" target="_blank" rel="noopener">cultural context</a>.</p>
+            <p>The inspection of the complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description confirms that the identified semantic concepts are not explicitly encoded as structured <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> properties. This finding does not indicate incomplete cataloguing but reflects the scope of the <a href="https://dati.beniculturali.it/arco/" target="_blank" rel="noopener">ArCo Ontology</a>, which prioritises administrative and descriptive <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> over detailed art-historical interpretation. Consequently, the absence of these concepts represents genuine semantic <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> suitable for <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">semantic enrichment</a>.</p>
+            <p><strong>Conclusion.</strong> The complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> inspection confirms that several important semantic concepts expected in an art-historical description are not explicitly represented in the current <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">Knowledge Graph</a>. These confirmed <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> define the scope of the next project stage, where validated semantic information generated through <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a> will be transformed into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a> for <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">Knowledge Graph</a> enrichment.</p>
 
-            <h3>2.10 Confirmed Knowledge Gaps Identified through SPARQL Exploration</h3>
+            <h3>2.10 Confirmed <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">Knowledge Gaps</a> Identified through <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> Exploration</h3>
             <table>
                 <tr>
                     <th>Semantic Aspect</th>
                     <th>Evidence</th>
-                    <th>Status in ArCo</th>
+                    <th>Status in <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a></th>
                     <th>Enrichment Needed</th>
                     <th>Next Stage</th>
                 </tr>
@@ -259,20 +258,20 @@ ORDER BY ?property</pre>
                 <tr><td>Material &amp; Technique</td><td>Q2</td><td>Present</td><td>No</td><td>—</td></tr>
                 <tr><td>Subject</td><td>Q3</td><td>Present</td><td>No</td><td>—</td></tr>
                 <tr><td>Represented Figures</td><td>Q2/Q3</td><td>Present</td><td>No</td><td>—</td></tr>
-                <tr><td>Iconclass</td><td>Q4</td><td>Missing</td><td>Yes</td><td>LLM + RDF</td></tr>
-                <tr><td>Symbolic Interpretation</td><td>Q5/Q6</td><td>Missing</td><td>Yes</td><td>LLM + RDF</td></tr>
-                <tr><td>Theological Interpretation</td><td>Q5/Q6</td><td>Missing</td><td>Yes</td><td>LLM + RDF</td></tr>
-                <tr><td>Renaissance Context</td><td>Q5/Q6</td><td>Missing</td><td>Yes</td><td>LLM + RDF</td></tr>
+                <tr><td>Iconclass</td><td>Q4</td><td>Missing</td><td>Yes</td><td><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> + <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Symbolism_(arts)" target="_blank" rel="noopener">Symbolic Interpretation</a></td><td>Q5/Q6</td><td>Missing</td><td>Yes</td><td><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> + <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Theology" target="_blank" rel="noopener">Theological Interpretation</a></td><td>Q5/Q6</td><td>Missing</td><td>Yes</td><td><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> + <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a></td></tr>
+                <tr><td><a href="https://en.wikipedia.org/wiki/Renaissance" target="_blank" rel="noopener">Renaissance</a> Context</td><td>Q5/Q6</td><td>Missing</td><td>Yes</td><td><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLM</a> + <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a></td></tr>
             </table>
 
             <h3>2.11 Preliminary Conclusions</h3>
             <p>
-                The SPARQL exploration demonstrates that ArCo already provides comprehensive
-                administrative and descriptive metadata for the selected artwork. However, higher-level
+                The <a href="https://www.w3.org/TR/sparql12-query/" target="_blank" rel="noopener">SPARQL</a> exploration demonstrates that the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> already provides comprehensive
+                administrative and descriptive <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> for the selected artwork. However, higher-level
                 semantic interpretation remains limited. The confirmed gaps identified in this chapter will
-                guide the next stage of the project, where multiple Large Language Models will be used to
+                guide the next stage of the project, where multiple <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a> will be used to
                 generate additional contextual knowledge. Only validated information will later be
-                converted into RDF triples suitable for enriching the ArCo Knowledge Graph.
+                converted into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a> suitable for enriching the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>.
             </p>
 
             <nav class="page-nav-links" aria-label="Section navigation">
