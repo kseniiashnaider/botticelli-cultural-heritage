@@ -713,6 +713,32 @@ figcaption {
     margin-right: auto;
 }
 
+.topic-artwork-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    justify-content: center;
+    align-items: flex-start;
+    margin: var(--space-xl) 0;
+}
+
+.topic-artwork-row figure {
+    margin: 0;
+    flex: 1 1 14rem;
+    max-width: 20rem;
+}
+
+.topic-artwork-row figure img {
+    height: 300px;
+}
+
+@media (max-width: 576px) {
+    .topic-artwork-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* ==========================================================================
    Tables
    ========================================================================== */
