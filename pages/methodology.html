@@ -52,74 +52,74 @@
 
     <main class="site-main">
         <section class="content-section">
-            <h2>Methodology</h2>
+            <h2><a href="https://en.wikipedia.org/wiki/Research_methodology" target="_blank" rel="noopener">Methodology</a></h2>
 
             <h3>1. Introduction</h3>
             <p>
-                The purpose of this project is to present the complete methodology used to identify,
-                validate and enrich semantic knowledge gaps in the ArCo Knowledge Graph. Rather than
-                simply listing missing information, this report explains the entire workflow followed during
-                the project. Every proposed enrichment is supported by SPARQL exploration, comparison
-                with the existing RDF description, validation through multiple Large Language Models and
-                transformation into RDF triples. This section represents the final methodological
+                The purpose of this project is to present the complete <a href="https://en.wikipedia.org/wiki/Research_methodology" target="_blank" rel="noopener">methodology</a> used to identify,
+                validate and enrich semantic <a href="https://en.wikipedia.org/wiki/Knowledge_gap" target="_blank" rel="noopener">knowledge gaps</a> in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>. Rather than
+                simply listing missing information, this report explains the entire <a href="https://en.wikipedia.org/wiki/Workflow" target="_blank" rel="noopener">workflow</a> followed during
+                the project. Every proposed enrichment is supported by <a href="https://www.w3.org/TR/sparql11-query/" target="_blank" rel="noopener">SPARQL</a> exploration, comparison
+                with the existing <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description, validation through multiple <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Models</a> and
+                transformation into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a>. This section represents the final methodological
                 summary of the Knowledge Engineering project.
             </p>
 
             <h3>2. Research Objective</h3>
             <p>
                 The selected case study is Sandro Botticelli's <em>Madonna con Bambino, San Giovannino e angeli</em>.
-                The main objective was to determine whether the ArCo Knowledge Graph already
+                The main objective was to determine whether the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> already
                 contained all relevant semantic information describing the artwork or whether important
                 interpretative concepts were absent. If semantic gaps were confirmed, the project aimed to
-                generate validated knowledge suitable for RDF enrichment while preserving the original
-                ArCo metadata.
+                generate validated knowledge suitable for <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> enrichment while preserving the original
+                <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.
             </p>
 
-            <h3>3. Overall Workflow</h3>
+            <h3>3. Overall <a href="https://en.wikipedia.org/wiki/Workflow" target="_blank" rel="noopener">Workflow</a></h3>
             <ol>
                 <li>Selection of the cultural property.</li>
-                <li>Exploration of the ArCo Knowledge Graph using SPARQL.</li>
-                <li>Verification of existing metadata.</li>
+                <li>Exploration of the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> using <a href="https://www.w3.org/TR/sparql11-query/" target="_blank" rel="noopener">SPARQL</a>.</li>
+                <li>Verification of existing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a>.</li>
                 <li>Identification of evidence-based semantic gaps.</li>
-                <li>Extraction of contextual knowledge using ChatGPT and Gemini.</li>
+                <li>Extraction of contextual knowledge using <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> and <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>.</li>
                 <li>Comparison and validation of generated knowledge.</li>
-                <li>Transformation of validated concepts into RDF triples.</li>
-                <li>Proposal for semantic enrichment of the Knowledge Graph.</li>
+                <li>Transformation of validated concepts into <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a>.</li>
+                <li>Proposal for <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">semantic enrichment</a> of the <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">Knowledge Graph</a>.</li>
             </ol>
 
             <h3>4. Exploration of Existing Knowledge</h3>
             <p>
-                The first phase focused on understanding what information was already available in ArCo.
-                SPARQL Query 1 verified that the selected URI represented a valid
-                HistoricOrArtisticProperty. Query 2 retrieved the complete RDF description of the artwork,
-                revealing rich cataloguing metadata including authorship, dating, materials, dimensions,
+                The first phase focused on understanding what information was already available in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>.
+                <a href="https://www.w3.org/TR/sparql11-query/" target="_blank" rel="noopener">SPARQL</a> Query 1 verified that the selected <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank" rel="noopener">URI</a> represented a valid
+                HistoricOrArtisticProperty. Query 2 retrieved the complete <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> description of the artwork,
+                revealing rich cataloguing <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank" rel="noopener">metadata</a> including authorship, dating, materials, dimensions,
                 inventory identifiers, bibliography, documentation, descriptions and image references.
                 Query 3 confirmed that the painting already possesses a structured subject through the
-                property <code>hasSubject</code>. These results demonstrated that ArCo already provides reliable
+                property <code>hasSubject</code>. These results demonstrated that the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a> already provides reliable
                 administrative and descriptive information. See <a href="sparql.html">SPARQL</a>.
             </p>
 
-            <h3>9. Semantic Enrichment Strategy</h3>
+            <h3>9. <a href="https://en.wikipedia.org/wiki/Semantic_enrichment" target="_blank" rel="noopener">Semantic Enrichment</a> Strategy</h3>
             <p>
-                The enrichment strategy deliberately preserved every existing ArCo statement. Only
-                concepts confirmed to be absent from the graph were represented as additional RDF triples.
-                Existing ontology properties were reused whenever possible, while illustrative properties
-                were introduced only for concepts that currently lack direct representation in ArCo. This
-                approach maintains interoperability while demonstrating how knowledge graphs can be
+                The enrichment strategy deliberately preserved every existing <a href="https://dati.beniculturali.it/arco/" target="_blank" rel="noopener">ArCo Ontology</a> statement. Only
+                concepts confirmed to be absent from the graph were represented as additional <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a>.
+                Existing <a href="https://en.wikipedia.org/wiki/Ontology_(information_science)" target="_blank" rel="noopener">ontology</a> properties were reused whenever possible, while illustrative properties
+                were introduced only for concepts that currently lack direct representation in the <a href="https://arco.dataportal.ispc.cnr.it/" target="_blank" rel="noopener">ArCo Knowledge Graph</a>. This
+                approach maintains <a href="https://en.wikipedia.org/wiki/Interoperability" target="_blank" rel="noopener">interoperability</a> while demonstrating how <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">knowledge graphs</a> can be
                 extended through carefully validated semantic information. See
                 <a href="rdf-enrichment.html">RDF Enrichment</a>.
             </p>
 
-            <h3>13. RDF Enrichment Workflow</h3>
+            <h3>13. <a href="https://www.w3.org/RDF/" target="_blank" rel="noopener">RDF</a> Enrichment <a href="https://en.wikipedia.org/wiki/Workflow" target="_blank" rel="noopener">Workflow</a></h3>
             <ol>
                 <li>Identify a confirmed semantic gap.</li>
-                <li>Retrieve candidate knowledge using LLMs.</li>
+                <li>Retrieve candidate knowledge using <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">LLMs</a>.</li>
                 <li>Compare responses across models.</li>
                 <li>Validate the information using scholarly sources.</li>
-                <li>Map concepts to existing ArCo properties whenever possible.</li>
-                <li>Introduce illustrative properties only where ArCo has no equivalent.</li>
-                <li>Generate RDF triples.</li>
-                <li>Preserve compatibility with the original Knowledge Graph.</li>
+                <li>Map concepts to existing <a href="https://dati.beniculturali.it/arco/" target="_blank" rel="noopener">ArCo Ontology</a> properties whenever possible.</li>
+                <li>Introduce illustrative properties only where the <a href="https://dati.beniculturali.it/arco/" target="_blank" rel="noopener">ArCo Ontology</a> has no equivalent.</li>
+                <li>Generate <a href="https://www.w3.org/TR/rdf11-concepts/" target="_blank" rel="noopener">RDF triples</a>.</li>
+                <li>Preserve compatibility with the original <a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener">Knowledge Graph</a>.</li>
             </ol>
 
             <nav class="page-nav-links" aria-label="Section navigation">
