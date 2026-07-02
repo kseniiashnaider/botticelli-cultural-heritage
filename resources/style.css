@@ -635,7 +635,7 @@ pre {
 .hero--compact h1 {
     font-size: var(--font-size-2xl);
     margin-top: 0;
-    margin-bottom: var(--space-sm);
+    margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -730,6 +730,31 @@ figcaption {
 
 .topic-artwork-row figure img {
     height: 300px;
+}
+
+.author-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    align-items: center;
+    margin: var(--space-lg) 0 var(--space-xl);
+}
+
+.author-block__photo {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.author-block__photo img {
+    display: block;
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+}
+
+.author-block p {
+    margin: 0;
+    flex: 1 1 12rem;
 }
 
 @media (max-width: 576px) {
@@ -886,6 +911,10 @@ tr:nth-child(even) td {
 }
 
 @media (max-width: 991px) {
+    .hero--compact h1 {
+        font-size: var(--font-size-xl);
+    }
+
     :root {
         --section-padding-x: 0.75rem;
         --section-padding-y: 1rem;
